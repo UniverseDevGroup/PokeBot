@@ -1,0 +1,14 @@
+{
+  "name": "pokebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alee and Justin",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "discord.js": "^11.3.0"
+  }
+}
