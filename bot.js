@@ -28,8 +28,14 @@ function parseCommand(msg) {
     msg.channel.send(
       new Discord.RichEmbed()
         .setColor (0x00ae86)
-        .addField('Getting Started |', '**p:help** | Displays this help message')
+        .setTitle('PokeBot Command List')
+        .setDescription('These are the commands you can use. My prefix is `p:`')
+        .addField('Core', 'help', true)
+        .setFooter('PokeBot Beta')
     );
+    break;
+  case 'ping':
+    msg.channel.send(':ping_pong: Pong! ' + Math.floor(bot.ping));
     break;
   }
 }
