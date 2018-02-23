@@ -6,6 +6,11 @@ bot.on('ready', () => {
   console.log('PokeBot has finished loading.');
 });
 
+bot.on('guildMemberAdd', (member) => {
+  const role = member.guild.roles.find('name', 'Trainers');
+  member.addRole(role);
+});
+
 bot.on('message', (msg) => {
   parseCommand(msg);
 });
