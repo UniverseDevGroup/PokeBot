@@ -1,4 +1,6 @@
 exports.run = async (bot, msg, args) => {
+    message.guild.fetchMembers().then(guild =>
+        {
 membersList = guild.members.array();  
 let selectedUser1 = membersList[Math.floor(Math.random() * membersList.length)].user;
 let selectedUser2 = membersList[Math.floor(Math.random() * membersList.length)].user;
@@ -13,6 +15,7 @@ let selectedUser3 = membersList[Math.floor(Math.random() * membersList.length)].
     ];
 let storySelected = [Math.floor(Math.random() * stories.length)]; 
 msg.channel.send(stories[storySelected]);
+        });
 };
 
 exports.conf = {
