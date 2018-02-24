@@ -7,9 +7,7 @@ exports.run = (bot, msg, args) => {
     'Have a battle :crossed_swords:',
   ];
 
-  if (args[0] === 'list') {
-    msg.channel.send(ideas.join('\n'));
-  }
+  if (args[0] === 'list') return msg.channel.send(ideas.join('\n'));
 
   msg.channel.send(ideas[Math.floor(Math.random() * ideas.length)]);
 };
