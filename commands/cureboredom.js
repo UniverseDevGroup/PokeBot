@@ -4,6 +4,7 @@ exports.run = (bot, msg, args) => {
         'Consuming Maccas :fries:',
         'Fighting Astralmod :right_facing_fist:',
         'Joining a team :handshake:',
+        'Have a battle :crossed_swords:',
       ];
 
       msg.channel.send(ideas[Math.floor(Math.random() * ideas.length)]);
