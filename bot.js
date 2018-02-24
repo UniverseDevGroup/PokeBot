@@ -40,14 +40,16 @@ function parseCommand(msg) {
     msg.channel.send(':ping_pong: Pong! ' + Math.floor(bot.ping) + 'ms.');
     break;
   case 'suggest':
-    //bot.channels.get('416726932927938570').send(
-      //new Discord.RichEmbed()
-        //.setColor (0x00ae86)
-        //.setTitle('Suggestion')
-        //.setDescription('This is a suggestion from a community member for something relating to the server. Please rate it based on your opinion, and a staff member will decide what to do with the suggestion.')
-        //.addField('Suggestion Contents', args.join(' '))
-    //);
-    bot.channels.get('416726932927938570').send('this is a test!')
+    bot.channels.get('416726932927938570').send(
+      new Discord.RichEmbed()
+        .setColor (0x00ae86)
+        .setTitle('Suggestion')
+        .setDescription('This is a suggestion from a community member for something relating to the server. Please rate it based on your opinion, and a staff member will decide what to do with the suggestion.')
+        .addField('Suggestion Contents', args.join(' '))
+    ).then(message => {
+      message.react('\u2705');
+      message.react('\u274E');
+    });
     break;
   }
 }
