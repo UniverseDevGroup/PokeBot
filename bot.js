@@ -40,6 +40,7 @@ async function loadCmd(category, cmd) {
     const command = require(`./commands/${category}/${cmd}`);
     bot.commands.get(category).set(command.help.name, command);
     command.conf.aliases.forEach(alias => {
+      console.log(`Loading the alias ${alias} for the command ${command.help.name}`);
       bot.aliases.get(category).set(alias, command.help.name);
     });
   }

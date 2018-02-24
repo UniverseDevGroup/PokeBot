@@ -15,7 +15,7 @@ module.exports = (bot, msg) => {
 function parseCommand(bot, msg) {
   let category;
 
-  const prefix = 'p:';
+  const prefix = 'p,';
   if (msg.author.bot) return;
 
   if (!msg.content.startsWith(prefix)) return;
@@ -26,13 +26,14 @@ function parseCommand(bot, msg) {
   Array.from(bot.categories.keys()).forEach(i => {
     const cmds = bot.categories.get(i);
     if (cmds.includes(command)) category = i;
+    if (bot.aliases.get(i).has(command)) category = i;
   });
   if (!category) return;
 
   if (bot.commands.get(category).has(command)) {
     cmd = bot.commands.get(category).get(command);
   } else if (bot.aliases.get(category).has(command)) {
-    cmd = bot.commands.get(category).get(bot.aliases.get(command));
+    cmd = bot.commands.get(category).get(bot.aliases.get(category).get(command));
   }
 
   if (cmd) {
