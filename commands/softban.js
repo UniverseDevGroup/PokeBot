@@ -19,7 +19,7 @@ exports.conf = {
 
 exports.help = {
   name: 'softban',
-  description: 'Kick the user and delete their messages',
+  description: 'Kick the user and delete their messages.',
   usage: '@<User> <...reason>',
   category: 'Moderation',
 };
