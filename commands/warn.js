@@ -9,10 +9,10 @@ exports.run = (bot, msg, args) => {
   bot.channels.find('name', 'logs').send(
     new RichEmbed()
       .setColor(0x00ae86)
-      .setTitle('Warning')
+      .setTitle(':warning: Warning')
+      .addField('Warning Reason', warnReason)
       .addField('ID', victim.id, true)
       .addField('Created Account', victim.user.createdAt, true)
-      .addField('Warning Reason', warnReason)
       .setTimestamp()
       .setFooter('Warned by: ' + msg.author.tag, msg.author.avatarURL)
   );
