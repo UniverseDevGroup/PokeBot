@@ -26,7 +26,7 @@ exports.run = async (bot, msg, args) => {
       .setAuthor('Eval Error')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
-      .addField(':outbox_tray: Output:', `\`\`\`${err.stack}\`\`\``)
+      .addField(':outbox_tray: Output:', `\`\`\`${err}\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('RED');
     return msg.channel.send({ embed });
@@ -47,7 +47,7 @@ exports.run = async (bot, msg, args) => {
       .setAuthor('Eval Error')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
-      .addField(':outbox_tray: Output:', `\`\`\`${err.stack}\`\`\``)
+      .addField(':outbox_tray: Output:', `\`\`\`${err}\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('RED');
     return msg.channel.send({ embed });
