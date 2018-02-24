@@ -1,7 +1,13 @@
 exports.run = (bot, msg, args) => {
+<<<<<<< HEAD
   if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to warn.');
   const warnReason = args.slice(1);
   const victim = msg.mentions.users.first();
+=======
+    if (!message.author.permissions.has("MANAGE_MESSAGES")) return message.channel.send(':warning: You cannot warn members due to your permission level.');
+    let warnReason = args.slice(1);
+    var victim = message.mentions.users.first();
+>>>>>>> master
 
   msg.channel.send(`Successfully logged ${victim.user.tag}'s warning.`);
 
