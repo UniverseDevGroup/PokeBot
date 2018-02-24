@@ -9,6 +9,23 @@ exports.run = async (bot, msg, args) => {
   await member.ban({ days: 7, reason: msg.author.tag + (reason ? ': ' + reason : '') })
     .catch(err => { msg.reply('There was an error.'); console.error(err.stack);});
   msg.channel.send(`Alright, I banned **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
+
+  const { RichEmbed } = require('discord.js');
+  try {
+    const embed = new RichEmbed()
+      .setColor(0x00ae86)
+      .setAuthor(member.user.tag, member.user.avatarURL)
+      .setTitle(`:hammer: **${member.user.tag}**`)
+      .setDescription(`*${member.user.tag}}* was banned from the server by *${msg.author.tag}*.`)
+      .addField('Reason', reason)
+      .addField('Moderator', msg.author.tag)
+      .setTimestamp()
+      .setFooter(`${msg.author.tag} banned ${member.user.tag}`, msg.author.avatarURL);
+    msg.guild.channels.find('name', 'logs').send({ embed });
+  }
+  catch (err) {
+    console.error(err.stack);
+  }
 };
 
 exports.conf = {

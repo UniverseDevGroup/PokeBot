@@ -101,6 +101,16 @@ bot.on('messageDeleteBulk', (msgs) => {
 
 bot.on('message', (msg) => {
   parseCommand(msg);
+
+  if (msg.mentions != null && msg.mentions.users != null) {
+    if (msg.mentions.users.has('416637860146446346')) {
+      if (msg.content.toLowerCase().includes('hello') || (msg.content.toLowerCase().includes('hi'))) {
+        msg.reply('Hi there.');
+      } else if (msg.content.toLowerCase().includes('shut') && msg.content.toLowerCase().includes('up')) {
+        msg.reply('Excuse me?');
+      }
+    }
+  }
 });
 
 bot.on('messageUpdate', (oldMsg, newMsg) => {
