@@ -24,7 +24,7 @@ exports.run = async (bot, msg, args) => {
     'Very doubtful',
   ];
 
-  msg.channel.send(':8ball: ' + (responses[Math.floor(Math.random() * responses.length)]));
+  msg.channel.send(':8ball: *' + (responses[Math.floor(Math.random() * responses.length)]) + '*');
 };
 
 exports.conf = {
