@@ -10,5 +10,5 @@ exports.conf = {
 exports.help = {
   name: 'ping',
   description: 'Pings the bot and replies with the latency.',
-  category:'Getting Started',
+  category:'Information',
 };
