@@ -7,8 +7,7 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', (member) => {
-  bot.channels.get('416633835216830495').send(`Welcome ${member.tag}!`);
-  
+  bot.channels.get('416633835216830495').send(`Welcome ${member.user.tag}!`);
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);
 });
