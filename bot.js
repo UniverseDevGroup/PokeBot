@@ -52,7 +52,7 @@ function parseCommand(msg) {
         //.setDescription('This is a suggestion from a community member for something relating to the server. Please rate it based on your opinion, and a staff member will decide what to do with the suggestion.')
         //.addField('Suggestion Contents', args.join(' '))
     //);
-    bot.channels.get('416726932927938570').send('this is a test!')
+    bot.channels.get('416726932927938570').send(args.join(' '));
     break;
   }
 }
