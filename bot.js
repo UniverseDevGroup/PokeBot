@@ -60,7 +60,7 @@ bot.on('guildMemberAdd', (member) => {
 });
 
 bot.on('guildMemberRemove', (member) => {
-  bot.channels.get('416633835216830495').send(`Aww... **${member.user.tag}** just left...`);
+  bot.channels.get('416633835216830495').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
 });
 
 
