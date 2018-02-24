@@ -1,7 +1,5 @@
 exports.run = async (bot, msg, args) => {
-  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) {
-    msg.reply('Nope! You need the person who created this bot to use this command.');
-  }
+  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) return msg.reply('Nope! You need the person who created this bot to use this command.');
   const { RichEmbed } = require('discord.js');
   const code = args.join(' ');
 
