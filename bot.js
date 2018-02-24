@@ -63,6 +63,20 @@ bot.on('guildMemberRemove', (member) => {
   bot.channels.get('416633835216830495').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
 });
 
+bot.on('messageDeleteBulk', (msgs) => {
+  try {
+    const embed = new Discord.RichEmbed()
+      .setColor(0x00ae86)
+      .setTitle(`:wastebasket: ${msgs.size}`)
+      .setDescription(`${msgs.size} messages in *${msgs.first().channel}* were bulk deleted.`)
+      .setTimestamp()
+      .setFooter('Messages purged');
+    msgs.first().guild.channels.find('name', 'logs').send({ embed });
+  }
+  catch (err) {
+    console.error(err.stack);
+  }
+});
 
 bot.on('message', (msg) => {
   parseCommand(msg);
