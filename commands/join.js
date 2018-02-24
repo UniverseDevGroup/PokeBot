@@ -4,14 +4,17 @@ exports.run = async (bot, msg, args) => {
   {
   case 'mystic': {
     msg.member.addRole(msg.guild.roles.find('name', 'Mystic'));
+    msg.reply('Alright, you are have joined team Mystic.');
     break;
   }
   case 'valor' : {
     msg.member.addRole(msg.guild.roles.find('name', 'Valor'));
+    msg.reply('Alright, you have joined team Valor.');
     break;
   }
   case 'instinct' : {
     msg.member.addRole(msg.guild.roles.find('name', 'Instinct'));
+    msg.reply('Alright, you have joined team Instinct.');
     break;
   }
   default : {

@@ -1,15 +1,15 @@
 exports.run = async (bot, msg) => {
   if (msg.member.roles.find('name', 'Mystic')) {
     msg.member.removeRole(msg.guild.roles.find('name', 'Mystic'));
-    msg.reply('Alright, you are not longer in team Mystic');
+    msg.reply('Alright, you are not longer in team Mystic.');
   }
   else if (msg.member.roles.find('name', 'Valor')) {
     msg.member.removeRole(msg.guild.roles.find('name', 'Valor'));
-    msg.reply('Alright, you are not longer in team Valor');
+    msg.reply('Alright, you are not longer in team Valor.');
   }
   else if (msg.member.roles.find('name', 'Instinct')) {
     msg.member.removeRole(msg.guild.roles.find('name', 'Instinct'));
-    msg.reply('Alright, you are not longer in team Instinct');
+    msg.reply('Alright, you are not longer in team Instinct.');
   }
   else {
     msg.reply('You are not in a team.');
