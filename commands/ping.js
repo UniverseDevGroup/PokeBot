@@ -1,4 +1,4 @@
-exports.run = (bot, msg, args) => {
+exports.run = (bot, msg) => {
   msg.channel.send(':ping_pong: Pong! ' + Math.floor(bot.ping) + 'ms.');
 };
 
@@ -9,6 +9,6 @@ exports.conf = {
 
 exports.help = {
   name: 'ping',
-  description: 'ping.',
-  usage: 'ping',
+  description: 'Pings the bot and replies with the latency.',
+  category:'Getting Started',
 };

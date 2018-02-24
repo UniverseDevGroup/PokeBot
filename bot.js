@@ -8,21 +8,21 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
 function setGame() {
-  var games = [
-      "Pokemon",
-      "Catching things",
-      "Finding pokemons",
-      "Type p: for help"
-  ]
+  const games = [
+    'Pokemon',
+    'Catching things',
+    'Finding pokemons',
+    'Type p: for help',
+  ];
 
   bot.user.setPresence({
-      status: 'online',
-      afk: false,
-      game: {
-          type: 0,
-          name: games[Math.floor(Math.random() * games.length)]
-      }
-  })
+    status: 'online',
+    afk: false,
+    game: {
+      type: 0,
+      name: games[Math.floor(Math.random() * games.length)],
+    },
+  });
 }
 
 fs.readdir('./commands', (err, files) => {
