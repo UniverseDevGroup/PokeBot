@@ -36,6 +36,6 @@ exports.conf = {
 exports.help = {
   name: 'ban',
   description: 'Ban a user from this server.',
-  usage: '@<user> <...reason>',
+  usage: '@user <...reason>',
   category: 'Moderation',
 };

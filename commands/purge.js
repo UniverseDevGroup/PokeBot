@@ -26,6 +26,6 @@ exports.conf = {
 exports.help = {
   name: 'purge',
   description: 'Get rid of messages quickly.',
-  usage: '@(user) <messages>',
+  usage: '@user <messages>',
   category:'Moderation',
 };

@@ -2,6 +2,14 @@ exports.run = async (bot, msg, args) => {
   if (args.length < 1) return msg.reply('You need to ask the 8-ball something for it to respond!');
 
   const responses = [
+    'May the odds ever be in your favor...',
+    'Definetely not! Did you ever think that this would work?',
+    'Most definetely',
+    'Seems probable..',
+    'Sure, why not?',
+    'No!',
+    'Probably.',
+    'If a sentience can do a backflip, then this can happen!',
     'It is certain',
     'It is decidedly so',
     'Without a doubt',
