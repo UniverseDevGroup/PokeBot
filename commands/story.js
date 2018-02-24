@@ -1,5 +1,5 @@
 exports.run = async (bot, msg, args) => {
-    message.guild.fetchMembers().then(guild =>
+    msg.guild.fetchMembers().then(guild =>
         {
 membersList = guild.members.array();  
 let selectedUser1 = membersList[Math.floor(Math.random() * membersList.length)].user;
