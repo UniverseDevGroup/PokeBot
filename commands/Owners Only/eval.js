@@ -2,6 +2,7 @@ exports.run = async (bot, msg, args) => {
   if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) {
     msg.reply('Nope! You need the person who created this bot to use this command.');
   }
+  const { RichEmbed } = require('discord.js');
   const code = args.join(' ');
 
   let evaled;
@@ -23,7 +24,7 @@ exports.run = async (bot, msg, args) => {
     }
 
   } catch (err) {
-    const embed = new bot.Embed()
+    const embed = new RichEmbed()
       .setAuthor('Eval Error')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
@@ -34,7 +35,7 @@ exports.run = async (bot, msg, args) => {
   }
 
   try {
-    const embed = new bot.Embed()
+    const embed = new RichEmbed()
       .setAuthor('Eval Success')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
@@ -44,7 +45,7 @@ exports.run = async (bot, msg, args) => {
 
     return msg.channel.send({ embed });
   } catch (err) {
-    const embed = new bot.Embed()
+    const embed = new RichEmbed()
       .setAuthor('Eval Error')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
