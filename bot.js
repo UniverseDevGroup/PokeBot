@@ -11,7 +11,7 @@ function setGame() {
   const games = [
     'Pokemon',
     'Catching things',
-    'Finding pokemons',
+    'Finding pokemon',
     'Type p:help for help',
   ];
 
