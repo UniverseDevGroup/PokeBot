@@ -3,28 +3,8 @@ const bot = new Discord.Client();
 const config = require('./config.json');
 const fs = require('fs');
 
-
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-
-function setGame() {
-  const games = [
-    'Pokemon',
-    'Catching things',
-    'Finding pokemon',
-    'Type p:help for help',
-    'Fighting AstralMod',
-  ];
-
-  bot.user.setPresence({
-    status: 'online',
-    afk: false,
-    game: {
-      type: 0,
-      name: games[Math.floor(Math.random() * games.length)],
-    },
-  });
-}
 
 fs.readdir('./commands', (err, files) => {
   if (err) console.error(err);
@@ -67,55 +47,4 @@ fs.readdir('./events', (err, files) => {
   console.log('\n');
 });
 
-bot.on('ready', () => {
-  console.log('PokeBot has finished loading.');
-  setGame();
-  bot.setInterval(setGame, 200000);
-});
-
-
-bot.on('message', (msg) => {
-  parseCommand(msg);
-
-  if (msg.mentions != null && msg.mentions.users != null) {
-    if (msg.mentions.users.has('416637860146446346')) {
-      if (msg.content.toLowerCase().includes('hello') || (msg.content.toLowerCase().includes('hi'))) {
-        msg.reply('Hi there.');
-      } else if (msg.content.toLowerCase().includes('shut') && msg.content.toLowerCase().includes('up')) {
-        msg.reply('Excuse me?');
-      }
-    }
-  }
-});
-
-
-function parseCommand(msg) {
-  if (msg.author.bot) return;
-  if (!msg.content.startsWith('p:')) return;
-
-  const args = msg.content.slice(2).trim().split(/ +/g);
-  const command = args.shift();
-
-  let cmd;
-
-  if (bot.commands.has(command)) {
-    cmd = bot.commands.get(command);
-  } else if (bot.aliases.has(command)) {
-    cmd = bot.commands.get(bot.aliases.get(command));
-  }
-
-  if (cmd) {
-    if (cmd.conf.guildOnly == true) {
-      if (!msg.channel.guild) {
-        return msg.channel.createMessage('This command can only be ran in a guild.');
-      }
-    }
-    try {
-      cmd.run(bot, msg, args);
-    }
-    catch (e) {
-      console.error('Error while running command' + e.stack);
-    }
-  }
-}
 bot.login(config.token);
