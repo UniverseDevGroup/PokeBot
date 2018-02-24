@@ -10,7 +10,7 @@ exports.run = async (bot, msg) => {
 };
 
 exports.conf = {
-  aliases: [],
+  aliases: ['reboot', 'restart'],
   guildOnly: true,
 };
 
