@@ -1,6 +1,6 @@
 exports.run = (bot, msg, args) => {
   const { RichEmbed } = require('discord.js');
-  bot.channels.get('416726932927938570').send(
+  bot.channels.find('name', 'suggestions').send(
     new RichEmbed()
       .setColor (0x00ae86)
       .setTitle('Suggestion')

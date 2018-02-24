@@ -1,6 +1,6 @@
 module.exports = (bot, member) => {
   const { RichEmbed } = require('discord.js');
-  bot.channels.get('416633835216830495').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
+  bot.channels.find('name', 'welcome').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
   bot.channels.find('name', 'logs').send(
     new RichEmbed()
       .setColor(0x00ae86)
