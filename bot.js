@@ -30,12 +30,12 @@ function parseCommand(msg) {
         .setColor (0x00ae86)
         .setTitle('PokeBot Command List')
         .setDescription('These are the commands you can use. My prefix is `p:`')
-        .addField('Core', 'help', true)
+        .addField('Core', 'help\nping', true)
         .setFooter('PokeBot Beta')
     );
     break;
   case 'ping':
-    msg.channel.send(':ping_pong: Pong! ' + Math.floor(bot.ping));
+    msg.channel.send(':ping_pong: Pong! ' + Math.floor(bot.ping) + 'ms.');
     break;
   }
 }
