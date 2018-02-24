@@ -1,8 +1,13 @@
 exports.run = (bot, msg, args) => {
+    if (args === 'list') {
+        msg.channel.send(ideas.join('\n'));
+    };
+    
+    
     const ideas = [
         'Pokemon Go to the polls :ballot_box:',
         'Consuming Maccas :fries:',
-        'Fighting Astralmod :right_facing_fist:',
+        'Fighting AstralMod :right_facing_fist:',
         'Joining a team :handshake:',
         'Have a battle :crossed_swords:',
       ];
