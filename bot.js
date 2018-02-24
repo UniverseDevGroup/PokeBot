@@ -12,6 +12,11 @@ bot.on('guildMemberAdd', (member) => {
   member.addRole(role);
 });
 
+bot.on('guildMemberRemove', (member) => {
+  bot.channels.get('416633835216830495').send(`Aww... **${member.user.tag}** just left...`);
+});
+
+
 bot.on('message', (msg) => {
   parseCommand(msg);
 });
