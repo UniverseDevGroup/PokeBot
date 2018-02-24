@@ -7,7 +7,7 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', (member) => {
-  bot.channels.get('416633835216830495').send(`Welcome ${member.user.tag}!`);
+  bot.channels.get('416633835216830495').send(`Welcome @${member.user.tag}!`);
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);
 });
@@ -32,11 +32,21 @@ function parseCommand(msg) {
         .setTitle('PokeBot Command List')
         .setDescription('These are the commands you can use. My prefix is `p:`')
         .addField('Core', 'help\nping', true)
+        .addField('Utility', 'suggest', true)
         .setFooter('PokeBot Beta')
     );
     break;
   case 'ping':
     msg.channel.send(':ping_pong: Pong! ' + Math.floor(bot.ping) + 'ms.');
+    break;
+  case 'suggest':
+    bot.channels.get('416726932927938570').send(
+      new Discord.RichEmbed()
+        .setColor (0x00ae86)
+        .setTitle('Suggestion')
+        .setDescription('This is a suggestion from a community member for something relating to the server. Please rate it based on your opinion, and a staff member will decide what to do with the suggestion.')
+        .addField('Suggestion Contents', args.join(' '))
+    );
     break;
   }
 }
