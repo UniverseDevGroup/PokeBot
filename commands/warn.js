@@ -1,5 +1,5 @@
 exports.run = (bot, msg, args) => {
-    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send(':warning: You cannot warn members due to your permission level.');
+    if (!message.author.permissions.has("MANAGE_MESSAGES")) return message.channel.send(':warning: You cannot warn members due to your permission level.');
     let warnReason = args.slice(1);
     var victim = message.mentions.users.first();
 
