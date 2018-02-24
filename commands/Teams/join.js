@@ -57,5 +57,4 @@ exports.help = {
   name: 'join',
   description: 'Join one of the teams!',
   usage: '<mystic/valor/instinct>',
-  category: 'Teams',
 };

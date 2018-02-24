@@ -17,5 +17,4 @@ exports.help = {
   name: 'say',
   description: 'Control on what the bot says.',
   usage: '<...text>',
-  category: 'Owners Only',
 };

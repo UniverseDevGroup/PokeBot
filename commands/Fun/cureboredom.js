@@ -20,5 +20,4 @@ exports.conf = {
 exports.help = {
   name: 'cureboredom',
   description: 'Finds you something to do.',
-  category: 'Fun',
 };

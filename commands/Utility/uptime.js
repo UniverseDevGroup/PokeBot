@@ -21,5 +21,4 @@ exports.conf = {
 exports.help = {
   name: 'uptime',
   description: 'Get the uptime of the bot.',
-  category: 'Utility',
 };

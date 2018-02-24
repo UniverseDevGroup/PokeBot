@@ -24,5 +24,4 @@ exports.conf = {
 exports.help = {
   name: 'leave',
   description: 'Leave the team you currently are in.',
-  category: 'Teams',
 };

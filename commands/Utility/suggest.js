@@ -21,5 +21,4 @@ exports.help = {
   name: 'suggest',
   description: 'Suggest a feature for the bot or the server.',
   usage: '<...suggestion>',
-  category: 'Utility',
 };

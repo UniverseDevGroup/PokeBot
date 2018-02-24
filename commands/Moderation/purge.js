@@ -27,5 +27,4 @@ exports.help = {
   name: 'purge',
   description: 'Get rid of messages quickly.',
   usage: '@user <messages>',
-  category:'Moderation',
 };

@@ -10,5 +10,4 @@ exports.conf = {
 exports.help = {
   name: 'ship',
   description: 'Test the luck of your love life! Ships you with another user.',
-  category: 'Fun',
 };

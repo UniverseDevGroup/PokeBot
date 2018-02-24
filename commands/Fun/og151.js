@@ -164,5 +164,4 @@ exports.conf = {
 exports.help = {
   name: 'og151',
   description: 'Randomly picks one of the generation 1 pokemon, and gives you its name.',
-  category: 'Fun',
 };

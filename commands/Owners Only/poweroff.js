@@ -17,5 +17,4 @@ exports.conf = {
 exports.help = {
   name: 'poweroff',
   description: 'Powers off the bot.',
-  category: 'Owners Only',
 };

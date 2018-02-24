@@ -10,5 +10,4 @@ exports.conf = {
 exports.help = {
   name: 'contribute',
   description: 'Contributing to the bot.',
-  category: 'Information',
 };

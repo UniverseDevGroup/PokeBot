@@ -20,5 +20,4 @@ exports.help = {
   name: 'kick',
   description: 'Kick a user out of the server.',
   usage: '@user <...reason>',
-  category: 'Moderation',
 };

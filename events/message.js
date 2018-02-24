@@ -12,33 +12,42 @@ module.exports = (bot, msg) => {
   }
 };
 
-
 function parseCommand(bot, msg) {
+  let category;
+
+  const prefix = 'p:';
   if (msg.author.bot) return;
-  if (!msg.content.startsWith('p:')) return;
 
-  const args = msg.content.slice(2).trim().split(/ +/g);
+  if (!msg.content.startsWith(prefix)) return;
+  const args = msg.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift();
-
   let cmd;
 
-  if (bot.commands.has(command)) {
-    cmd = bot.commands.get(command);
-  } else if (bot.aliases.has(command)) {
-    cmd = bot.commands.get(bot.aliases.get(command));
+  Array.from(bot.categories.keys()).forEach(i => {
+    const cmds = bot.categories.get(i);
+    if (cmds.includes(command)) category = i;
+  });
+  if (!category) return;
+
+  if (bot.commands.get(category).has(command)) {
+    cmd = bot.commands.get(category).get(command);
+  } else if (bot.aliases.get(category).has(command)) {
+    cmd = bot.commands.get(category).get(bot.aliases.get(command));
   }
 
   if (cmd) {
     if (cmd.conf.guildOnly == true) {
       if (!msg.channel.guild) {
-        return msg.channel.createMessage('This command can only be ran in a guild.');
+        return msg.reply('This command can only be ran in a guild.');
       }
     }
     try {
+      console.log(`${msg.author.tag} ran the command '${cmd.help.name}' in the guild '${msg.member.guild.name}'`);
       cmd.run(bot, msg, args);
     }
     catch (e) {
-      console.error('Error while running command' + e.stack);
+      console.error(e.stack);
+      msg.channel.send('There was an error trying to process your command. Don\'t worry because this issue is being looked into');
     }
   }
 }

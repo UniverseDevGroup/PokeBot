@@ -44,5 +44,4 @@ exports.help = {
   name: '8ball',
   description: 'Ask the magic 8-ball something. It will answer back, and be as much of a smart-alac as it wants to.',
   usage: '<...question>',
-  category: 'Fun',
 };

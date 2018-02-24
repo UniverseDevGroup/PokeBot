@@ -24,5 +24,4 @@ exports.conf = {
 exports.help = {
   name: 'story',
   description: 'Tells you a story.',
-  category: 'Fun',
 };

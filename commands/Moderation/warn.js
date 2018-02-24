@@ -29,5 +29,4 @@ exports.help = {
   name: 'warn',
   description: 'Logs a warning to the user.',
   usage : '@user <reason>',
-  category: 'Moderation',
 };
