@@ -3,7 +3,7 @@ exports.run = async (bot, msg, args) => {
     msg.reply('Nope! You need the person who created this bot to use this command.');
   }
   else {
-    msg.channel.sendMessage(args.join(' '));
+    msg.channel.instrumented(args.join(' '));
     msg.delete();
   }
 };
