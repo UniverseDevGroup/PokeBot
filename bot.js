@@ -13,6 +13,7 @@ function setGame() {
     'Catching things',
     'Finding pokemon',
     'Type p:help for help',
+    'Fighting AstralMod',
   ];
 
   bot.user.setPresence({
