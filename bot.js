@@ -68,6 +68,40 @@ bot.on('message', (msg) => {
   parseCommand(msg);
 });
 
+bot.on('messageUpdate', (oldMsg, newMsg) => {
+  if (oldMsg.content == newMsg.content) return;
+  try {
+    const embed = new Discord.RichEmbed()
+      .setColor(0x00ae86)
+      .setTitle(`:pencil2: **${oldMsg.author.tag}**`)
+      .setDescription(`A message created by *${oldMsg.author.tag}* was edited in *${oldMsg.channel}*.`)
+      .addField('Old Message', oldMsg.content)
+      .addField('New Message', newMsg.content)
+      .setTimestamp()
+      .setFooter(`Edited message originally created by: ${oldMsg.author.tag}`, oldMsg.author.avatarURL);
+    newMsg.guild.channels.find('name', 'logs').send({ embed });
+  }
+  catch (err) {
+    console.error(err.stack);
+  }
+});
+
+bot.on('messageDelete', (msg) => {
+  try {
+    const embed = new Discord.RichEmbed()
+      .setColor(0x00ae86)
+      .setTitle(`:wastebasket: **${msg.author.tag}**`)
+      .setDescription(`A message created by *${msg.author.tag}* was deleted in *${msg.channel}*.`)
+      .addField('Deleted Message', msg.content)
+      .setTimestamp()
+      .setFooter(`Deleted message orginally created by: ${msg.author.tag}`, msg.author.avatarURL);
+    msg.guild.channels.find('name', 'logs').send({ embed });
+  }
+  catch (err) {
+    console.error(err.stack);
+  }
+});
+
 function parseCommand(msg) {
   if (msg.author.bot) return;
   if (!msg.content.startsWith('p:')) return;
