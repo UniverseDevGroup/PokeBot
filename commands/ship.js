@@ -1,5 +1,5 @@
 exports.run = (bot, msg) => {
-  msg.channel.send(msg.author.username + ' x ' + msg.guild.members.random().displayName + ':cruise_ship:');
+  msg.channel.send(msg.author.username + ' x ' + msg.guild.members.random().displayName + ' :cruise_ship:');
 };
 
 exports.conf = {
