@@ -1,4 +1,6 @@
 exports.run = async (bot, msg, args) => {
+  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to manage messages');
+  if (!msg.guild.member(bot.user).hasPermission('MANAGE_MESSAGES')) return msg.reply('I don\'t have permssion to manage messages');
   const user = msg.mentions.users.first();
   const amount = parseInt(args[0]) ? parseInt(args[0]) : parseInt(args[1]);
   if (!amount) return msg.reply('How many message shall I delete?');
