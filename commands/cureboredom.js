@@ -6,7 +6,7 @@ exports.run = (bot, msg, args) => {
         'Joining a team :handshake:',
       ];
 
-      msg.channel.send(games[Math.floor(Math.random() * games.length)]);
+      msg.channel.send(ideas[Math.floor(Math.random() * ideas.length)]);
   };
   
   exports.conf = {
