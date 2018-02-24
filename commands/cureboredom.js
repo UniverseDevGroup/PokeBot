@@ -1,5 +1,5 @@
 exports.run = (bot, msg, args) => {
-    if (args === 'list') {
+    if (args[0] === 'list') {
         msg.channel.send(ideas.join('\n'));
     };
     
