@@ -12,7 +12,7 @@ function setGame() {
     'Pokemon',
     'Catching things',
     'Finding pokemons',
-    'Type p: for help',
+    'Type p:help for help',
   ];
 
   bot.user.setPresence({
