@@ -133,6 +133,7 @@ bot.on('messageUpdate', (oldMsg, newMsg) => {
 });
 
 bot.on('messageDelete', (msg) => {
+  if(!msg.content) return;
   try {
     const embed = new Discord.RichEmbed()
       .setColor(0x00ae86)

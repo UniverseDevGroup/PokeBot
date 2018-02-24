@@ -6,17 +6,17 @@ exports.run = async (bot, msg, args) => {
   {
   case 'mystic': {
     msg.member.addRole(msg.guild.roles.find('name', 'Mystic'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you are have '}joined team Mystic.`);
+    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Mystic.`);
     break;
   }
   case 'valor' : {
     msg.member.addRole(msg.guild.roles.find('name', 'Valor'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you are have '}joined team Valor.`);
+    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Valor.`);
     break;
   }
   case 'instinct' : {
     msg.member.addRole(msg.guild.roles.find('name', 'Instinct'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you are have '}joined team Instinct.`);
+    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Instinct.`);
     break;
   }
   default : {

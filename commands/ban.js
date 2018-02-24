@@ -16,8 +16,8 @@ exports.run = async (bot, msg, args) => {
       .setColor(0x00ae86)
       .setAuthor(member.user.tag, member.user.avatarURL)
       .setTitle(`:hammer: **${member.user.tag}**`)
-      .setDescription(`*${member.user.tag}}* was banned from the server by *${msg.author.tag}*.`)
-      .addField('Reason', reason)
+      .setDescription(`*${member.user.tag}* was banned from the server by *${msg.author.tag}*.`)
+      .addField('Reason', reason ? reason : '*none*')
       .addField('Moderator', msg.author.tag)
       .setTimestamp()
       .setFooter(`${msg.author.tag} banned ${member.user.tag}`, msg.author.avatarURL);
