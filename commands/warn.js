@@ -28,6 +28,6 @@ exports.conf = {
 exports.help = {
   name: 'warn',
   description: 'Logs a warning to the user.',
-  usage : '@<user> <reason>',
+  usage : '@user <reason>',
   category: 'Moderation',
 };
