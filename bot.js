@@ -50,7 +50,7 @@ function parseCommand(msg) {
     bot.channels.get('416726932927938570').send(
       new Discord.RichEmbed()
         .setColor (0x00ae86)
-        .setAuthor(`${suggestionAuthor.user.tag}`, suggestionAuthor.avatarURL)
+        .setAuthor(`${suggestionAuthor.user.tag}`, message.author.displayavatarURL)
         .setDescription('This is a suggestion from a community member for something relating to the server. Please rate it based on your opinion, and a staff member will decide what to do with the suggestion.')
         .addField('Suggestion Contents', args.join(' '))
     ).then(message => {
