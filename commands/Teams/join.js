@@ -4,23 +4,23 @@ exports.run = async (bot, msg, args) => {
   const team = findTeam(msg, args[0]);
   switch(args[0])
   {
-  case 'mystic': {
-    msg.member.addRole(msg.guild.roles.find('name', 'Mystic'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Mystic.`);
+  case 'aqua': {
+    msg.member.addRole(msg.guild.roles.find('name', 'Aqua'));
+    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Aqua.`);
     break;
   }
-  case 'valor' : {
-    msg.member.addRole(msg.guild.roles.find('name', 'Valor'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Valor.`);
+  case 'rocket' : {
+    msg.member.addRole(msg.guild.roles.find('name', 'Rocket'));
+    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Rocket.`);
     break;
   }
-  case 'instinct' : {
-    msg.member.addRole(msg.guild.roles.find('name', 'Instinct'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Instinct.`);
+  case 'magma' : {
+    msg.member.addRole(msg.guild.roles.find('name', 'Magma'));
+    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Magma.`);
     break;
   }
   default : {
-    msg.reply('You have to pick, mystic, valor, or instinct.');
+    msg.reply('You have to pick, aqua, rocket, or magma.');
     break;
   }
   }
@@ -30,20 +30,20 @@ function findTeam(msg, team) {
 
   let oldTeam;
 
-  if (msg.member.roles.find('name', 'Mystic')) {
-    if (team == 'mystic') return;
-    msg.member.removeRole(msg.guild.roles.find('name', 'Mystic'));
-    oldTeam = 'Mystic';
+  if (msg.member.roles.find('name', 'Aqua')) {
+    if (team == 'aqua') return;
+    msg.member.removeRole(msg.guild.roles.find('name', 'Aqua'));
+    oldTeam = 'Aqua';
   }
-  else if (msg.member.roles.find('name', 'Valor')) {
-    if (team == 'valor') return;
-    msg.member.removeRole(msg.guild.roles.find('name', 'Valor'));
-    oldTeam = 'Valor';
+  else if (msg.member.roles.find('name', 'Rocket')) {
+    if (team == 'rocket') return;
+    msg.member.removeRole(msg.guild.roles.find('name', 'Rocket'));
+    oldTeam = 'Rocket';
   }
-  else if (msg.member.roles.find('name', 'Instinct')) {
-    if (team == 'instinct') return;
-    msg.member.removeRole(msg.guild.roles.find('name', 'Instinct'));
-    oldTeam = 'Instinct';
+  else if (msg.member.roles.find('name', 'Magma')) {
+    if (team == 'magma') return;
+    msg.member.removeRole(msg.guild.roles.find('name', 'Magma'));
+    oldTeam = 'Magma';
   }
   return oldTeam;
 }
@@ -56,5 +56,5 @@ exports.conf = {
 exports.help = {
   name: 'join',
   description: 'Join one of the teams!',
-  usage: '<mystic/valor/instinct>',
+  usage: '<aqua/rocket/magma>',
 };
