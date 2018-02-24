@@ -1,5 +1,5 @@
 exports.run = async (bot, msg, args) => {
-  if (!args.length < 1) return msg.reply('Please choose a team to join');
+  if (args.length < 1) return msg.reply('Please choose a team to join');
   switch(args[0])
   {
   case 'mystic': {
