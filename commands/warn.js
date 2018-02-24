@@ -1,7 +1,7 @@
 exports.run = (bot, msg, args) => {
   if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to warn.');
   const warnReason = args.slice(1);
-  const victim = msg.mentions.memebrs.first();
+  const victim = msg.mentions.members.first();
 
   msg.channel.send(`Successfully logged ${victim.user.tag}'s warning.`);
 
@@ -14,7 +14,7 @@ exports.run = (bot, msg, args) => {
       .addField('Created Account', victim.user.createdAt, true)
       .addField('Warning Reason', warnReason)
       .setTimestamp()
-      .setFooter('Warned by: ' + msg.author.user.tag, msg.author.user.avatarURL)
+      .setFooter('Warned by: ' + msg.author.tag, msg.author.avatarURL)
   );
 };
 
