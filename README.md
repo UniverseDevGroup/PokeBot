@@ -3,4 +3,4 @@
 
 # Pokebot
 
-Discord Moderation Bot for PokeWorld and other servers.
+Exclusive bot for gym management, moderation, and more on the PokeWorld discord.
