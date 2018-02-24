@@ -19,6 +19,6 @@ exports.conf = {
 exports.help = {
   name: 'kick',
   description: 'Kick a user out of the server.',
-  usage: '@<User> <...reason>',
+  usage: '@<user> <...reason>',
   category: 'Moderation',
 };
