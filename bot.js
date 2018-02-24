@@ -62,9 +62,9 @@ bot.on('guildMemberAdd', (member) => {
       .setDescription(`*${member.user.tag}* joined this server.`)
       .addField('ID', member.id, true)
       .addField('Joined Server', member.joinedAt, true)
-      .addField('Creasted Account', member.createdAt, true)
+      .addField('Creasted Account', member.user.createdAt, true)
       .setTimestamp()
-      .setFooter(`${member.user.tag} joined the server`)
+      .setFooter(member.user.tag, member.user.avatarURL)
   );
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);
