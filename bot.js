@@ -47,6 +47,25 @@ fs.readdir('./commands', (err, files) => {
   console.log('Command Loading complete!');
 });
 
+fs.readdir('./events', (err, files) => {
+  if (err) console.error(err);
+  console.log(`Attempting to load a total of ${files.length} events into the memory.`);
+  files.forEach(file => {
+    try {
+      const eventName = file.split('.')[0];
+      const event = require(`./events/${file}`);
+      console.log(`Attempting to load the event "${eventName}".`);
+      bot.on(eventName, event.bind(null, bot));
+      delete require.cache[require.resolve(`./events/${file}`)];
+    }
+    catch (err) {
+      console.log('An error has occured trying to load a event. Here is the error.');
+      console.log(err.stack);
+    }
+  });
+  console.log('Event Loading complete!');
+  console.log('\n');
+});
 
 bot.on('ready', () => {
   console.log('PokeBot has finished loading.');
@@ -54,51 +73,6 @@ bot.on('ready', () => {
   bot.setInterval(setGame, 200000);
 });
 
-bot.on('guildMemberAdd', (member) => {
-  bot.channels.get('416633835216830495').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
-  bot.channels.find('name', 'logs').send(
-    new Discord.RichEmbed()
-      .setColor(0x00ae86)
-      .setTitle(`:arrow_right: ${member.user.tag}`)
-      .setDescription(`*${member.user.tag}* joined this server.`)
-      .addField('ID', member.id, true)
-      .addField('Created Account', member.user.createdAt, true)
-      .setTimestamp()
-      .setFooter(member.user.tag, member.user.avatarURL)
-  );
-  const role = member.guild.roles.find('name', 'Trainers');
-  member.addRole(role);
-});
-
-bot.on('guildMemberRemove', (member) => {
-  bot.channels.get('416633835216830495').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
-  bot.channels.find('name', 'logs').send(
-    new Discord.RichEmbed()
-      .setColor(0x00ae86)
-      .setTitle(`:arrow_left: ${member.user.tag}`)
-      .setDescription(`*${member.user.tag}* left this server.`)
-      .addField('ID', member.id, true)
-      .addField('Created Account', member.user.createdAt, true)
-      .addField('Joined At', member.joinedAt, true)
-      .setTimestamp()
-      .setFooter(member.user.tag, member.user.avatarURL)
-  );
-});
-
-bot.on('messageDeleteBulk', (msgs) => {
-  try {
-    const embed = new Discord.RichEmbed()
-      .setColor(0x00ae86)
-      .setTitle(`:wastebasket: ${msgs.size}`)
-      .setDescription(`${msgs.size} messages in *${msgs.first().channel}* were bulk deleted.`)
-      .setTimestamp()
-      .setFooter('Messages purged');
-    msgs.first().guild.channels.find('name', 'logs').send({ embed });
-  }
-  catch (err) {
-    console.error(err.stack);
-  }
-});
 
 bot.on('message', (msg) => {
   parseCommand(msg);
@@ -114,40 +88,6 @@ bot.on('message', (msg) => {
   }
 });
 
-bot.on('messageUpdate', (oldMsg, newMsg) => {
-  if (oldMsg.content == newMsg.content) return;
-  try {
-    const embed = new Discord.RichEmbed()
-      .setColor(0x00ae86)
-      .setTitle(`:pencil2: **${oldMsg.author.tag}**`)
-      .setDescription(`A message created by *${oldMsg.author.tag}* was edited in *${oldMsg.channel}*.`)
-      .addField('Old Message', oldMsg.content)
-      .addField('New Message', newMsg.content)
-      .setTimestamp()
-      .setFooter(`Edited message originally created by: ${oldMsg.author.tag}`, oldMsg.author.avatarURL);
-    newMsg.guild.channels.find('name', 'logs').send({ embed });
-  }
-  catch (err) {
-    console.error(err.stack);
-  }
-});
-
-bot.on('messageDelete', (msg) => {
-  if(!msg.content) return;
-  try {
-    const embed = new Discord.RichEmbed()
-      .setColor(0x00ae86)
-      .setTitle(`:wastebasket: **${msg.author.tag}**`)
-      .setDescription(`A message created by *${msg.author.tag}* was deleted in *${msg.channel}*.`)
-      .addField('Deleted Message', msg.content)
-      .setTimestamp()
-      .setFooter(`Deleted message orginally created by: ${msg.author.tag}`, msg.author.avatarURL);
-    msg.guild.channels.find('name', 'logs').send({ embed });
-  }
-  catch (err) {
-    console.error(err.stack);
-  }
-});
 
 function parseCommand(msg) {
   if (msg.author.bot) return;
