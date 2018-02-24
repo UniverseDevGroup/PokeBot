@@ -61,8 +61,7 @@ bot.on('guildMemberAdd', (member) => {
       .setTitle(`:arrow_right: ${member.user.tag}`)
       .setDescription(`*${member.user.tag}* joined this server.`)
       .addField('ID', member.id, true)
-      .addField('Joined Server', member.joinedAt, true)
-      .addField('Creasted Account', member.user.createdAt, true)
+      .addField('Created Account', member.user.createdAt, true)
       .setTimestamp()
       .setFooter(member.user.tag, member.user.avatarURL)
   );
@@ -72,6 +71,17 @@ bot.on('guildMemberAdd', (member) => {
 
 bot.on('guildMemberRemove', (member) => {
   bot.channels.get('416633835216830495').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
+  bot.channels.find('name', 'logs').send(
+    new Discord.RichEmbed()
+      .setColor(0x00ae86)
+      .setTitle(`:arrow_left: ${member.user.tag}`)
+      .setDescription(`*${member.user.tag}* left this server.`)
+      .addField('ID', member.id, true)
+      .addField('Created Account', member.user.createdAt, true)
+      .addField('Joined At', member.joinedAt, true)
+      .setTimestamp()
+      .setFooter(member.user.tag, member.user.avatarURL)
+  );
 });
 
 bot.on('messageDeleteBulk', (msgs) => {
