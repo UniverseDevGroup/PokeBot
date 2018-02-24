@@ -12,7 +12,7 @@ exports.run = (bot, msg, args) => {
 };
 
 exports.conf = {
-  aliases: ['h'],
+  aliases: [],
   guildOnly: true,
 };
 

@@ -18,7 +18,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'suggset',
+  name: 'suggest',
   description: 'Suggest a feature.',
   usage: 'suggest <...Suggestion>',
 };
