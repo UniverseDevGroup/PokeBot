@@ -9,9 +9,7 @@ let selectedUser3 = membersList[Math.floor(Math.random() * membersList.length)].
     let stories = 
     [
         `Story 1 Alee says it\'s coming soon!.`,
-        `Story 2 ${selectedUser1.username} trips :(`,
-        `Story 3 Coming Soon`,
-        `Story 4 Coming Soon`
+        `Story 2 ${selectedUser1.username} jumps into the window then ${selectedUser2.username} saves ${selectedUser1.username} and ${selectedUser3.username} claps.`,
     ];
 let storySelected = [Math.floor(Math.random() * stories.length)]; 
 msg.channel.send(stories[storySelected]);
