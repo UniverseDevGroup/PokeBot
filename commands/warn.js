@@ -11,6 +11,7 @@ exports.run = (bot, msg, args) => {
     new RichEmbed()
       .setColor(0x00ae86)
       .setTitle(':warning: Warning')
+      .setAuthor(victim.user.tag, victim.user.avatarURL)
       .addField('Warning Reason', warnReason)
       .addField('ID', victim.id, true)
       .addField('Created Account', victim.user.createdAt, true)
