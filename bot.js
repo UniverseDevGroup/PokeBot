@@ -7,6 +7,24 @@ const fs = require('fs');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
+function setGame() {
+  var games = [
+      "Pokemon",
+      "Catching things",
+      "Finding pokemons",
+      "Type p: for help"
+  ]
+
+  bot.user.setPresence({
+      status: 'online',
+      afk: false,
+      game: {
+          type: 0,
+          name: games[Math.floor(Math.random() * games.length)]
+      }
+  })
+}
+
 fs.readdir('./commands', (err, files) => {
   if (err) console.error(err);
   console.log(`Attempting to load a total of ${files.length} commands into the memory.`);
@@ -31,6 +49,8 @@ fs.readdir('./commands', (err, files) => {
 
 bot.on('ready', () => {
   console.log('PokeBot has finished loading.');
+  setGame();
+  bot.setInterval(setGame, 200000);
 });
 
 bot.on('guildMemberAdd', (member) => {
