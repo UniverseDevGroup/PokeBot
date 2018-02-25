@@ -8,14 +8,14 @@ exports.run = async (bot, msg) => {
 
     const stories =
     [
-      'In progress story.',
-      `${selectedUser1.username} jumps into the window. Then, ${selectedUser2.username} saves ${selectedUser1.username}, and ${selectedUser3.username} claps.`,
+      `${selectedUser1.username} bought ${selectedUser2} his favorite video game. This game is called "Pokemon". Then, they became best friends.`,
+      `${selectedUser1.username} jumps out the window. Then, ${selectedUser2.username} saves ${selectedUser1.username}, and ${selectedUser3.username} claps.`,
     ];
     const storySelected = [Math.floor(Math.random() * stories.length)];
     const { RichEmbed } = require('discord.js');
     const embed = new RichEmbed()
       .setColor(0x00ae86)
-      .setTitle('Pokebot Storytime')
+      .setTitle('PokeBot Storytime')
       .setDescription(stories[storySelected])
       .setFooter('PokeBot Beta');
     msg.channel.send({ embed });
