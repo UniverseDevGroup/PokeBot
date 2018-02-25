@@ -1,11 +1,11 @@
 exports.run = async (bot, msg) => {
-
+    const { RichEmbed } = require('discord.js');
+    const { mentions } = require('discord.js');
     if (!mentions) {
         var user = msg.author;
     } else {
         var user = msg.mentions.members.first();
     };
-    const { RichEmbed } = require('discord.js');
     msg.channel.send(
         new RichEmbed()
         .setColor(0x00ae86)
