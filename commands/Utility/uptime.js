@@ -1,4 +1,4 @@
-exports.run = (bot, msg) => {
+exports.run = (bot, msg, args) => {
   let uptime = parseInt(bot.uptime);
   uptime = Math.floor(uptime / 1000);
   let uptimeMinutes = Math.floor(uptime / 60);
@@ -9,6 +9,9 @@ exports.run = (bot, msg) => {
     uptimeMinutes = uptimeMinutes - 60;
   }
   const uptimeSeconds = minutes % 60;
+  if (args === 'ms') return msg.channel.send(bot.uptime + ' ms.');
+  if (args === 's') return msg.channel.send(uptimeSeconds);
+  if (args === 'min') return msg.channel.send(uptime / 60 + ':' + uptimeSeconds)
   msg.channel.send(':clock3: Pokebot has been up for ' + hours + ' hours, ' + uptimeMinutes + ' minutes, and ' + uptimeSeconds + ' seconds.');
 
 };

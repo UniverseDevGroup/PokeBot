@@ -10,6 +10,14 @@ exports.run = (bot, msg, args) => {
     'Finding Bugs :bug:',
     'Being with Ayana :couple:',
     'Playing OS dressup :womans_clothes:',
+    'Chatting with friends :speech_balloon:',
+    'Livestreaming :satellite:',
+    'Programming a Discord Bot :man_dancing:',
+    'Listening to Anders Enger Jensen :musical_note:',
+    'Messing with Rich Presence :gear:',
+    'Making videos :movie_camera:',
+    'Taking pictures :camera:',
+    'Suggesting things for the server :dancers:',
   ];
 
   if (args[0] === 'list') return msg.channel.send(ideas.join('\n'));
