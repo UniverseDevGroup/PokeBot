@@ -1,6 +1,6 @@
 exports.run = async (bot, msg) => {
     const { RichEmbed } = require('discord.js');
-    if (!msg.mentions) {
+    if (!msg.mentions.users.first()) {
         var user = msg.author;
     } else {
         var user = msg.mentions.members.first();
