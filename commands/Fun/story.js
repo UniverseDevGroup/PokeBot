@@ -8,8 +8,8 @@ exports.run = async (bot, msg) => {
 
     const stories =
     [
-      'Story 1 Alee says it\'s coming soon!.',
-      `Story 2 ${selectedUser1.username} jumps into the window then ${selectedUser2.username} saves ${selectedUser1.username} and ${selectedUser3.username} claps.`,
+      'In progress story.',
+      `${selectedUser1.username} jumps into the window. Then, ${selectedUser2.username} saves ${selectedUser1.username}, and ${selectedUser3.username} claps.`,
     ];
     const storySelected = [Math.floor(Math.random() * stories.length)];
     const { RichEmbed } = require('discord.js');
