@@ -21,7 +21,7 @@
 exports.run = async (bot, msg, args) => {
     const { RichEmbed } = require('discord.js');
     
-    msg.author.setNickname(args.join(' '), 'Requested by bot');
+    msg.member.setNickname(args.join(' '), 'Requested by bot');
     msg.channel.send('Changed nickname to: ' + args.join(' '));
 
     
