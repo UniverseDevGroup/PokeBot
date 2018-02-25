@@ -4,11 +4,11 @@ exports.run = async (bot, msg) => {
   msg.channel.send(
     new RichEmbed()
       .setColor(0x00ae86)
-      .setTitle(`Information for ${user.user.tag}`)
+      .setTitle(`User Information`)
       .addField('User ID', user.id)
       .addField('Account Creation Date', user.user.createdAt)
       .addField('Join Guild Date', user.joinedAt)
-      .addField('Names', 'Display Name: ' + user.displayName + '\nUsername: ' + user.tag)
+      .addField('Names', 'Display Name: ' + user.displayName + `Username: ${user.user.tag}`)
   );
 };
 
