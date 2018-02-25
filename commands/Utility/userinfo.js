@@ -8,7 +8,7 @@ exports.run = async (bot, msg) => {
       .addField('User ID', user.id)
       .addField('Account Creation Date', user.user.createdAt)
       .addField('Join Guild Date', user.joinedAt)
-      .addField('Ban Count', 'The user has been banned on ' + parseInt(banCounts[user.id]) + ' guilds.')
+      .addField('Names', 'Display Name: ' + user.displayName + '\nUsername: ' + user.tag)
   );
 };
 
