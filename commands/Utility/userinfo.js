@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 exports.run = async (bot, msg) => {
   const user = msg.mentions.members.first();
   const { RichEmbed } = require('discord.js');
@@ -9,6 +10,11 @@ exports.run = async (bot, msg) => {
       .addField('Join Guild Date', user.joinedAt)
   );
 };
+=======
+exports.run = async (bot, msg, args) => {
+    const Discord = require('discord.js');
+    const user = msg.mentions.members.first();
+>>>>>>> master
 
 exports.conf = {
   aliases: ['uinfo', 'userinformation'],
