@@ -8,7 +8,7 @@ exports.run = async (bot, msg) => {
 
     const stories =
     [
-      `${selectedUser1.username} bought ${selectedUser2} his favorite video game. This game is called "Pokemon". Then, they became best friends.`,
+      `${selectedUser1.username} bought ${selectedUser2.username} his favorite video game. This game is called "Pokemon". Then, they became best friends.`,
       `${selectedUser1.username} jumps out the window. Then, ${selectedUser2.username} saves ${selectedUser1.username}, and ${selectedUser3.username} claps.`,
     ];
     const storySelected = [Math.floor(Math.random() * stories.length)];
