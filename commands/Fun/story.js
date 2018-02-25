@@ -13,10 +13,10 @@ exports.run = async (bot, msg) => {
     ];
     const storySelected = [Math.floor(Math.random() * stories.length)];
     const embed = new Discord.RichEmbed()
-    .setColor(0x00ae86)
-    .setTitle(`Pokebot Storytime`)
-    .setDescription(stories[storySelected])
-    .setFooter('PokeBot Beta');
+      .setColor(0x00ae86)
+      .setTitle('Pokebot Storytime')
+      .setDescription(stories[storySelected])
+      .setFooter('PokeBot Beta');
     msg.channel.send(embed);
   });
 };
