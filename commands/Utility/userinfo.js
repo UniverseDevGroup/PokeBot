@@ -2,7 +2,7 @@ exports.run = async (bot, msg) => {
   const { RichEmbed } = require('discord.js');
   let user;
   if (!msg.mentions.members.first()) {
-    user = msg.author;
+    user = msg.member;
   } else {
     user = msg.mentions.members.first();
   }
