@@ -1,12 +1,12 @@
 exports.run = async (bot, msg) => {
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   if (msg.channel.topic == 'Current Owner: *none*') {
-    msg.reply('Alright, you have claimed this gym as yours! Be ready to battle anyone who approaches you');
     let team;
     if (msg.member.roles.find('name', 'Aqua')) team = 'Aqua';
     if (msg.member.roles.find('name', 'Rocket')) team = 'Rocket';
     if (msg.member.roles.find('name', 'Magma')) team = 'Magma';
     if (!team) return msg.reply('You have to join a team before you can claim a gym.');
+    msg.reply('Alright, you have claimed this gym as yours! Be ready to battle anyone who approaches you');
     msg.channel.setTopic('Current Owner: ' + msg.author.id + '/' + msg.author.tag + '/' + team);
   }
   else {
