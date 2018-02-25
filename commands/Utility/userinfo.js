@@ -3,6 +3,7 @@ exports.run = async (bot, msg) => {
   const { RichEmbed } = require('discord.js');
   msg.channel.send(
     new RichEmbed()
+      .setColor(0x00ae86)
       .setTitle(`Information for ${user.user.tag}`)
       .addField('User ID', user.id)
       .addField('Account Creation Date', user.user.createdAt)
