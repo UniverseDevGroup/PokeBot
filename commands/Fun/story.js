@@ -17,7 +17,7 @@ exports.run = async (bot, msg) => {
     .setTitle(`Pokebot Storytime`)
     .setDescription(stories[storySelected])
     .setFooter('PokeBot Beta');
-    msg.channel.send( { embed } );
+    msg.channel.send(embed);
   });
 };
 
