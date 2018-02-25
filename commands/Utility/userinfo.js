@@ -1,4 +1,5 @@
 exports.run = async (bot, msg, args) => {
+    const Discord = require('discord.js');
     const user = msg.mentions.members.first();
 
     msg.channel.send(
