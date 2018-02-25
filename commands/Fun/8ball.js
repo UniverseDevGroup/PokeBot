@@ -36,7 +36,7 @@ exports.run = async (bot, msg, args) => {
 };
 
 exports.conf = {
-  aliases: [],
+  aliases: ['ask'],
   guildOnly: true,
 };
 

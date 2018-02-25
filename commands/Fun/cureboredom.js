@@ -18,7 +18,7 @@ exports.run = (bot, msg, args) => {
 };
 
 exports.conf = {
-  aliases: [],
+  aliases: ['cboredom'],
   guildOnly: true,
 };
 

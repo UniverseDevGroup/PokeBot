@@ -24,7 +24,7 @@ exports.run = async (bot, msg) => {
 };
 
 exports.conf = {
-  aliases: [],
+  aliases: ['storytime'],
   guildOnly: true,
 };
 
