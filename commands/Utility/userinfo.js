@@ -1,7 +1,9 @@
 exports.run = async (bot, msg) => {
-    var user = msg.mentions.members.first();
-    if (!user) {
-        user = msg.author;
+
+    if (!mentions) {
+        var user = msg.author;
+    } else {
+        var user = msg.mentions.members.first();
     };
     const { RichEmbed } = require('discord.js');
     msg.channel.send(
