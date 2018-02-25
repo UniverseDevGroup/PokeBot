@@ -6,7 +6,7 @@ exports.run = async (bot, msg) => {
   }
   else {
 
-    const owner = msg.channel.topic.slice(15).substring(19);
+    const owner = msg.channel.topic.slice(15).substring(0, 19);
     msg.channel.send('<@' + owner + '>, come here as ' + msg.member.displayName + ' wants to battle you.');
   }
 };
