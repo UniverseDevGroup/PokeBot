@@ -11,7 +11,7 @@ exports.run = (bot, msg, args) => {
   const uptimeSeconds = minutes % 60;
   if (args[0] === 'ms') return msg.channel.send(bot.uptime + ' ms.');
   if (args[0] === 's') return msg.channel.send(uptimeSeconds);
-  if (args[0] === 'min') return msg.channel.send(uptime / 60 + ':' + uptimeSeconds);
+  if (args[0] === 'min') return msg.channel.send(Math.floor(uptime / 60) + ':' + uptimeSeconds);
   msg.channel.send(':clock3: Pokebot has been up for ' + hours + ' hours, ' + uptimeMinutes + ' minutes, and ' + uptimeSeconds + ' seconds.');
 
 };
