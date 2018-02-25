@@ -23,8 +23,7 @@ exports.run = async (bot, msg, args) => {
     
     msg.member.setNickname(args.join(' '), 'Requested by bot');
     msg.channel.send('Changed nickname to: ' + args.join(' '));
-
-    
+    setTimeout(null, 3000);
     bot.channels.find('name', 'logs').send(
         new RichEmbed()
             .setColor(0x00ae86)
