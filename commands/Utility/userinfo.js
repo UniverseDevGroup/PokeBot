@@ -8,7 +8,7 @@ exports.run = async (bot, msg) => {
       .addField('User ID', user.id)
       .addField('Account Creation Date', user.user.createdAt)
       .addField('Join Guild Date', user.joinedAt)
-      .addField('Names', 'Display Name: ' + user.displayName + `Username: ${user.user.tag}`)
+      .addField('Names', 'Display Name: ' + user.displayName + `\nUsername: ${user.user.tag}`)
   );
 };
 
