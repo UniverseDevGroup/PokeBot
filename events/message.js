@@ -9,7 +9,9 @@ module.exports = (bot, msg) => {
         msg.reply('Excuse me?');
       } else if (msg.content.toLowerCase().includes('astralmod')) {
         msg.reply('HEY! I hate AstralMod so don\'t talk about it >:((((');
-     }
+      } else if (msg.content.toLowerCase().includes('ok') && (msg.content.toLowerCase().includes('google'))) {
+        msg.reply('Sorry, but I\'m not Google...');
+      }
     }
   }
 };
