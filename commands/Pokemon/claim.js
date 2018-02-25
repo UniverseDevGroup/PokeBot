@@ -5,8 +5,8 @@ exports.run = async (bot, msg) => {
     msg.channel.setTopic('Current Owner: ' + msg.author.tag + '/' + msg.author.id);
   }
   else {
-    const owner = msg.channel.topic.slice(15).substring(msg.author.tag.length);
-    msg.channel.send('<@' + owner + '>, come here as ' + msg.author.displayName + ' wants to battle you.');
+    const owner = msg.channel.topic.slice(15).substring(msg.author.tag.length + 1);
+    msg.channel.send('<@' + owner + '>, come here as ' + msg.member.displayName + ' wants to battle you.');
   }
 };
 
