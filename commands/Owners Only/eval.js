@@ -55,7 +55,7 @@ exports.run = async (bot, msg, args) => {
 };
 
 exports.conf = {
-  aliases: [],
+  aliases: ['exec'],
   guildOnly: false,
 };
 
