@@ -2,7 +2,7 @@ module.exports = (bot, msg) => {
   parseCommand(bot, msg);
 
   if (msg.mentions != null && msg.mentions.users != null) {
-    if (msg.mentions.users.has('416637860146446346')) {
+    if (msg.mentions.users.has('417096530596724737')) {
       if (msg.content.toLowerCase().includes('hello') || (msg.content.toLowerCase().includes('hi'))) {
         msg.reply('Hi there.');
       } else if (msg.content.toLowerCase().includes('shut') && msg.content.toLowerCase().includes('up')) {
