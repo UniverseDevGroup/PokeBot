@@ -5,6 +5,11 @@ exports.run = (bot, msg, args) => {
     'Fighting AstralMod :right_facing_fist:',
     'Joining a team :handshake:',
     'Have a battle :crossed_swords:',
+    'Playing The Peacenet :peace:',
+    'Becoming Tyson :computer:',
+    'Finding Bugs :bug:',
+    'Being with Ayana :couple:',
+    'Playing OS dressup :womans_clothes:',
   ];
 
   if (args[0] === 'list') return msg.channel.send(ideas.join('\n'));
