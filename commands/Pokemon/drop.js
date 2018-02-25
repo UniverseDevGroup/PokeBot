@@ -4,7 +4,7 @@ exports.run = async (bot, msg) => {
     msg.reply('There is no owner for this gym. Claim it now with p:claim!');
   }
   else {
-    const owner = msg.channel.topic.slice(15).substring(msg.author.tag.length + 1);
+    const owner = msg.channel.topic.slice(15).substring(msg.author.tag.length - 1);
     if (msg.author.id != owner) {
       return msg.reply('You are not the owner of this gym.');
     }
