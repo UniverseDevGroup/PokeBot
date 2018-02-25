@@ -34,7 +34,7 @@ exports.run = async (bot, msg, args) => {
       if (recipient.roles.find('name', 'Aqua')) recipientTeam = 'Aqua';
       if (recipient.roles.find('name', 'Rocket')) recipientTeam = 'Rocket';
       if (recipient.roles.find('name', 'Magma')) recipientTeam = 'Magma';
-      msg.channel.setTopic('Current Owner: ' + recipient.id + '/' + recipient.tag + '/' + recipientTeam);
+      msg.channel.setTopic('Current Owner: ' + recipient.id + '/' + recipient.user.tag + '/' + recipientTeam);
     }
     else {
       msg.reply('You have to own the gym to be able to trade it!');
