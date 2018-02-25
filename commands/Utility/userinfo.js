@@ -1,5 +1,5 @@
 exports.run = async (bot, msg) => {
-    const user = msg.mentions.members.first();
+    var user = msg.mentions.members.first();
     if (!user) {
         user = msg.author;
     };
