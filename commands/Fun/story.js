@@ -12,7 +12,12 @@ exports.run = async (bot, msg) => {
       `Story 2 ${selectedUser1.username} jumps into the window then ${selectedUser2.username} saves ${selectedUser1.username} and ${selectedUser3.username} claps.`,
     ];
     const storySelected = [Math.floor(Math.random() * stories.length)];
-    msg.channel.send(stories[storySelected]);
+    const embed = new Discord.RichEmbed()
+    .setColor(0x00ae86)
+    .setTitle(`Pokebot Storytime`)
+    .setDescription(stories[storySelected])
+    .setFooter('PokeBot Beta');
+    msg.channel.send( { embed } );
   });
 };
 
