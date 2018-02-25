@@ -1,5 +1,5 @@
 exports.run = async (bot, msg) => {
-  if (!msg.channel.topic.startsWith('Current Owner:')) return msg.reply('Go into one of the gym channels and try again.');
+  if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   if (msg.channel.topic == 'Current Owner: *none*') {
     msg.reply('Alright, you have claimed this gym as yours! Be ready to battle anyone who approaches you');
     msg.channel.setTopic('Current Owner: ' + msg.author.id + '/' + msg.author.tag);
