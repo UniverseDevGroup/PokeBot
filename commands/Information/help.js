@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Help: Plugin for PokeBot that guides the user on how to use the bot.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   8ball: Plugin for PokeBot that allows users to use an 8ball.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

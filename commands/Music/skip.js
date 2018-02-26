@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Contribute: Plugin for PokeBot that redirects users to the proper place to contribute.
+ *   Skip: Plugin for PokeBot that performs moderation actions.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -18,8 +18,9 @@
  *
  * *************************************/
 
-exports.run = (bot, msg) => {
-  msg.channel.send('Want to help the bot? Here you go: https://github.com/PokeWorld/PokeBot.');
+exports.run = async (bot, msg) => {
+  const music = bot.plugins.music;
+  music.skip(bot, msg);
 };
 
 exports.conf = {
@@ -28,6 +29,6 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'contribute',
-  description: 'Contributing to the bot.',
+  name: 'skip',
+  description: 'Skip a song in the queue.',
 };

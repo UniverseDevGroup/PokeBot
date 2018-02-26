@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   og151: Plugin for PokeBot that randomly picks 1 out of the original 151 Pokemon.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

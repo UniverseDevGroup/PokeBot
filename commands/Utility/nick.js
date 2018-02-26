@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Nick: Plugin for PokeBot that changes the user's display name.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
@@ -19,31 +19,30 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-    const { RichEmbed } = require('discord.js');
-    
-    msg.member.setNickname(args.join(' '), 'Requested by bot');
-    msg.channel.send('Changed nickname to: ' + args.join(' '));
-    setTimeout(null, 3000);
-    bot.channels.find('name', 'logs').send(
-        new RichEmbed()
-            .setColor(0x00ae86)
-            .setTitle(`Nickname: ${msg.author.tag}`)
-            .setDescription(`*${msg.author.tag}* changed their nickname`)
-            .addField('New Nickname', msg.member.displayName, true)
-            .setTimestamp()
-            .setFooter('PokeBot Beta')
-    );
+  const { RichEmbed } = require('discord.js');
 
-  };
-  
-  exports.conf = {
-    aliases: ['nickname'],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'nick',
-    description: 'Change your nickname.',
-    usage: '<...new nick>',
-  };
-   
+  msg.member.setNickname(args.join(' '), 'Requested by bot');
+  msg.channel.send('Changed nickname to: ' + args.join(' '));
+  setTimeout(null, 3000);
+  bot.channels.find('name', 'logs').send(
+    new RichEmbed()
+      .setColor(0x00ae86)
+      .setTitle(`Nickname: ${msg.author.tag}`)
+      .setDescription(`*${msg.author.tag}* changed their nickname`)
+      .addField('New Nickname', msg.member.displayName, true)
+      .setTimestamp()
+      .setFooter('PokeBot Beta')
+  );
+
+};
+
+exports.conf = {
+  aliases: ['nickname'],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'nick',
+  description: 'Change your nickname.',
+  usage: '<...new nick>',
+};

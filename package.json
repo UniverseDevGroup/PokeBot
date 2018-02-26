@@ -9,6 +9,8 @@
   "author": "Alee, Justin, and Trey",
   "license": "GPL-3.0",
   "dependencies": {
-    "discord.js": "^11.3.0"
+    "discord.js": "^11.3.0",
+    "discord.js-lavalink": "github:mrjacz/discord.js-lavalink",
+    "snekfetch": "^4.0.0-rc.0"
   }
 }

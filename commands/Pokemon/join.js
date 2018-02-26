@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Join: Plugin for PokeBot that powers the PokeWorld team system.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

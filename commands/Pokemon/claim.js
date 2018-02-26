@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Claim: Plugin for PokeBot that powers the PokeWorld gym system.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Say: Plugin for PokeBot that sends a message with the provided content.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

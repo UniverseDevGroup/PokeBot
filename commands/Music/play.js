@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Contribute: Plugin for PokeBot that redirects users to the proper place to contribute.
+ *   Play: Plugin for PokeBot that performs moderation actions.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -18,8 +18,15 @@
  *
  * *************************************/
 
-exports.run = (bot, msg) => {
-  msg.channel.send('Want to help the bot? Here you go: https://github.com/PokeWorld/PokeBot.');
+exports.run = async (bot, msg, args) => {
+  const music = bot.plugins.music;
+  if (args[0] == 'sc') {
+    args.shift();
+    const track = await music.resolveTrack(args.join(' '), true);
+    return music.play(bot, msg, track.track);
+  }
+  const track = await music.resolveTrack(args.join(' '));
+  return music.play(bot, msg, track.track);
 };
 
 exports.conf = {
@@ -28,6 +35,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'contribute',
-  description: 'Contributing to the bot.',
+  name: 'play',
+  description: 'Plays a song for you. If sc is not chosen, it\'ll be yt',
+  usage : '<sc> <search>',
 };

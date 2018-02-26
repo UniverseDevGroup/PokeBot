@@ -6,7 +6,8 @@ const fs = require('fs');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = new Discord.Collection();
-
+bot.queue = new Discord.Collection();
+bot.plugins = { music : require('./Plugins/Music.js') };
 cmdLoader();
 
 async function cmdLoader() {
@@ -71,4 +72,16 @@ fs.readdir('./events', (err, files) => {
   console.log('\n');
 });
 
-bot.login(config.token);
+
+const { PlayerManager } = require('discord.js-lavalink');
+const nodes = [
+  { 'host': 'localhost', 'port': 6547, 'region': 'us', 'shard': 1, 'password': 'iamaverysecurepassword' },
+];
+
+process.on('unhandledRejection', (err) => {
+  console.error(err.stack);
+});
+
+bot.login(config.token).then(() => {
+  bot.player = new PlayerManager(bot, nodes, { user: bot.user.id, shards: 1, password: 'iamaverysecurepassword' });
+});

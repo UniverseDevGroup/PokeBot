@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Poweroff: Plugin for PokeBot that remotely exits the process.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

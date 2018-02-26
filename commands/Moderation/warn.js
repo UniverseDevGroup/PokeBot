@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Warn: Plugin for PokeBot that performs moderation actions.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

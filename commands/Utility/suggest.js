@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Suggest: Plugin for PokeBot that allows users to suggest things.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

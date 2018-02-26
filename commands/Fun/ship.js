@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Ship: Plugin for PokeBot that ships the user with someone else.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   UserInfo: Plugin for PokeBot that gives the user information about themselves or another user.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

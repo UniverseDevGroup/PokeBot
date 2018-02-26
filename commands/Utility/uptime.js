@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Uptime: Plugin for PokeBot that provides diagnostic information.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

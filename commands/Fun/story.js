@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   Story: Plugin for PokeBot that tells the user a story.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee

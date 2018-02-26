@@ -1,4 +1,4 @@
-/****************************************
+/** **************************************
  *
  *   CureBoredom: Plugin for PokeBot that "cures" your boredom.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
