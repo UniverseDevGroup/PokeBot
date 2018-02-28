@@ -35,7 +35,7 @@ exports.run = async (bot, msg) => {
     if (msg.member.roles.find('name', 'Rocket')) team = 'Rocket';
     if (msg.member.roles.find('name', 'Magma')) team = 'Magma';
     if (!team) return msg.reply('You have to join a team before you can claim a gym.');
-    if (msg.channel.name == 'gym-chara') return msg.reply('You can\'t battle in this gym')
+    if (msg.channel.name == 'gym-chara') return msg.reply('You can\'t battle in this gym');
     const owner = msg.channel.topic.slice(15).substring(0, 18);
     if (msg.guild.members.find('id', owner).roles.find('name', team)) return msg.reply('Don\'t try battling your own team. They won\'t like you.');
     msg.channel.send('<@' + owner + '>, come here as ' + msg.member.displayName + ' wants to battle you.');
