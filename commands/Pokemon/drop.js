@@ -19,6 +19,7 @@
  * *************************************/
 
 exports.run = async (bot, msg) => {
+  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   if (msg.channel.topic == 'Current Owner: *none*') {
     msg.reply('There is no owner for this gym. Claim it now with p:claim!');

@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Skip: Plugin for PokeBot that performs moderation actions.
+ *   Skip: Plugin for PokeBot that performs music player actions.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
