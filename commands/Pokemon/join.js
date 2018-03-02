@@ -20,7 +20,7 @@
 
 exports.run = async (bot, msg, args) => {
   if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
-  
+
   if (args.length < 1) return msg.reply('Please choose a team to join');
 
   const team = findTeam(msg, args[0]);
