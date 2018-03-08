@@ -24,27 +24,27 @@ exports.run = async (bot, msg, args) => {
   if (args.length < 1) return msg.reply('Please choose a team to join');
 
   const team = findTeam(msg, args[0]);
-  switch(args[0])
+  switch (args[0])
   {
-  case 'aqua': {
-    msg.member.addRole(msg.guild.roles.find('name', 'Aqua'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Aqua.`);
-    break;
-  }
-  case 'rocket' : {
-    msg.member.addRole(msg.guild.roles.find('name', 'Rocket'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Rocket.`);
-    break;
-  }
-  case 'magma' : {
-    msg.member.addRole(msg.guild.roles.find('name', 'Magma'));
-    msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Magma.`);
-    break;
-  }
-  default : {
-    msg.reply('You have to pick, aqua, rocket, or magma.');
-    break;
-  }
+    case 'aqua': {
+      msg.member.addRole(msg.guild.roles.find('name', 'Aqua'));
+      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Aqua.`);
+      break;
+    }
+    case 'rocket' : {
+      msg.member.addRole(msg.guild.roles.find('name', 'Rocket'));
+      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Rocket.`);
+      break;
+    }
+    case 'magma' : {
+      msg.member.addRole(msg.guild.roles.find('name', 'Magma'));
+      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Magma.`);
+      break;
+    }
+    default : {
+      msg.reply('You have to pick, aqua, rocket, or magma.');
+      break;
+    }
   }
 };
 
