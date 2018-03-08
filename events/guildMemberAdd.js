@@ -34,12 +34,11 @@ module.exports = (bot, member) => {
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);
 
-  const DMMember = "Hello, Alee is still working on this feature...";
-  const { RichEmbed } = require('discord.js');
+  const DMMember = 'Hello, Alee is still working on this feature...';
   member.user.send(
     new RichEmbed()
-    .setColor(0x00ae86)
-    .setTitle(`Pokebot`)
-    .setDescription(DMMember)
+      .setColor(0x00ae86)
+      .setTitle('Pokebot')
+      .setDescription(DMMember)
   );
 };
