@@ -18,27 +18,26 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg, args) => {
-    if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to ban members.');
-  
-    if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
-    if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
-    if (msg.channel.topic == 'Current Owner: *none*') {
-        msg.reply('This gym does not have an owner.');
-    }
-    else {
-        msg.channel.setTopic('Current Owner: *none*');
-        msg.channel.send('You have dropped the gym.');
-    };
-  };
-  
-  exports.conf = {
-    aliases: [],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'forcedrop',
-    description: 'Force a gym to have no owner.',
-  };
-  
+exports.run = async (bot, msg) => {
+  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to ban members.');
+
+  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
+  if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
+  if (msg.channel.topic == 'Current Owner: *none*') {
+    msg.reply('This gym does not have an owner.');
+  }
+  else {
+    msg.channel.setTopic('Current Owner: *none*');
+    msg.channel.send('You have dropped the gym.');
+  }
+};
+
+exports.conf = {
+  aliases: [],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'forcedrop',
+  description: 'Force a gym to have no owner.',
+};
