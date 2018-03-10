@@ -26,8 +26,7 @@ exports.run = async (bot, msg) => {
   if (!warns) return await msg.reply('Yay! You have no warns.');
   const embed = new RichEmbed()
     .setTitle('Warns');
-  for (let i = 1; i > warns; i++) {
-    console.log(i);
+  for (let i = 1; i <= warns; i++) {
     const warning = await db.fetch(`warns_${msg.author.id}_warn_${i}`);
     embed.addField('Warning #' + i, warning);
   }
