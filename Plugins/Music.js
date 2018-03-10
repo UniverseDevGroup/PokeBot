@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Music: Plugin for PokeBot that enables the Lavalink player.
+ *   Music: Plugin for PokeBot that interacts with the Lavalink API.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
