@@ -18,13 +18,23 @@
  *
  * *************************************/
 
-exports.run = (bot, msg, args) => {
+exports.run = async (bot, msg, args) => {
   if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to warn.');
   args.shift();
   const warnReason = args.join(' ');
   const victim = msg.mentions.members.first();
 
   msg.channel.send(`Successfully logged ${victim.user.tag}'s warning.`);
+  const db = require('quick.db');
+  const warns = await db.get(`warns_${victim.user.id}_count`);
+  if (warns) {
+    await db.set(`warns_${victim.user.id}_count`, warns + 1);
+    await db.set(`warns_${victim.user.id}_warn_${warns + 1}`, warnReason);
+  }
+  else {
+    await db.set(`warns_${victim.user.id}_count`, 1);
+    await db.set(`warns_${victim.user.id}_warn_1`, warnReason);
+  }
 
   const { RichEmbed } = require('discord.js');
   bot.channels.find('name', 'logs').send(
