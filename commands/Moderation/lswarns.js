@@ -22,12 +22,13 @@ exports.run = async (bot, msg) => {
   const db = require('quick.db');
   const { RichEmbed } = require('discord.js');
 
-  const warns = await db.get(`warns_${msg.author.id}_count`);
+  const warns = await db.fetch(`warns_${msg.author.id}_count`);
   if (!warns) return await msg.reply('Yay! You have no warns.');
   const embed = new RichEmbed()
     .setTitle('Warns');
-  for (let i = 0; i > warns.count; i++) {
-    const warning = await db.get(`warns_${msg.author.id}_warn_${i}`);
+  for (let i = 1; i > warns; i++) {
+    console.log(i);
+    const warning = await db.fetch(`warns_${msg.author.id}_warn_${i}`);
     embed.addField('Warning #' + i, warning);
   }
   msg.channel.send({ embed });

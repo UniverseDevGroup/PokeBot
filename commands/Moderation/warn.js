@@ -26,7 +26,7 @@ exports.run = async (bot, msg, args) => {
 
   msg.channel.send(`Successfully logged ${victim.user.tag}'s warning.`);
   const db = require('quick.db');
-  const warns = await db.get(`warns_${victim.user.id}_count`);
+  const warns = await db.fetch(`warns_${victim.user.id}_count`);
   if (warns) {
     await db.set(`warns_${victim.user.id}_count`, warns + 1);
     await db.set(`warns_${victim.user.id}_warn_${warns + 1}`, warnReason);
