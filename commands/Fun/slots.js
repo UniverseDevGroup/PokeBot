@@ -19,52 +19,27 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-    const slot1 = [
-      ':one:',
-      ':two:',
-      ':three:',
-      ':four:',
-      ':five:',
-      ':six:',
-      ':seven:',
-      ':eight:',
-      ':nine:',
-    ];
+  const slot1 = [
+    ':one:',
+    ':two:',
+    ':three:',
+    ':four:',
+    ':five:',
+    ':six:',
+    ':seven:',
+    ':eight:',
+    ':nine:',
+  ];
 
-    const slot2 = [
-        ':one:',
-        ':two:',
-        ':three:',
-        ':four:',
-        ':five:',
-        ':six:',
-        ':seven:',
-        ':eight:',
-        ':nine:',
-      ];
+  msg.channel.send('If the numbers are sequenced forwards or backwards, you win!\n\n> ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)]);
+};
 
-      const slot3 = [
-        ':one:',
-        ':two:',
-        ':three:',
-        ':four:',
-        ':five:',
-        ':six:',
-        ':seven:',
-        ':eight:',
-        ':nine:',
-      ];
-  
-    msg.channel.send('If the numbers are sequenced forwards or backwards, you win!\n\n> ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot2[Math.floor(Math.random() * slot2.length)] + ' ' + slot3[Math.floor(Math.random() * slot3.length)]);
-  };
-  
-  exports.conf = {
-    aliases: [],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'slots',
-    description: 'Develop a gambling addiction by playing Slots!',
-  };
-  
+exports.conf = {
+  aliases: [],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'slots',
+  description: 'Develop a gambling addiction by playing Slots!',
+};
