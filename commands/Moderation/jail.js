@@ -18,40 +18,39 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg, args) => {
-    if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to put members in jail.');
-    if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot put anyone in jail.');
-  
-    const member = msg.mentions.members.first();
-    if (!member) return await msg.reply('Who do I put in jail?');
-  
-    member.addRole(msg.guild.roles.find('name', 'Jail'));
-  
-    const { RichEmbed } = require('discord.js');
-    try {
-      const embed = new RichEmbed()
-        .setColor(0x00ae86)
-        .setAuthor(member.user.tag, member.user.avatarURL)
-        .setTitle(`Jail: **${member.user.tag}**`)
-        .setDescription(`*${member.user.tag}* was placed in jail by *${msg.author.tag}*.`)
-        .addField('Moderator', msg.author.tag)
-        .setTimestamp()
-        .setFooter(`${msg.author.tag} put ${member.user.tag} in jail.`, msg.author.avatarURL);
-      msg.guild.channels.find('name', 'logs').send({ embed });
-    }
-    catch (err) {
-      console.error(err.stack);
-    }
-  };
-  
-  exports.conf = {
-    aliases: [],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'jail',
-    description: 'Jail a user.',
-    usage: '@user',
-  };
-  
+exports.run = async (bot, msg) => {
+  if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to put members in jail.');
+  if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot put anyone in jail.');
+
+  const member = msg.mentions.members.first();
+  if (!member) return await msg.reply('Who do I put in jail?');
+
+  member.addRole(msg.guild.roles.find('name', 'Jail'));
+
+  const { RichEmbed } = require('discord.js');
+  try {
+    const embed = new RichEmbed()
+      .setColor(0x00ae86)
+      .setAuthor(member.user.tag, member.user.avatarURL)
+      .setTitle(`Jail: **${member.user.tag}**`)
+      .setDescription(`*${member.user.tag}* was placed in jail by *${msg.author.tag}*.`)
+      .addField('Moderator', msg.author.tag)
+      .setTimestamp()
+      .setFooter(`${msg.author.tag} put ${member.user.tag} in jail.`, msg.author.avatarURL);
+    msg.guild.channels.find('name', 'logs').send({ embed });
+  }
+  catch (err) {
+    console.error(err.stack);
+  }
+};
+
+exports.conf = {
+  aliases: [],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'jail',
+  description: 'Jail a user.',
+  usage: '@user',
+};

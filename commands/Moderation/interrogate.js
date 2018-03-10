@@ -18,40 +18,39 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg, args) => {
-    if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to interrogate others. Rip-off detectives...');
-    if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot interrogate anyone.');
-  
-    const member = msg.mentions.members.first();
-    if (!member) return await msg.reply('Who do I interrogate?');
-  
-    member.addRole(msg.guild.roles.find('name', 'Interrogation'));
-  
-    const { RichEmbed } = require('discord.js');
-    try {
-      const embed = new RichEmbed()
-        .setColor(0x00ae86)
-        .setAuthor(member.user.tag, member.user.avatarURL)
-        .setTitle(`Interrogation: **${member.user.tag}**`)
-        .setDescription(`*${member.user.tag}* was interrogated by *${msg.author.tag}*.`)
-        .addField('Moderator', msg.author.tag)
-        .setTimestamp()
-        .setFooter(`${msg.author.tag} interrogated ${member.user.tag}.`, msg.author.avatarURL);
-      msg.guild.channels.find('name', 'logs').send({ embed });
-    }
-    catch (err) {
-      console.error(err.stack);
-    }
-  };
-  
-  exports.conf = {
-    aliases: [],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'interrogate',
-    description: 'Interrogate a suspect/user.',
-    usage: '@user',
-  };
-  
+exports.run = async (bot, msg) => {
+  if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to interrogate others. Rip-off detectives...');
+  if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot interrogate anyone.');
+
+  const member = msg.mentions.members.first();
+  if (!member) return await msg.reply('Who do I interrogate?');
+
+  member.addRole(msg.guild.roles.find('name', 'Interrogation'));
+
+  const { RichEmbed } = require('discord.js');
+  try {
+    const embed = new RichEmbed()
+      .setColor(0x00ae86)
+      .setAuthor(member.user.tag, member.user.avatarURL)
+      .setTitle(`Interrogation: **${member.user.tag}**`)
+      .setDescription(`*${member.user.tag}* was interrogated by *${msg.author.tag}*.`)
+      .addField('Moderator', msg.author.tag)
+      .setTimestamp()
+      .setFooter(`${msg.author.tag} interrogated ${member.user.tag}.`, msg.author.avatarURL);
+    msg.guild.channels.find('name', 'logs').send({ embed });
+  }
+  catch (err) {
+    console.error(err.stack);
+  }
+};
+
+exports.conf = {
+  aliases: [],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'interrogate',
+  description: 'Interrogate a suspect/user.',
+  usage: '@user',
+};
