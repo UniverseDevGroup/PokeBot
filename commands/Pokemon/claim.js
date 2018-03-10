@@ -39,7 +39,7 @@ exports.run = async (bot, msg) => {
     const owner = msg.channel.topic.slice(15).substring(0, 18);
     if (msg.guild.members.find('id', owner).roles.find('name', team)) return msg.reply('Don\'t try battling your own team. They won\'t like you.');
     msg.channel.send('<@' + owner + '>, come here as ' + msg.member.displayName + ' wants to battle you.');
-    bot.on('message', mess => {
+    bot.on('message', async mess => {
       let field = mess.embeds[0];
       if (!field) return;
       field = field.description;
@@ -51,16 +51,16 @@ exports.run = async (bot, msg) => {
         const user = msg.guild.members.find(member => member.user.username === field);
         if (user != undefined) {
           if (user.id == owner) {
-            msg.channel.send('The owner has not been defeated!');
+            await msg.channel.send('The owner has not been defeated!');
             bot.removeListener('message', this);
           }
           if (user.id == msg.author.id) {
-            msg.channel.send('The owner has been defeated! Transfaring gym!');
+            await msg.channel.send('The owner has been defeated! Transfaring gym!');
             let recipientTeam;
             if (msg.member.roles.find('name', 'Aqua')) recipientTeam = 'Aqua';
             if (msg.member.roles.find('name', 'Rocket')) recipientTeam = 'Rocket';
             if (msg.member.roles.find('name', 'Magma')) recipientTeam = 'Magma';
-            msg.channel.setTopic('Current Owner: ' + msg.member.id + '/' + msg.author.tag + '/' + recipientTeam);
+            await msg.channel.setTopic('Current Owner: ' + msg.member.id + '/' + msg.author.tag + '/' + recipientTeam);
             bot.removeListener('message', this);
           }
         }
