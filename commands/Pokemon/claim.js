@@ -36,10 +36,26 @@ exports.run = async (bot, msg) => {
     if (msg.member.roles.find('name', 'Rocket')) team = 'Rocket';
     if (msg.member.roles.find('name', 'Magma')) team = 'Magma';
     if (!team) return msg.reply('You have to join a team before you can claim a gym.');
-    if (msg.channel.name == 'gym-chara') return msg.reply('You can\'t battle in this gym');
     const owner = msg.channel.topic.slice(15).substring(0, 18);
     if (msg.guild.members.find('id', owner).roles.find('name', team)) return msg.reply('Don\'t try battling your own team. They won\'t like you.');
     msg.channel.send('<@' + owner + '>, come here as ' + msg.member.displayName + ' wants to battle you.');
+    bot.on('message', mess => {
+      const field = mess.embeds[0].description.split('\n')[0].split(' ')[0];
+      if (field != undefined) {
+        const user = msg.guild.members.find(member => member.user.username === field);
+        if (user != undefined) {
+          if (user.id == owner) return msg.channel.send('The owner has not been defeated!');
+          if (user.id == msg.user.id) {
+            msg.channel.send('The owner has been defeated! Transfaring gym!');
+            let recipientTeam;
+            if (msg.member.roles.find('name', 'Aqua')) recipientTeam = 'Aqua';
+            if (msg.member.roles.find('name', 'Rocket')) recipientTeam = 'Rocket';
+            if (msg.member.roles.find('name', 'Magma')) recipientTeam = 'Magma';
+            msg.channel.setTopic('Current Owner: ' + msg.member.id + '/' + msg.user.tag + '/' + recipientTeam);
+          }
+        }
+      }
+    });
   }
 };
 
