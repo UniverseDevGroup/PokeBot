@@ -19,7 +19,7 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-    msg.reply(bot.exports.economy.get(msg.author.id) + 'credits');
+    msg.reply(bot.plugins.economy.get(msg.author.id) + 'credits');
   };
   
   exports.conf = {

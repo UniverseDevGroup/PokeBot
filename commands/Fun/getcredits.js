@@ -19,7 +19,7 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-    bot.exports.economy.add(msg.author.id, 10);
+    bot.plugins.economy.add(msg.author.id, 10);
     msg.reply('Added 10 credits.');
   };
   
