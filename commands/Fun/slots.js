@@ -49,6 +49,7 @@ exports.run = async (bot, msg) => {
     return await msg.channel.send('You won 15 credits!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
   }
   else {
+    await bot.plugins.economy.subtract(msg.author.id, 10);
     return await msg.channel.send('Aww, you lost! Better luck next time.\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
   }
 };
