@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Slots: Plugin for PokeBot that allows you to gamble.
+ *   Get Credits: Plugin for PokeBot that gives you credits.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -19,27 +19,16 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-  const slot1 = [
-    ':one:',
-    ':two:',
-    ':three:',
-    ':four:',
-    ':five:',
-    ':six:',
-    ':seven:',
-    ':eight:',
-    ':nine:',
-  ];
-
-  msg.channel.send('If the numbers are sequenced forwards or backwards, you win!\nCurrent Balance: ' + bot.plugins.economy.get(msg.author.id) + ' \n> ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)]);
-};
-
-exports.conf = {
-  aliases: [],
-  guildOnly: true,
-};
-
-exports.help = {
-  name: 'slots',
-  description: 'Develop a gambling addiction by playing Slots!',
-};
+    msg.reply(bot.exports.economy.get(msg.author.id) + 'credits');
+  };
+  
+  exports.conf = {
+    aliases: ['bal', 'money', 'credits'],
+    guildOnly: true,
+  };
+  
+  exports.help = {
+    name: 'balance',
+    description: 'Check your balance!',
+  };
+  
