@@ -19,7 +19,7 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permission to manage messages.');
+  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to manage messages.');
   if (!msg.guild.member(bot.user).hasPermission('MANAGE_MESSAGES')) return msg.reply('I don\'t have permssion to manage messages.');
 
   const user = msg.mentions.users.first();
