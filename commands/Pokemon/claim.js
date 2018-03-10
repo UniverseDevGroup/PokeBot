@@ -58,6 +58,7 @@ exports.run = async (bot, msg) => {
             if (msg.member.roles.find('name', 'Rocket')) recipientTeam = 'Rocket';
             if (msg.member.roles.find('name', 'Magma')) recipientTeam = 'Magma';
             msg.channel.setTopic('Current Owner: ' + msg.member.id + '/' + msg.author.tag + '/' + recipientTeam);
+            bot.removeListener('message', this);
           }
         }
       }
