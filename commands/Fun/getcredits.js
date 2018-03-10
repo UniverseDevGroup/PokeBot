@@ -19,17 +19,16 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-    bot.exports.economy.add(msg.author.id, 10);
-    msg.reply('Added 10 credits.');
-  };
-  
-  exports.conf = {
-    aliases: [],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'getcredits',
-    description: 'Add credits to your account.',
-  };
-  
+  bot.plugins.economy.add(msg.author.id, 10);
+  msg.reply('Added 10 credits.');
+};
+
+exports.conf = {
+  aliases: [],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'getcredits',
+  description: 'Add credits to your account.',
+};

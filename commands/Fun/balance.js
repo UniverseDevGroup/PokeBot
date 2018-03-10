@@ -18,17 +18,17 @@
  *
  * *************************************/
 
-exports.run = (bot, msg) => {
-    msg.reply(bot.exports.economy.get(msg.author.id) + 'credits');
-  };
-  
-  exports.conf = {
-    aliases: ['bal', 'money', 'credits'],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'balance',
-    description: 'Check your balance!',
-  };
-  
+exports.run = async (bot, msg) => {
+  const credits = await bot.plugins.economy.get(msg.author.id);
+  msg.reply(credits + ' credits');
+};
+
+exports.conf = {
+  aliases: ['bal', 'money', 'credits'],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'balance',
+  description: 'Check your balance!',
+};
