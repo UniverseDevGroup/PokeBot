@@ -50,7 +50,10 @@ exports.run = async (bot, msg) => {
       if (field != undefined) {
         const user = msg.guild.members.find(member => member.user.username === field);
         if (user != undefined) {
-          if (user.id == owner) return msg.channel.send('The owner has not been defeated!');
+          if (user.id == owner) {
+            msg.channel.send('The owner has not been defeated!');
+            bot.removeListener('message', this);
+          }
           if (user.id == msg.author.id) {
             msg.channel.send('The owner has been defeated! Transfaring gym!');
             let recipientTeam;
