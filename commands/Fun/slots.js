@@ -18,7 +18,7 @@
  *
  * *************************************/
 
-exports.run = (bot, msg) => {
+exports.run = async (bot, msg) => {
   const slot1 = [
     ':one:',
     ':two:',
@@ -31,7 +31,9 @@ exports.run = (bot, msg) => {
     ':nine:',
   ];
 
-  msg.channel.send('If the numbers are sequenced forwards or backwards, you win!\nCurrent Balance: ' + bot.plugins.economy.get(msg.author.id) + ' \n> ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)]);
+  const balance = await bot.plugins.economy.get(msg.author.id);
+
+  msg.channel.send('If the numbers are sequenced forwards or backwards, you win!\nCurrent Balance: ' + balance + ' \n> ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)]);
 };
 
 exports.conf = {
