@@ -50,6 +50,7 @@ exports.run = async (bot, msg) => {
   }
   else {
     await bot.plugins.economy.subtract(msg.author.id, 10);
+    const balance = await bot.plugins.economy.get(msg.author.id);
     return await msg.channel.send('Aww, you lost! Better luck next time.\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
   }
 };
