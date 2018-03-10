@@ -19,8 +19,8 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permssion to ban members.');
-  if (!msg.guild.member(bot.user).hasPermission('BAN_MEMBERS')) return msg.reply('I don\'t have permssion to ban members.');
+  if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to ban members.');
+  if (!msg.guild.member(bot.user).hasPermission('BAN_MEMBERS')) return msg.reply('I don\'t have permission to ban members.');
 
   const member = msg.mentions.members.first();
   if (!member) return await msg.reply('Who am I gonna softban?');

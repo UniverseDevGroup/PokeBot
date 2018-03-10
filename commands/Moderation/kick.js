@@ -19,8 +19,8 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You don\'t have permssion to kick members.');
-  if (!msg.guild.member(bot.user).hasPermission('KICK_MEMBERS')) return msg.reply('I don\'t have permssion to kick members.');
+  if (!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You don\'t have permission to kick members.');
+  if (!msg.guild.member(bot.user).hasPermission('KICK_MEMBERS')) return msg.reply('I don\'t have permission to kick members.');
 
   const member = msg.mentions.members.first();
   if (!member) return await msg.reply('Who am I gonna kick?');

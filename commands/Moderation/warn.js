@@ -19,7 +19,7 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to warn.');
+  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permission to warn.');
   args.shift();
   const warnReason = args.join(' ');
   const victim = msg.mentions.members.first();
