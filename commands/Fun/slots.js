@@ -19,23 +19,55 @@
  * *************************************/
 
 exports.run = async (bot, msg) => {
-  const slot1 = [
-    ':one:',
-    ':two:',
-    ':three:',
-    ':four:',
-    ':five:',
-    ':six:',
-    ':seven:',
-    ':eight:',
-    ':nine:',
+  const slotNumbers = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
   ];
 
   const balance = await bot.plugins.economy.get(msg.author.id);
+  if (balance < 10) return await msg.reply('You don\'t have enough credits (10) to play the slots');
 
-  msg.channel.send('If the numbers are sequenced forwards or backwards, you win!\nCurrent Balance: ' + balance + ' \n> ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)] + ' ' + slot1[Math.floor(Math.random() * slot1.length)]);
+  const number1 = slotNumbers[Math.floor(Math.random() * slotNumbers.length)];
+  const number2 = slotNumbers[Math.floor(Math.random() * slotNumbers.length)];
+  const number3 = slotNumbers[Math.floor(Math.random() * slotNumbers.length)];
+
+
+  if (number2 == number1 + 1  && number3 == number2 + 1) {
+    const balance = await bot.plugins.economy.get(msg.author.id);
+    return await msg.channel.send('You won 10 credits!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
+  }
+  else if (number2 == number3 - 1  && 1 == number2 - 1) {
+    await bot.plugins.economy.add(msg.author.id, 15);
+    const balance = await bot.plugins.economy.get(msg.author.id);
+    return await msg.channel.send('You won 15 credits!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
+  }
+  else {
+    return await msg.channel.send('Aww, you lost! Better luck next time.\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
+  }
 };
 
+function emojify(number1, number2, number3) {
+  return emote(number1) + ' ' + emote(number2) + ' ' + emote(number3);
+}
+
+function emote(number) {
+  if (number == 1) return ':one:';
+  if (number == 2) return ':two:';
+  if (number == 3) return ':three:';
+  if (number == 4) return ':four:';
+  if (number == 5) return ':five:';
+  if (number == 6) return ':six:';
+  if (number == 7) return ':seven:';
+  if (number == 8) return ':eight:';
+  if (number == 9) return ':nine:';
+}
 exports.conf = {
   aliases: [],
   guildOnly: true,
