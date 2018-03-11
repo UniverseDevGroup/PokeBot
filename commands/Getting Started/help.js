@@ -24,8 +24,9 @@ exports.run = (bot, msg, args) => {
     const embed = new RichEmbed();
     embed
       .setColor (0x36393e)
-      .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
-      .setFooter('PokeBot Beta');
+      .setTitle('PokeBot Command List')
+      .setDescription('Full help contents can be found at http://www.digitalregion.ml/pokeworld/pokebot/commands/')
+      .setFooter('PokeBot v1.0');
 
     const categories = Array.from(bot.categories.keys());
     categories.forEach(x => {
@@ -46,7 +47,7 @@ exports.run = (bot, msg, args) => {
     embed
       .setColor (0x00ae86)
       .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
-      .setFooter('PokeBot Beta');
+      .setFooter('PokeBot v1.0');
 
     const categories = Array.from(bot.categories.keys());
     categories.forEach(x => {

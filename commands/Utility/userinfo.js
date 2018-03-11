@@ -34,7 +34,7 @@ exports.run = async (bot, msg) => {
       .addField('Account Creation Date', user.user.createdAt)
       .addField('Join Guild Date', user.joinedAt)
       .addField('Names', 'Display Name: ' + user.displayName + `\nUsername: ${user.user.tag}`)
-      .setFooter('PokeBot Beta')
+      .setFooter('PokeBot v1.0')
   );
 };
 

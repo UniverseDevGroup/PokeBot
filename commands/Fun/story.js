@@ -42,7 +42,7 @@ exports.run = async (bot, msg) => {
       .setColor(0x00ae86)
       .setTitle('PokeBot Storytime')
       .setDescription(stories[storySelected])
-      .setFooter('PokeBot Beta');
+      .setFooter('PokeBot v1.0');
     msg.channel.send({ embed });
   });
 };
