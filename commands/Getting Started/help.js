@@ -51,6 +51,7 @@ exports.run = (bot, msg, args) => {
       const commands = bot.categories.get(x);
       commands.forEach(cmd => {
         const command = bot.commands.get(x).get(cmd);
+        msg.channel.send(args[1])
         if (command.help.name == args[1]) {
           const usage = command.help.usage ? `*${command.help.usage}* ` : '*none*';
           embed.addField('Name', command.help.name, true);
