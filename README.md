@@ -1,7 +1,7 @@
 <div align="center">
   <br />
   <p>
-    <a href="https://digitalregion.ml/pokecord/pokebot"><img src="https://cdn.discordapp.com/attachments/417100892936863754/422260982056747008/pokebotbannerlogo.png" width="400" alt="PokeBot" /></a>
+    <a href="https://digitalregion.ml/pokecord/pokebot"><img src="http://digitalregion.ml/pokeworld/pokebot/pokebotbannerlogo.png" width="400" alt="PokeBot" /></a>
   </p>
   <br />
   <p>
