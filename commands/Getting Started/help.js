@@ -35,7 +35,7 @@ exports.run = (bot, msg, args) => {
         const command = bot.commands.get(x).get(cmd);
         cat += `**${command.help.name}**\n`;
       });
-      embed.addField(x, cat);
+      embed.addField(x, cat, true);
     });
     msg.channel.send({ embed });
   }
