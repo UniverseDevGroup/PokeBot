@@ -18,26 +18,50 @@
  *
  * *************************************/
 
-exports.run = (bot, msg) => {
+exports.run = (bot, msg, args) => {
   const { RichEmbed } = require('discord.js');
-  const embed = new RichEmbed();
-  embed
-    .setColor (0x00ae86)
-    .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
-    .setFooter('PokeBot Beta');
+  if (!args[0]) {
+    const embed = new RichEmbed();
+    embed
+      .setColor (0x00ae86)
+      .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
+      .setFooter('PokeBot Beta');
 
-  const categories = Array.from(bot.categories.keys());
-  categories.forEach(x => {
-    let cat = '';
-    const commands = bot.categories.get(x);
-    commands.forEach(cmd => {
-      const command = bot.commands.get(x).get(cmd);
-      const usage = command.help.usage ? `*${command.help.usage}* ` : '';
-      cat += `**p:${command.help.name}** ${usage}| ${command.help.description} \n`;
+    const categories = Array.from(bot.categories.keys());
+    categories.forEach(x => {
+      let cat = '';
+      const commands = bot.categories.get(x);
+      commands.forEach(cmd => {
+        const command = bot.commands.get(x).get(cmd);
+        cat += `**${command.help.name}**\n`;
+      });
+      embed.addField(x, cat);
     });
-    embed.addField(`${x} |`, cat);
-  });
-  msg.channel.send({ embed });
+    msg.channel.send({ embed });
+  }
+  else {
+    const embed = new RichEmbed();
+    embed
+      .setColor (0x00ae86)
+      .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
+      .setFooter('PokeBot Beta');
+
+    const categories = Array.from(bot.categories.keys());
+    categories.forEach(x => {
+      const commands = bot.categories.get(x);
+      commands.forEach(cmd => {
+        const command = bot.commands.get(x).get(cmd);
+        if (command.help.name == args[1]) {
+          const usage = command.help.usage ? `*${command.help.usage}* ` : '*none*';
+          embed.addField('Name', command.help.name, true);
+          embed.addField('Description', command.help.description, true);
+          embed.addField('Usage', usage, true);
+          embed.addField('Aliases', command.conf.aliases, true);
+          msg.channel.send({ embed });
+        }
+      });
+    });
+  }
 };
 
 exports.conf = {
