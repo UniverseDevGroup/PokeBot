@@ -18,10 +18,10 @@
  *
  * *************************************/
 
-module.exports = (bot, member) => {
+module.exports = async (bot, member) => {
   const { RichEmbed } = require('discord.js');
-  bot.channels.find('name', 'welcome').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
-  bot.channels.find('name', 'logs').send(
+  const logChannel = await bot.plugins.settings.getStr('logs', member.guild.id);
+  bot.channels.find('id', logChannel).send(
     new RichEmbed()
       .setColor(0x00ae86)
       .setTitle(`:arrow_left: ${member.user.tag}`)
@@ -32,4 +32,6 @@ module.exports = (bot, member) => {
       .setTimestamp()
       .setFooter(member.user.tag, member.user.avatarURL)
   );
+  if (member.guild.id != '417088992329334792') return;
+  bot.channels.find('name', 'welcome').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
 };

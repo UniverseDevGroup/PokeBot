@@ -18,7 +18,7 @@
  *
  * *************************************/
 
-module.exports = (bot, oldMsg, newMsg) => {
+module.exports = async (bot, oldMsg, newMsg) => {
   const { RichEmbed } = require('discord.js');
   if (oldMsg.content == newMsg.content) return;
   try {
@@ -30,7 +30,8 @@ module.exports = (bot, oldMsg, newMsg) => {
       .addField('New Message', newMsg.content)
       .setTimestamp()
       .setFooter(`Edited message originally created by: ${oldMsg.author.tag}`, oldMsg.author.avatarURL);
-    newMsg.guild.channels.find('name', 'logs').send({ embed });
+    const logChannel = await bot.plugins.settings.getStr('logs', oldMsg.guild.id);
+    newMsg.guild.channels.find('id', logChannel).send({ embed });
   }
   catch (err) {
     console.error(err.stack);

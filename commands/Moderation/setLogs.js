@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   messagesDeleteBulk: Plugin for PokeBot that handles many messages being deleted at once.
+ *   Set Log: Plugin for PokeBot that performs moderation actions.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -18,19 +18,19 @@
  *
  * *************************************/
 
-module.exports = async (bot, msgs) => {
-  const { RichEmbed } = require('discord.js');
-  try {
-    const embed = new RichEmbed()
-      .setColor(0x00ae86)
-      .setTitle(`:wastebasket: ${msgs.size}`)
-      .setDescription(`${msgs.size} messages in *${msgs.first().channel}* were bulk deleted.`)
-      .setTimestamp()
-      .setFooter('Messages purged');
-    const logChannel = await bot.plugins.settings.getStr('logs', msgs.first().guild.id);
-    msgs.first().guild.channels.find('id', logChannel).send({ embed });
-  }
-  catch (err) {
-    console.error(err.stack);
-  }
+exports.run = async (bot, msg, args) => {
+  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permission to manage messages.');
+  bot.plugins.settings.setStr('logs', args[0], msg.guild.id);
+  msg.reply('Alright, I have set the log channel to ' + args[0]);
+};
+
+exports.conf = {
+  aliases: [],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'setLogs',
+  description: 'Set\'s the Log Channel.',
+  usage: '<channelID>',
 };

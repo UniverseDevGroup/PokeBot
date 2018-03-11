@@ -18,9 +18,9 @@
  *
  * *************************************/
 
-module.exports = (bot, msg) => {
+module.exports = async (bot, msg) => {
   const { RichEmbed } = require('discord.js');
-  if(!msg.content) return;
+  if (!msg.content) return;
   try {
     const embed = new RichEmbed()
       .setColor(0x00ae86)
@@ -29,7 +29,8 @@ module.exports = (bot, msg) => {
       .addField('Deleted Message', msg.content)
       .setTimestamp()
       .setFooter(`Deleted message orginally created by: ${msg.author.tag}`, msg.author.avatarURL);
-    msg.guild.channels.find('name', 'logs').send({ embed });
+    const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
+    msg.guild.channels.find('id', logChannel).send({ embed });
   }
   catch (err) {
     console.error(err.stack);

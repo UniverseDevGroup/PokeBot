@@ -7,7 +7,7 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = new Discord.Collection();
 bot.queue = new Discord.Collection();
-bot.plugins = { music : require('./Plugins/Music.js') , economy : require('./Plugins/Economy.js')};
+bot.plugins = { music : require('./Plugins/Music.js') , economy : require('./Plugins/Economy.js'), settings : require('./Plugins/settings.js')};
 cmdLoader();
 
 async function cmdLoader() {

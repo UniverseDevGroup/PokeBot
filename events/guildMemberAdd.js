@@ -18,10 +18,10 @@
  *
  * *************************************/
 
-module.exports = (bot, member) => {
+module.exports = async (bot, member) => {
   const { RichEmbed } = require('discord.js');
-  bot.channels.find('name', 'welcome').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
-  bot.channels.find('name', 'logs').send(
+  const logChannel = await bot.plugins.settings.getStr('logs', member.guild.id);
+  bot.channels.find('id', logChannel).send(
     new RichEmbed()
       .setColor(0x00ae86)
       .setTitle(`:arrow_right: ${member.user.tag}`)
@@ -31,14 +31,8 @@ module.exports = (bot, member) => {
       .setTimestamp()
       .setFooter(member.user.tag, member.user.avatarURL)
   );
+  if (member.guild.id != '417088992329334792') return;
+  bot.channels.find('name', 'welcome').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);
-
-  const DMMember = 'Hello, Alee is still working on this feature...';
-  member.user.send(
-    new RichEmbed()
-      .setColor(0x00ae86)
-      .setTitle('Pokebot')
-      .setDescription(DMMember)
-  );
 };
