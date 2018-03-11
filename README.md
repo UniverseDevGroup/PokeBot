@@ -13,4 +13,4 @@
 </div>
 
 
-Exclusive bot for gym management, moderation, and more on the PokeWorld discord.
+Formerly-exclusive bot for gym management, moderation, and more on the PokeWorld discord.
