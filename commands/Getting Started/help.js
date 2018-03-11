@@ -23,7 +23,7 @@ exports.run = (bot, msg, args) => {
   if (!args[0]) {
     const embed = new RichEmbed();
     embed
-      .setColor (0x00ae86)
+      .setColor (0x2C2F33)
       .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
       .setFooter('PokeBot Beta');
 
