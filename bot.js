@@ -12,7 +12,7 @@ bot.queue = new Discord.Collection();
 bot.plugins = { music : require('./Plugins/Music.js') , economy : require('./Plugins/Economy.js'), settings : require('./Plugins/settings.js')};
 cmdLoader();
 
-client.on('ready', () => {
+bot.on('ready', () => {
   setInterval(() => {
       dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
   }, 1800000);
