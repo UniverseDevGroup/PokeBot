@@ -17,10 +17,9 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * *************************************/
+const commandCooldown = new Set();
 
 exports.run = (bot, msg) => {
-  const commandCooldown = new Set();
-
   if (commandCooldown.has(msg.author.id)) return msg.reply('You have claimed credits too recently')
   
   
