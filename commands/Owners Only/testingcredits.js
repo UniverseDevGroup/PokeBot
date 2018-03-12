@@ -39,7 +39,7 @@ exports.run = async (bot, msg, args) => {
   };
   
   exports.help = {
-    name: 'modifycredits',
+    name: 'testingcredits',
     description: 'Modifies the credits of a user',
     usage: '@user <credits>',
   };
