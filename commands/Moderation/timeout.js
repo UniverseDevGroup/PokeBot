@@ -39,7 +39,7 @@ exports.run = async (bot, msg) => {
       .addField('Moderator', msg.author.tag)
       .setTimestamp()
       .setFooter(`${msg.author.tag} put ${member.user.tag} in time-out.`, msg.author.avatarURL);
-    msg.guild.channels.find('name', 'logs').send({ embed });
+    msg.guild.channels.find('id', logChannel).send({ embed });
   }
   catch (err) {
     console.error(err.stack);

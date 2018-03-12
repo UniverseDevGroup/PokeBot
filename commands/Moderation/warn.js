@@ -40,7 +40,7 @@ exports.run = async (bot, msg, args) => {
   }
 
   const { RichEmbed } = require('discord.js');
-  bot.channels.find('name', 'logs').send(
+  bot.channels.find('id', logChannel).send(
     new RichEmbed()
       .setColor(0x00ae86)
       .setTitle(':warning: Warning')
