@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Modify Credits: Plugin for PokeBot that modifies economy features.
+ *   Testing Credits: Plugin for PokeBot that modifies economy features.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -27,12 +27,10 @@ exports.run = async (bot, msg, args) => {
     } else {
       user = msg.mentions.members.first();
     };
-    
-    var oldbal = bot.plugins.economy.get(user.id)
 
-    bot.plugins.economy.subtract(user.id, oldbal);
+    bot.plugins.economy.add(user.id, 50);
 
-    msg.channel.send(`Reset ${user.tag}'s credits.`);
+    msg.channel.send('Added 50 credits');
   };
   
   exports.conf = {
