@@ -40,6 +40,7 @@ exports.run = async (bot, msg, args) => {
   }
 
   const { RichEmbed } = require('discord.js');
+  const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
   bot.channels.find('id', logChannel).send(
     new RichEmbed()
       .setColor(0x00ae86)

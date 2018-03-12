@@ -42,6 +42,9 @@ exports.play = async (bot, msg, track) => {
       if (bot.queue.get(msg.guild.id)[0]) {
         player.play(bot.queue.get(msg.guild.id).shift());
       }
+      else {
+        bot.player.leave(msg.guild.id);
+      }
     });
   }
   else {

@@ -20,7 +20,7 @@
 
 exports.run = async (bot, msg) => {
   if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
-  
+
   if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to put members in time-out..');
   if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot put anyone in time-out.');
 
@@ -39,6 +39,7 @@ exports.run = async (bot, msg) => {
       .addField('Moderator', msg.author.tag)
       .setTimestamp()
       .setFooter(`${msg.author.tag} put ${member.user.tag} in time-out.`, msg.author.avatarURL);
+    const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
     msg.guild.channels.find('id', logChannel).send({ embed });
   }
   catch (err) {
