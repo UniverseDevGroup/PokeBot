@@ -27,9 +27,9 @@ exports.run = (bot, msg) => {
   bot.plugins.economy.add(msg.author.id, 25);
   msg.reply('Added 25 credits.');
 
-  talkedRecently.add(msg.author.id);
+  commandCooldown.add(msg.author.id);
     setTimeout(() => {
-    talkedRecently.delete(msg.author.id);
+    commandCooldown.delete(msg.author.id);
     }, 3600000);
 };
 
