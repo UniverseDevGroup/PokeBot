@@ -19,8 +19,18 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-  bot.plugins.economy.add(msg.author.id, 10);
-  msg.reply('Added 10 credits.');
+  const commandCooldown = new Set();
+
+  if (commandCooldown.has(msg.author.id)) return msg.reply('You have claimed credits too recently')
+  
+  
+  bot.plugins.economy.add(msg.author.id, 25);
+  msg.reply('Added 25 credits.');
+
+  talkedRecently.add(msg.author.id);
+    setTimeout(() => {
+    talkedRecently.delete(msg.author.id);
+    }, 3600000);
 };
 
 exports.conf = {
