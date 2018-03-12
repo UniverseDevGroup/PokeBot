@@ -41,6 +41,7 @@ exports.run = async (bot, msg, args) => {
       .addField('Moderator', msg.author.tag)
       .setTimestamp()
       .setFooter(`${msg.author.tag} banned ${member.user.tag}`, msg.author.avatarURL);
+    const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
     msg.guild.channels.find('id', logChannel).send({ embed });
   }
   catch (err) {
