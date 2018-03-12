@@ -40,7 +40,7 @@ exports.play = async (bot, msg, track) => {
     player.play(bot.queue.get(msg.guild.id).shift());
     player.on('end', () => {
       if (bot.queue.get(msg.guild.id)[0]) {
-        player.play(bot.queue.get(msg.guild.id).shift());
+        player.play(bot, msg, bot.queue.get(msg.guild.id).shift());
       }
       else {
         player.leave(msg.guild.id);
