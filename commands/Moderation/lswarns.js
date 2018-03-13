@@ -27,7 +27,7 @@ exports.run = async (bot, msg) => {
   const embed = new RichEmbed()
     .setTitle('Warns');
   for (let i = 0; i < warns.count; i++) {
-    embed.addField('Warning #' + i, warns.reasons[i]);
+    embed.addField('Warning #' + i+1, warns.reasons[i]);
   }
   msg.channel.send({ embed });
 };
