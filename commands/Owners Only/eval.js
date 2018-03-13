@@ -18,18 +18,20 @@
  *
  * *************************************/
 
+async function evaluate(code) {
+  const str = `var func = async function() {\n    ${code}\n}.bind(this)\nfunc`;
+
+  const toExecute = eval(str);
+
+  return await toExecute();
+}
 exports.run = async (bot, msg, args) => {
   if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) return msg.reply('Nope! You need the person who created this bot to use this command.');
   const { RichEmbed } = require('discord.js');
   const code = args.join(' ');
 
   try {
-    const str = `var func = async function() {\n    ${code}\n}.bind(this)\nfunc`;
-
-    const toExecute = eval(str);
-
-    const response = await toExecute();
-
+    const response = await evaluate(code);
     const util = require('util');
     const output = typeof response === 'string' || typeof response === 'number' ? response : util.inspect(response, { depth: 3 });
 
