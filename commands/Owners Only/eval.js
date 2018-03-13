@@ -37,7 +37,7 @@ exports.run = async (bot, msg, args) => {
       .setAuthor('Eval Success')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
-      .addField(':outbox_tray: Output:', `\`\`\`js\n${toExecute}\n\`\`\``)
+      .addField(':outbox_tray: Output:', `\`\`\`js\n${toExecute()}\n\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('GREEN');
     return msg.channel.send({ embed });
