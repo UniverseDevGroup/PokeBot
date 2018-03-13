@@ -31,7 +31,9 @@ exports.run = async (bot, msg, args) => {
   const db = require('quick.db');
   const warns = await db.fetch(`warns_${msg.guild.id}_${victim.user.id}`);
   if (warns) {
-    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, { count : warns.count + 1, reasons : warns.reasons.push(warnReason)});
+    const reasons = warns.reasons;
+    reasons.push(warnReason);
+    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, { count : warns.count + 1, reasons : reasons });
   }
   else {
     await db.set(`warns_${msg.guild.id}_${victim.user.id}`, { count : 1, reasons : [warnReason]});
