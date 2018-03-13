@@ -22,10 +22,10 @@ exports.run = async (bot, msg) => {
   if (!['242775871059001344', '247221105515823104', '236279900728721409', '269516487566426112'].includes(msg.author.id)) return msg.reply('Nope! You need the person who created this bot to use this command.');
 
   let user;
-  if (!msg.mentions.members.first()) {
+  if (!msg.mentions.users.first()) {
     user = msg.author;
   } else {
-    user = msg.mentions.members.first();
+    user = msg.mentions.users.first();
   }
 
   var oldbal = bot.plugins.economy.get(user.id);
