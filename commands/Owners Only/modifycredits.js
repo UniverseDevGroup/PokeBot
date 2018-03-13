@@ -19,7 +19,7 @@
  * *************************************/
 
 exports.run = async (bot, msg) => {
-  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) return msg.reply('Nope! You need the person who created this bot to use this command.');
+  if (!['242775871059001344', '247221105515823104', '236279900728721409', '269516487566426112'].includes(msg.author.id)) return msg.reply('Nope! You need the person who created this bot to use this command.');
 
   let user;
   if (!msg.mentions.members.first()) {
