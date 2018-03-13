@@ -35,7 +35,12 @@ exports.run = async (bot, msg, args) => {
       }
     };
 
-    evaled = eval(code);
+
+    const str = `var func = async function() {\n    ${code}\n}.bind(this)\nfunc`;
+
+    const toExecute = eval(str);
+    
+    return await toExecute();
 
     if (typeof evaled !== 'string') {
       evaled = require('util').inspect(evaled);
