@@ -24,7 +24,7 @@ exports.run = async (bot, msg, args) => {
   const code = args.join(' ');
 
   try {
-    const str = `var func = async function() {\n    ${code}\n}.bind(this)`;
+    const str = `var func = async function() {\n    ${code}\n}.bind(this)\nfunc`;
 
     const toExecute = eval(str);
 
@@ -37,7 +37,7 @@ exports.run = async (bot, msg, args) => {
       .setAuthor('Eval Success')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
-      .addField(':outbox_tray: Output:', `\`\`\`js\n${output}\n\`\`\``)
+      .addField(':outbox_tray: Output:', `\`\`\`js\n${toExecute}\n\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('GREEN');
     return msg.channel.send({ embed });
