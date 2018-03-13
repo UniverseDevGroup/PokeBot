@@ -23,49 +23,23 @@ exports.run = async (bot, msg, args) => {
   const { RichEmbed } = require('discord.js');
   const code = args.join(' ');
 
-  let evaled;
-  let remove;
-
   try {
-    remove = text => {
-      if (typeof(text) === 'string') {
-        return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203));
-      } else {
-        return text;
-      }
-    };
-
-
     const str = `var func = async function() {\n    ${code}\n}.bind(this)\nfunc`;
 
     const toExecute = eval(str);
-    
-    return await toExecute();
 
-    if (typeof evaled !== 'string') {
-      evaled = require('util').inspect(evaled);
-    }
+    const response = await toExecute();
 
-  } catch (err) {
-    const embed = new RichEmbed()
-      .setAuthor('Eval Error')
-      .setDescription('Eval\'s result')
-      .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
-      .addField(':outbox_tray: Output:', `\`\`\`${err}\`\`\``)
-      .setFooter('Eval', bot.user.avatarURL)
-      .setColor('RED');
-    return msg.channel.send({ embed });
-  }
+    const util = require('util');
+    const output = typeof response === 'string' || typeof response === 'number' ? response : util.inspect(response, { depth: 3 });
 
-  try {
     const embed = new RichEmbed()
       .setAuthor('Eval Success')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
-      .addField(':outbox_tray: Output:', `\`\`\`js\n${remove(evaled)}\n\`\`\``)
+      .addField(':outbox_tray: Output:', `\`\`\`js\n${output}\n\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('GREEN');
-
     return msg.channel.send({ embed });
   } catch (err) {
     const embed = new RichEmbed()
