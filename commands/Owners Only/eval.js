@@ -24,7 +24,7 @@ exports.run = async (bot, msg, args) => {
   const code = args.join(' ');
 
   try {
-    const str = `var func = async function() {\n    ${code}\n}.bind(this)\nfunc`;
+    const str = `var func = async function() {\n    ${code}\n}.bind(this)`;
 
     const toExecute = eval(str);
 
