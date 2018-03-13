@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const config = require('./config.json');
 const fs = require('fs');
 const DBL = require('dblapi.js');
-const dbl = new DBL('redacted');
+bot.dbl = new DBL(config.dbltoken, bot);
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -11,12 +11,6 @@ bot.categories = new Discord.Collection();
 bot.queue = new Discord.Collection();
 bot.plugins = { music : require('./Plugins/Music.js') , economy : require('./Plugins/Economy.js'), settings : require('./Plugins/settings.js')};
 cmdLoader();
-
-bot.on('ready', () => {
-  setInterval(() => {
-    dbl.postStats(bot.guilds.size, bot.shards.Id, bot.shards.total);
-  }, 1800000);
-});
 
 async function cmdLoader() {
   const categories = await fs.readdirSync('./commands');
