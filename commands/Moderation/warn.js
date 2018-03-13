@@ -29,14 +29,12 @@ exports.run = async (bot, msg, args) => {
   }
   msg.channel.send(`Successfully logged ${victim.user.tag}'s warning.`);
   const db = require('quick.db');
-  const warns = await db.fetch(`warns_${victim.user.id}_count`);
+  const warns = await db.fetch(`warns_${msg.guild.id}_${victim.user.id}`);
   if (warns) {
-    await db.set(`warns_${victim.user.id}_count`, warns + 1);
-    await db.set(`warns_${victim.user.id}_warn_${warns + 1}`, warnReason);
+    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, { count : warns.count + 1, reasons : warns.reasons.push(warnReason)});
   }
   else {
-    await db.set(`warns_${victim.user.id}_count`, 1);
-    await db.set(`warns_${victim.user.id}_warn_1`, warnReason);
+    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, { count : 1, reasons : [warnReason]});
   }
 
   const { RichEmbed } = require('discord.js');
