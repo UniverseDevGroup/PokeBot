@@ -18,30 +18,49 @@
  *
  * *************************************/
 
-async function evaluate(code) {
-  const str = `var func = async function() {\n    ${code}\n}.bind(this)\nfunc`;
-
-  const toExecute = eval(str);
-
-  return await toExecute();
-}
 exports.run = async (bot, msg, args) => {
   if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) return msg.reply('Nope! You need the person who created this bot to use this command.');
   const { RichEmbed } = require('discord.js');
   const code = args.join(' ');
 
-  try {
-    const response = await evaluate(code);
-    const util = require('util');
-    const output = typeof response === 'string' || typeof response === 'number' ? response : util.inspect(response, { depth: 3 });
+  let evaled;
+  let remove;
 
+  try {
+    remove = text => {
+      if (typeof(text) === 'string') {
+        return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203));
+      } else {
+        return text;
+      }
+    };
+
+    evaled = eval(code);
+
+    if (typeof evaled !== 'string') {
+      evaled = require('util').inspect(evaled);
+    }
+
+  } catch (err) {
+    const embed = new RichEmbed()
+      .setAuthor('Eval Error')
+      .setDescription('Eval\'s result')
+      .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
+      .addField(':outbox_tray: Output:', `\`\`\`${err}\`\`\``)
+      .setFooter('Eval', bot.user.avatarURL)
+      .setColor('RED');
+    return msg.channel.send({ embed });
+  }
+
+  try {
     const embed = new RichEmbed()
       .setAuthor('Eval Success')
       .setDescription('Eval\'s result')
       .addField(':inbox_tray: Input:', `\`\`\`js\n${code}\n\`\`\``)
-      .addField(':outbox_tray: Output:', `\`\`\`js\n${response}\n\`\`\``)
+      .addField(':outbox_tray: Output:', `\`\`\`js\n${remove(evaled)}\n\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('GREEN');
+
     return msg.channel.send({ embed });
   } catch (err) {
     const embed = new RichEmbed()
