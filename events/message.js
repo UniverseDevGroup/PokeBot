@@ -39,7 +39,7 @@ module.exports = (bot, msg) => {
 function parseCommand(bot, msg) {
   let category;
 
-  const prefix = 'p,';
+  const prefix = 'p:';
   if (msg.author.bot) return;
 
   if (!msg.content.startsWith(prefix)) return;
