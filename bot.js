@@ -12,6 +12,9 @@ bot.queue = new Discord.Collection();
 bot.plugins = { music : require('./Plugins/Music.js') , economy : require('./Plugins/Economy.js'), settings : require('./Plugins/settings.js')};
 cmdLoader();
 
+const Raven = require('raven');
+Raven.config(config.sentry).install();
+
 async function cmdLoader() {
   const categories = await fs.readdirSync('./commands');
   console.log(`Loading ${categories.length} categories(s) into memory\n`);
