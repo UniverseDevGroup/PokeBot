@@ -40,6 +40,7 @@ exports.run = async (bot, msg) => {
     if (msg.guild.members.find('id', owner).roles.find('name', team)) return msg.reply('Don\'t try battling your own team. They won\'t like you.');
     msg.channel.send('<@' + owner + '>, come here as ' + msg.member.displayName + ' wants to battle you.');
     bot.on('message', async mess => {
+      if (mess.channel != msg.channel) return;
       let field = mess.embeds[0];
       if (!field) return;
       field = field.description;

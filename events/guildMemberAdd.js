@@ -39,9 +39,9 @@ module.exports = async (bot, member) => {
   {
     console.error(err.stack);
   }
-  //bot.channels.find('name', 'welcome').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
-  //const role = member.guild.roles.find('name', 'Trainers');
-  //member.addRole(role);
+  bot.channels.find('name', 'welcome').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
+  const role = member.guild.roles.find('name', 'Trainers');
+  member.addRole(role);
 };
 
 async function draw(bot, member) {
