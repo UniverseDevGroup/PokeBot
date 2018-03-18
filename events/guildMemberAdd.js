@@ -32,19 +32,19 @@ module.exports = async (bot, member) => {
       .setFooter(member.user.tag, member.user.avatarURL)
   );
   if (member.guild.id != '417088992329334792') return;
-  try {
-    draw(bot, member);
-  }
-  catch (err)
-  {
-    console.error(err.stack);
-  }
-  //bot.channels.find('name', 'welcome').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
-  //const role = member.guild.roles.find('name', 'Trainers');
-  //member.addRole(role);
+  //try {
+    //draw(bot, member);
+  //}
+  //catch (err)
+  //{
+    //console.error(err.stack);
+  //}
+  bot.channels.find('name', 'welcome').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
+  const role = member.guild.roles.find('name', 'Trainers');
+  member.addRole(role);
 };
 
-async function draw(bot, member) {
+/* async function draw(bot, member) {
   const Canvas = require('canvas');
   const request = require('request-promise');
   Canvas.registerFont('./assets/Ketchum.otf', {
@@ -92,4 +92,4 @@ async function draw(bot, member) {
     }
     ]
   });
-}
+} */
