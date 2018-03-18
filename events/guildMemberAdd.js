@@ -44,52 +44,54 @@ module.exports = async (bot, member) => {
   member.addRole(role);
 };
 
-/* async function draw(bot, member) {
-  const Canvas = require('canvas');
-  const request = require('request-promise');
-  Canvas.registerFont('./assets/Ketchum.otf', {
-    family: 'Ketchum'
-  });
-  const canvas = Canvas.createCanvas(1500, 500);
-  const ctx = canvas.getContext('2d');
-  const Image = Canvas.Image;
-  const base = new Image();
-  const avatar = new Image();
-  const fs = require('fs');
-
-  avatar.src = await request({
-    uri: member.user.avatarURL,
-    encoding: null
-  });
-  base.src = await fs.readFileSync('./assets/Pokemon_Server_Template.png');
-  ctx.drawImage(base, 0, 0, 1500, 500);
-
-  //tag
-  ctx.font = '96px Ketchum';
-  ctx.fillStyle = '#e5da2a';
-  ctx.strokeStyle = '#3b4cca';
-  ctx.fillText(member.user.tag, 500, 200);
-  ctx.strokeText(member.user.tag, 500, 200);
-
-
-  //guild name
-  ctx.font = '55px Ketchum';
-  ctx.fillStyle = '#fff';
-  ctx.fillText(member.guild.name, 820, 310);
-
-  //avatar
-  ctx.globalAlpha = 1;
-  ctx.beginPath();
-  ctx.arc(208, 267, 166, 0, 2 * Math.PI, true);
-  ctx.closePath();
-  ctx.clip();
-  ctx.drawImage(avatar, 43, 101, 329, 331);
-
-  return bot.channels.find('name', 'welcome').send({
-    files: [{
-      attachment: canvas.toBuffer(),
-      name: 'profile.png'
-    }
-    ]
-  });
-} */
+/** ****************************************************************************** 
+* async function draw(bot, member) {
+*  const Canvas = require('canvas');
+*  const request = require('request-promise');
+*  Canvas.registerFont('./assets/Ketchum.otf', {
+*    family: 'Ketchum'
+*  });
+*  const canvas = Canvas.createCanvas(1500, 500);
+*  const ctx = canvas.getContext('2d');
+*  const Image = Canvas.Image;
+*  const base = new Image();
+*  const avatar = new Image();
+*  const fs = require('fs');
+*
+*  avatar.src = await request({
+*    uri: member.user.avatarURL,
+*    encoding: null
+*  });
+*  base.src = await fs.readFileSync('./assets/Pokemon_Server_Template.png');
+*  ctx.drawImage(base, 0, 0, 1500, 500);
+*
+*  //tag
+*  ctx.font = '96px Ketchum';
+*  ctx.fillStyle = '#e5da2a';
+*  ctx.strokeStyle = '#3b4cca';
+*  ctx.fillText(member.user.tag, 500, 200);
+*  ctx.strokeText(member.user.tag, 500, 200);
+*
+*
+*  //guild name
+*  ctx.font = '55px Ketchum';
+*  ctx.fillStyle = '#fff';
+*  ctx.fillText(member.guild.name, 820, 310);
+*
+*  //avatar
+*  ctx.globalAlpha = 1;
+*  ctx.beginPath();
+*  ctx.arc(208, 267, 166, 0, 2 * Math.PI, true);
+*  ctx.closePath();
+*  ctx.clip();
+*  ctx.drawImage(avatar, 43, 101, 329, 331);
+*
+*  return bot.channels.find('name', 'welcome').send({
+*    files: [{
+*      attachment: canvas.toBuffer(),
+*      name: 'profile.png'
+*    }
+*   ]
+*  });
+* } 
+******************************************************************************* */
