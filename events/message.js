@@ -72,6 +72,7 @@ function parseCommand(bot, msg) {
     }
     catch (e) {
       console.error(e.stack);
+      bot.Raven.captureException(e);
       msg.channel.send('There was an error trying to process your command. Don\'t worry because this issue is being looked into');
     }
   }

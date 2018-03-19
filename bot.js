@@ -12,8 +12,8 @@ bot.queue = new Discord.Collection();
 bot.plugins = { music : require('./Plugins/Music.js') , economy : require('./Plugins/Economy.js'), settings : require('./Plugins/settings.js')};
 cmdLoader();
 
-const Raven = require('raven');
-Raven.config(config.sentry).install();
+bot.Raven = require('raven');
+bot.Raven.config(config.sentry).install();
 
 async function cmdLoader() {
   const categories = await fs.readdirSync('./commands');
@@ -53,6 +53,7 @@ async function loadCmd(category, cmd) {
   catch (err) {
     console.log(`An error has occured trying to load the command '${cmd.split('.')[0]}'`);
     console.log(err.stack);
+    bot.Raven.captureException(err);
   }
 }
 
@@ -71,6 +72,7 @@ fs.readdir('./events', (err, files) => {
     catch (err) {
       console.log('An error has occured trying to load a event. Here is the error.');
       console.log(err.stack);
+      bot.Raven.captureException(err);
     }
   });
   console.log('Event Loading complete!');
