@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Test: Plugin for PokeBot that helps us test new features
+ *   GuildMemberRemove: Plugin for PokeBot that waves bye to a user who leaves.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,32 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg) => {
+module.exports = async (bot, member) => {
+  const { RichEmbed } = require('discord.js');
+  const logChannel = await bot.plugins.settings.getStr('logs', member.guild.id);
+  bot.channels.find('id', logChannel).send(
+    new RichEmbed()
+      .setColor(0x00ae86)
+      .setTitle(`:arrow_left: ${member.user.tag}`)
+      .setDescription(`*${member.user.tag}* left this server.`)
+      .addField('ID', member.id, true)
+      .addField('Created Account', member.user.createdAt, true)
+      .addField('Joined At', member.joinedAt, true)
+      .setTimestamp()
+      .setFooter(member.user.tag, member.user.avatarURL)
+  );
+  try {
+    draw(bot, member);
+  }
+  catch (err)
+  {
+    bot.Raven.captureException(err);
+  }
+  if (member.guild.id != '417088992329334792') return;
+  bot.channels.get('417100669980508160').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
+};
+
+async function draw(bot, member) {
   const Canvas = require('canvas');
   const request = require('request-promise');
   Canvas.registerFont('./assets/Ketchum.otf', {
@@ -32,7 +57,7 @@ exports.run = async (bot, msg) => {
   const fs = require('fs');
 
   avatar.src = await request({
-    uri: msg.author.avatarURL,
+    uri: member.user.avatarURL,
     encoding: null
   });
   base.src = await fs.readFileSync('./assets/Pokemon_Leave_Template.png');
@@ -42,16 +67,16 @@ exports.run = async (bot, msg) => {
   ctx.fillStyle = '#e5da2a';
   ctx.strokeStyle = '#3b4cca';
   ctx.lineWidth = 5;
-  ctx.fillText(msg.author.tag, 475, 175);
-  ctx.strokeText(msg.author.tag, 475, 175);
+  ctx.fillText(member.user.tag, 475, 175);
+  ctx.strokeText(member.user.tag, 475, 175);
 
   ctx.font = '55px Ketchum';
   ctx.fillStyle = '#fff';
-  ctx.fillText(msg.guild.name, 915, 435);
+  ctx.fillText(member.guild.name, 915, 435);
 
   ctx.font = '40px Ketchum';
   ctx.fillStyle = '#fff';
-  ctx.fillText(msg.guild.memberCount + ' members', 100, 70);
+  ctx.fillText(member.guild.memberCount + ' members', 100, 70);
 
   ctx.globalAlpha = 1;
   ctx.beginPath();
@@ -59,21 +84,11 @@ exports.run = async (bot, msg) => {
   ctx.closePath();
   ctx.clip();
   ctx.drawImage(avatar, 43, 101, 329, 331);
-  return msg.channel.send({
+  return bot.channels.get('417100669980508160').send({
     files: [{
       attachment: canvas.toBuffer(),
       name: 'leaveCard.png'
     }
     ]
   });
-};
-
-exports.conf = {
-  aliases: [],
-  guildOnly: true,
-};
-
-exports.help = {
-  name: 'test2',
-  description: 'Introduces you to the PokeWorld server!',
-};
+}
