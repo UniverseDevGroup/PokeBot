@@ -33,5 +33,5 @@ module.exports = async (bot, member) => {
       .setFooter(member.user.tag, member.user.avatarURL)
   );
   if (member.guild.id != '417088992329334792') return;
-  bot.channels.find('name', 'welcome').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
+  bot.channels.get('417100669980508160').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
 };
