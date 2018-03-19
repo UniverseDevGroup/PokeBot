@@ -87,6 +87,7 @@ const nodes = [
 
 process.on('unhandledRejection', (err) => {
   console.error(err.stack);
+  bot.Raven.captureException(err);
 });
 
 bot.login(config.token).then(() => {
