@@ -32,6 +32,7 @@ module.exports = async (bot, member) => {
       .setTimestamp()
       .setFooter(member.user.tag, member.user.avatarURL)
   );
+  if (member.guild.id != '417088992329334792') return;
   try {
     draw(bot, member);
   }
@@ -39,7 +40,6 @@ module.exports = async (bot, member) => {
   {
     bot.Raven.captureException(err);
   }
-  if (member.guild.id != '417088992329334792') return;
   bot.channels.get('417100669980508160').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
 };
 
