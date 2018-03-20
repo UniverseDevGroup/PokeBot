@@ -26,7 +26,7 @@ exports.run = (bot, msg, args) => {
     .setColor('#000');
 
   const str = args.join(' ');
-  if (str.length > 100) return msg.reply('The limit is 100 for how many characters you can input');
+  if (str.length > 50) return msg.reply('The limit is 50 for how many characters you can input');
   const array = str.split('');
 
   let decimal = '';
