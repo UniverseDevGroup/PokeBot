@@ -27,7 +27,7 @@ exports.run = async (bot, msg) => {
       msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** First two people to type egg gets to battle! *Someone needs to battle for it though...*');
     }
     else {
-      const gym = msg.guild.channels.filter(channel => channel.type == 'category').find('id', '417149626433404940').children.random().name;
+      const gym = msg.guild.channels.find('id', '417149626433404940').children.random().name;
       msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** *Someone needs to battle for it though...* Go to ' + gym + 'to get it. In 5 minutes, the person holding the gym gets the egg!');
     }
   }
