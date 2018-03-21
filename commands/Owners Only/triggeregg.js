@@ -18,22 +18,27 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg, args) => {
-    if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) {
-      msg.reply('Nope! You need the person who created this bot to use this command.');
+exports.run = async (bot, msg) => {
+  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(msg.author.id)) {
+    msg.reply('Nope! You need the person who created this bot to use this command.');
+  }
+  else {
+    if (Math.random() > 0.5) {
+      msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** First two people to type egg gets to battle! *Someone needs to battle for it though...*');
     }
     else {
-        msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** *Someone needs to battle for it though...*');
+      const gym = msg.guild.channels.filter(channel => channel.type == 'category').find('id', '417149626433404940').children.random().name;
+      msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** *Someone needs to battle for it though...* Go to ' + gym + 'to get it. In 5 minutes, the person holding the gym gets the egg!');
     }
-  };
-  
-  exports.conf = {
-    aliases: [],
-    guildOnly: true,
-  };
-  
-  exports.help = {
-    name: 'triggeregg',
-    description: 'Sends an egg out for players to collect',
-  };
-  
+  }
+};
+
+exports.conf = {
+  aliases: [],
+  guildOnly: true,
+};
+
+exports.help = {
+  name: 'triggeregg',
+  description: 'Sends an egg out for players to collect',
+};
