@@ -24,10 +24,12 @@ exports.run = async (bot, msg) => {
   }
   else {
     if (Math.random() > 0.5) {
-      msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** First two people to type egg gets to battle! *Someone needs to battle for it though...*');
+      msg.channel.send(':egg: **Egg with regular battle sequence sent!**');
+      msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** First two people to type egg gets to battle!');
     }
     else {
       const gym = msg.guild.channels.find('id', '417138941880434699').children.random();
+      msg.channel.send(':egg: **Egg sent with gym battle sequence cent!**');
       msg.guild.channels.find('name', 'pokeegghunt').send(':egg: **An egg is available!** *Someone needs to battle for it though...* Go to <#' + gym.id + '> to get it. In 5 minutes, the person holding the gym gets the egg!');
     }
   }
