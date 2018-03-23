@@ -39,6 +39,7 @@ module.exports = async (bot, member) => {
   {
     bot.Raven.captureException(err);
   }
+  bot.channels.get('426548985172459533').setName('User Count: ' + member.guild.memberCount);
   bot.channels.get('417100669980508160').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);

@@ -40,6 +40,7 @@ module.exports = async (bot, member) => {
   {
     bot.Raven.captureException(err);
   }
+  bot.channels.get('426548985172459533').setName('User Count: ' + member.guild.memberCount);
   bot.channels.get('417100669980508160').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
 };
 
