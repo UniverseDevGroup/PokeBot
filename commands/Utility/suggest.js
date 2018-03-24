@@ -21,7 +21,8 @@
 exports.run = (bot, msg, args) => {
   if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
   const { RichEmbed } = require('discord.js');
-  bot.channels.find('name', 'suggestions').send(
+  const suggestionChannel = await bot.plugins.settings.getStr('suggestions', member.guild.id);
+  bot.channels.find('id', suggestionChannel).send(
     new RichEmbed()
       .setColor (0x00ae86)
       .setTitle('Suggestion')
