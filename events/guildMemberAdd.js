@@ -44,6 +44,7 @@ module.exports = async (bot, member) => {
   bot.channels.get('426829685289123850').setName('Member Count: ' + (member.guild.memberCount - botCount));
   bot.channels.get('426829838238613504').setName('Bot Count: ' + botCount);
   bot.channels.get('417100669980508160').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
+  bot.channels.get('417088992329334794').send('Welcome to the server <@' + member.id + '>. Be sure to join a team: `p:join <aqua, magma, rocket>`');
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);
 };
