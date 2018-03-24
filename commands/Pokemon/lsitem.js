@@ -23,13 +23,19 @@ exports.run = async (bot, msg, args) => {
 
   const { RichEmbed } = require('discord.js');
   const data = args.join(' ').split('|');
+  const msgs = await msg.channel.fetchMessages({ limit: 10 });
+  const mess = msgs.first();
+  if (!mess.embeds) return;
+  const id = parseInt(mess.author.name.split(':')[0]);
   msg.guild.channels.get('426906377001107477').send(
     new RichEmbed()
       .setTitle('A new pokemon is up for sale!')
+      .setAuthor('ID: ' + id)
       .addField('Starting Price', data[1], true)
       .addField('Pokemon', data[0], true)
       .addField('Other', data[2], true)
-      .addField('Seller:', `<@${msg.author.id}>`));
+      .addField('Seller', `<@${msg.author.id}>`, true)
+      .addField('How to bid', 'DM the seller for the pokemon giving them the id, ' + id));
 };
 
 exports.conf = {
