@@ -44,7 +44,7 @@ exports.run = async (bot, msg) => {
     const balance = await bot.plugins.economy.get(msg.author.id);
     return await msg.channel.send('You won 1000 credits!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
   }
-  else if (number2 == number3 - 1  && 1 == number2 - 1) {
+  else if (number2 == number3 - 1 && number1 == number2 - 1) {
     await bot.plugins.economy.add(msg.author.id, 1500);
     const balance = await bot.plugins.economy.get(msg.author.id);
     return await msg.channel.send('You won 1500 credits!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
