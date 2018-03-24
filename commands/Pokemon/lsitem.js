@@ -26,7 +26,7 @@ exports.run = async (bot, msg, args) => {
   const msgs = await msg.channel.fetchMessages({ limit: 10 });
   const mess = msgs.first();
   if (!mess.embeds) return;
-  const id = parseInt(mess.author.name.split(':')[0]);
+  const id = parseInt(mess.embeds[0].author.name.split(':')[0]);
   msg.guild.channels.get('426906377001107477').send(
     new RichEmbed()
       .setTitle('A new pokemon is up for sale!')
