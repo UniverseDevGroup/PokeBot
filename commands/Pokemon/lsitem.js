@@ -18,24 +18,18 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg) => {
+exports.run = async (bot, msg, args) => {
   if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
 
-  if (msg.member.roles.find('name', 'Aqua')) {
-    msg.member.removeRole(msg.guild.roles.find('name', 'Aqua'));
-    msg.reply('Alright, you are not longer in team Aqua.');
-  }
-  else if (msg.member.roles.find('name', 'Rocket')) {
-    msg.member.removeRole(msg.guild.roles.find('name', 'Rocket'));
-    msg.reply('Alright, you are not longer in team Rocket.');
-  }
-  else if (msg.member.roles.find('name', 'Magma')) {
-    msg.member.removeRole(msg.guild.roles.find('name', 'Magma'));
-    msg.reply('Alright, you are not longer in team Magma.');
-  }
-  else {
-    msg.reply('You are not in a team.');
-  }
+  const { RichEmbed } = require('discord.js');
+  const data = args.join(' ').split('|');
+  msg.guild.channels.get('426906377001107477').send(
+    new RichEmbed()
+      .setTitle('A new pokemon is up for sale!')
+      .addField('Starting Price', data[1], true)
+      .addField('Pokemon', data[0], true)
+      .addField('Other', data[2], true)
+      .addField('Seller:', `<@${msg.author.id}>`));
 };
 
 exports.conf = {
@@ -45,6 +39,6 @@ exports.conf = {
 
 exports.help = {
   name: 'lsitem',
-  description: 'Leave the team you currently are in.',
+  description: 'List an item to the marketplace.',
   usage: '<pokemon>|<credits>|<other>',
 };
