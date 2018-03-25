@@ -41,8 +41,6 @@ exports.run = (bot, msg, args) => {
     msg.channel.send({ embed });
   }
   else {
-
-    msg.channel.send(args[1])
     const embed = new RichEmbed();
     embed
       .setColor (0x00ae86)
