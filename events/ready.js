@@ -27,6 +27,7 @@ module.exports = (bot) => {
       'Finding pokemon',
       'Type p:help for help',
       'Fighting AstralMod',
+      'Arrays start at 1',
     ];
 
     bot.user.setPresence({
