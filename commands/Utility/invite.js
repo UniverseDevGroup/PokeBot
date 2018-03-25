@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Ready: Plugin for PokeBot that setups up pokebot for production.
+ *   Invite: Plugin for PokeBot that provides gives the user information about the bot.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -18,25 +18,17 @@
  *
  * *************************************/
 
-module.exports = (bot) => {
-  console.log('PokeBot has finished loading.');
-  bot.setInterval(function() {
-    const games = [
-      'Pokemon',
-      'Catching things',
-      'Finding pokemon',
-      'Type p:help for help',
-      'Fighting AstralMod',
-      'Arrays start at 1',
-    ];
-
-    bot.user.setPresence({
-      status: 'online',
-      afk: false,
-      game: {
-        type: 0,
-        name: games[Math.floor(Math.random() * games.length)],
-      },
-    });
-  }, 200000);
-};
+exports.run = (bot, msg) => {
+    msg.channel.send('You can invite me by visiting https://discordbots.org/bot/417096530596724737.');
+  };
+  
+  exports.conf = {
+    aliases: [],
+    guildOnly: true,
+  };
+  
+  exports.help = {
+    name: 'invite',
+    description: 'Gives the user a link to invite the bot.',
+  };
+  
