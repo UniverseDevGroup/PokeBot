@@ -23,6 +23,7 @@ exports.run = async (bot, msg, args) => {
 
   msg.member.setNickname(args.join(' '), 'Requested by bot');
   msg.channel.send('Changed nickname to: ' + args.join(' '));
+  const logChannel = await bot.plugins.settings.getStr('logs', msg.member.guild.id);
   bot.channels.find('id', logChannel).send(
     new RichEmbed()
       .setColor(0x00ae86)
