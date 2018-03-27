@@ -30,8 +30,10 @@ exports.resolveTrack = async (term, sc) => {
 
 exports.play = async (bot, msg, track) => {
   const player = await bot.player.join({
-    guild_id: msg.guild.id,
-    channel_id: msg.member.voiceChannelID,
+    d: {
+      guild_id: msg.guild.id,
+      channel_id: msg.member.voiceChannelID,
+    },
     host: 'localhost',
   });
   if (!bot.queue.has(msg.guild.id)) {
