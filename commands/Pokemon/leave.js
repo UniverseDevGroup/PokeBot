@@ -21,17 +21,13 @@
 exports.run = async (bot, msg) => {
   if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
 
-  if (msg.member.roles.find('name', 'Aqua')) {
-    msg.member.removeRole(msg.guild.roles.find('name', 'Aqua'));
-    msg.reply('Alright, you are not longer in team Aqua.');
+  if (msg.member.roles.find('name', 'Skull')) {
+    msg.member.removeRole(msg.guild.roles.find('name', 'Skull'));
+    msg.reply('Alright, you are not longer in team Skull.');
   }
-  else if (msg.member.roles.find('name', 'Rocket')) {
-    msg.member.removeRole(msg.guild.roles.find('name', 'Rocket'));
-    msg.reply('Alright, you are not longer in team Rocket.');
-  }
-  else if (msg.member.roles.find('name', 'Magma')) {
-    msg.member.removeRole(msg.guild.roles.find('name', 'Magma'));
-    msg.reply('Alright, you are not longer in team Magma.');
+  else if (msg.member.roles.find('name', 'Flare')) {
+    msg.member.removeRole(msg.guild.roles.find('name', 'Flare'));
+    msg.reply('Alright, you are not longer in team Flare.');
   }
   else {
     msg.reply('You are not in a team.');

@@ -23,18 +23,16 @@ exports.run = async (bot, msg) => {
 
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   let team;
-  if (msg.member.roles.find('name', 'Aqua')) team = 'Aqua';
-  if (msg.member.roles.find('name', 'Rocket')) team = 'Rocket';
-  if (msg.member.roles.find('name', 'Magma')) team = 'Magma';
+  if (msg.member.roles.find('name', 'Skull')) team = 'Skull';
+  if (msg.member.roles.find('name', 'Flare')) team = 'Flare';
   if (msg.channel.topic == 'Current Owner: ' + msg.author.id + '/' + msg.author.tag + '/' + team) {
     if (!msg.mentions.members.first()) return msg.reply('Sorry, you have to ping the recipient of the gym!');
     const recipient = msg.mentions.members.first();
 
     msg.reply('Trading gym to ' + recipient);
     let recipientTeam;
-    if (recipient.roles.find('name', 'Aqua')) recipientTeam = 'Aqua';
-    if (recipient.roles.find('name', 'Rocket')) recipientTeam = 'Rocket';
-    if (recipient.roles.find('name', 'Magma')) recipientTeam = 'Magma';
+    if (recipient.roles.find('name', 'Skull')) recipientTeam = 'Skull';
+    if (recipient.roles.find('name', 'Flare')) recipientTeam = 'Flare';
     msg.channel.setTopic('Current Owner: ' + recipient.id + '/' + recipient.user.tag + '/' + recipientTeam);
   }
   else {

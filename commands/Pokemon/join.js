@@ -26,23 +26,18 @@ exports.run = async (bot, msg, args) => {
   const team = findTeam(msg, args[0]);
   switch (args[0])
   {
-    case 'aqua': {
-      msg.member.addRole(msg.guild.roles.find('name', 'Aqua'));
-      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Aqua.`);
+    case 'skull': {
+      msg.member.addRole(msg.guild.roles.find('name', 'Skull'));
+      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Skull.`);
       break;
     }
-    case 'rocket' : {
-      msg.member.addRole(msg.guild.roles.find('name', 'Rocket'));
-      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Rocket.`);
-      break;
-    }
-    case 'magma' : {
-      msg.member.addRole(msg.guild.roles.find('name', 'Magma'));
-      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Magma.`);
+    case 'flare' : {
+      msg.member.addRole(msg.guild.roles.find('name', 'Flare'));
+      msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Flare.`);
       break;
     }
     default : {
-      msg.reply('You have to pick, aqua, rocket, or magma.');
+      msg.reply('You have to pick skull, or flare.');
       break;
     }
   }
@@ -52,20 +47,15 @@ function findTeam(msg, team) {
 
   let oldTeam;
 
-  if (msg.member.roles.find('name', 'Aqua')) {
+  if (msg.member.roles.find('name', 'Skull')) {
     if (team == 'aqua') return;
-    msg.member.removeRole(msg.guild.roles.find('name', 'Aqua'));
+    msg.member.removeRole(msg.guild.roles.find('name', 'Skull'));
     oldTeam = 'Aqua';
   }
-  else if (msg.member.roles.find('name', 'Rocket')) {
+  else if (msg.member.roles.find('name', 'Flare')) {
     if (team == 'rocket') return;
-    msg.member.removeRole(msg.guild.roles.find('name', 'Rocket'));
+    msg.member.removeRole(msg.guild.roles.find('name', 'Flare'));
     oldTeam = 'Rocket';
-  }
-  else if (msg.member.roles.find('name', 'Magma')) {
-    if (team == 'magma') return;
-    msg.member.removeRole(msg.guild.roles.find('name', 'Magma'));
-    oldTeam = 'Magma';
   }
   return oldTeam;
 }

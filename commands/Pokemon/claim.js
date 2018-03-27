@@ -23,18 +23,16 @@ exports.run = async (bot, msg) => {
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   if (msg.channel.topic == 'Current Owner: *none*') {
     let team;
-    if (msg.member.roles.find('name', 'Aqua')) team = 'Aqua';
-    if (msg.member.roles.find('name', 'Rocket')) team = 'Rocket';
-    if (msg.member.roles.find('name', 'Magma')) team = 'Magma';
+    if (msg.member.roles.find('name', 'Skull')) team = 'Skull';
+    if (msg.member.roles.find('name', 'Flare')) team = 'Flare';
     if (!team) return msg.reply('You have to join a team before you can claim a gym.');
     msg.reply('Alright, you have claimed this gym as yours! Be ready to battle anyone who approaches you');
     msg.channel.setTopic('Current Owner: ' + msg.author.id + '/' + msg.author.tag + '/' + team);
   }
   else {
     let team;
-    if (msg.member.roles.find('name', 'Aqua')) team = 'Aqua';
-    if (msg.member.roles.find('name', 'Rocket')) team = 'Rocket';
-    if (msg.member.roles.find('name', 'Magma')) team = 'Magma';
+    if (msg.member.roles.find('name', 'Skull')) team = 'Skull';
+    if (msg.member.roles.find('name', 'Flare')) team = 'Flare';
     if (!team) return msg.reply('You have to join a team before you can claim a gym.');
     const owner = msg.channel.topic.slice(15).substring(0, 18);
     if (msg.guild.members.find('id', owner).roles.find('name', team)) return msg.reply('Don\'t try battling your own team. They won\'t like you.');
@@ -57,7 +55,7 @@ exports.run = async (bot, msg) => {
             bot.removeListener('message', func);
           }
           if (user.id == msg.author.id) {
-            await msg.channel.send('The owner has been defeated! Transfaring gym!');
+            await msg.channel.send('The owner has been defeated! Transferring gym!');
             bot.cooldown.push(msg.channel.id);
             let lastProcessedHour = -1;
             setInterval(function() {
@@ -71,9 +69,8 @@ exports.run = async (bot, msg) => {
               }
             }, 1000);
             let recipientTeam;
-            if (msg.member.roles.find('name', 'Aqua')) recipientTeam = 'Aqua';
-            if (msg.member.roles.find('name', 'Rocket')) recipientTeam = 'Rocket';
-            if (msg.member.roles.find('name', 'Magma')) recipientTeam = 'Magma';
+            if (msg.member.roles.find('name', 'Skull')) recipientTeam = 'Skull';
+            if (msg.member.roles.find('name', 'Flare')) recipientTeam = 'Flare';
             await msg.channel.setTopic('Current Owner: ' + msg.member.id + '/' + msg.author.tag + '/' + recipientTeam);
             bot.gyms.set(msg.channel.id, null);
             bot.removeListener('message', func);
