@@ -52,6 +52,7 @@ exports.run = async (bot, msg) => {
         if (user != undefined) {
           if (user.id == owner) {
             await msg.channel.send('The owner has not been defeated!');
+            bot.gyms.set(msg.channel.id, null);
             bot.removeListener('message', func);
           }
           if (user.id == msg.author.id) {
