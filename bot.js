@@ -14,6 +14,7 @@ cmdLoader();
 
 bot.Raven = require('raven');
 bot.Raven.config(config.sentry).install();
+bot.gyms = new Discord.Collection();
 
 async function cmdLoader() {
   const categories = await fs.readdirSync('./commands');

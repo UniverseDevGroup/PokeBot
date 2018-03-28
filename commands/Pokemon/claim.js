@@ -36,6 +36,7 @@ exports.run = async (bot, msg) => {
     if (!team) return msg.reply('You have to join a team before you can claim a gym.');
     const owner = msg.channel.topic.slice(15).substring(0, 18);
     if (msg.guild.members.find('id', owner).roles.find('name', team)) return msg.reply('Don\'t try battling your own team. They won\'t like you.');
+    if (bot.gyms.get(msg.channel.id) != null) return msg.reply('Nope, someone is already battling the gym.');
     msg.channel.send('<@' + owner + '>, come here as ' + msg.member.displayName + ' wants to battle you.');
     const func = async mess => {
       if (mess.channel != msg.channel) return;
@@ -54,16 +55,18 @@ exports.run = async (bot, msg) => {
             bot.removeListener('message', func);
           }
           if (user.id == msg.author.id) {
-            await msg.channel.send('The owner has been defeated! Transfaring gym!');
+            await msg.channel.send('The owner has been defeated! Transferring gym!');
             let recipientTeam;
             if (msg.member.roles.find('name', 'Skull')) recipientTeam = 'Skull';
             if (msg.member.roles.find('name', 'Flare')) recipientTeam = 'Flare';
             await msg.channel.setTopic('Current Owner: ' + msg.member.id + '/' + msg.author.tag + '/' + recipientTeam);
+            bot.gyms.set(msg.channel.id, null);
             bot.removeListener('message', func);
           }
         }
       }
     };
+    bot.gyms.set(msg.channel.id, func);
     bot.on('message', func);
   }
 };
