@@ -48,14 +48,14 @@ function findTeam(msg, team) {
   let oldTeam;
 
   if (msg.member.roles.find('name', 'Skull')) {
-    if (team == 'aqua') return;
+    if (team == 'skull') return;
     msg.member.removeRole(msg.guild.roles.find('name', 'Skull'));
-    oldTeam = 'Aqua';
+    oldTeam = 'Skull';
   }
   else if (msg.member.roles.find('name', 'Flare')) {
-    if (team == 'rocket') return;
+    if (team == 'flare') return;
     msg.member.removeRole(msg.guild.roles.find('name', 'Flare'));
-    oldTeam = 'Rocket';
+    oldTeam = 'Flare';
   }
   return oldTeam;
 }
