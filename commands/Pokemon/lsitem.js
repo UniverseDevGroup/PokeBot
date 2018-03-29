@@ -23,7 +23,7 @@ exports.run = async (bot, msg, args) => {
 
   const { RichEmbed } = require('discord.js');
   const data = args.join(' ').split('|');
-  const msgs = await msg.channel.fetchMessages({ limit: 10 });
+  const msgs = await bot.channels.find('id', '428738848420397057').fetchMessages({ limit: 10 });
   const mess = msgs.first();
   if (!mess.embeds) return;
   const id = parseInt(mess.embeds[0].author.name.split(':')[0]);
