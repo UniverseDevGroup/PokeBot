@@ -31,12 +31,12 @@ exports.run = async (bot, msg, args) => {
   bot.channels.find('id', '428738848420397057').send(
     new RichEmbed()
       .setTitle('A new pokemon is up for sale!')
-      .setAuthor('ID: ' + id)
+      .setAuthor('ID: ' + id + 1)
       .addField('Starting Price', data[1], true)
       .addField('Pokemon', data[0], true)
       .addField('Other', data[2], true)
       .addField('Seller', `<@${msg.author.id}>`, true)
-      .addField('How to bid', 'DM the seller for the pokemon giving them the id, ' + id)
+      .addField('How to bid', 'DM the seller for the pokemon giving them the id, ' + id + 1)
   );
 };
 
