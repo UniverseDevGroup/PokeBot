@@ -26,7 +26,7 @@ exports.run = async (bot, msg, args) => {
   const msgs = await bot.channels.find('id', '428738848420397057').fetchMessages({ limit: 10 });
   const mess = msgs.first();
   if (!mess.embeds) return;
-  const id = parseInt(mess.embeds[0].author.name.split(':')[0]);
+  const id = parseInt(mess.embeds[0].author.name.split(':')[1]);
 
   bot.channels.find('id', '428738848420397057').send(
     new RichEmbed()
