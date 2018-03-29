@@ -27,7 +27,8 @@ exports.run = async (bot, msg, args) => {
   const mess = msgs.first();
   if (!mess.embeds) return;
   const id = parseInt(mess.embeds[0].author.name.split(':')[0]);
-  msg.guild.channels.get('id', '426906377001107477').send(
+
+  bot.channels.find('id', suggestionChannel).send(
     new RichEmbed()
       .setTitle('A new pokemon is up for sale!')
       .setAuthor('ID: ' + id)
@@ -35,7 +36,8 @@ exports.run = async (bot, msg, args) => {
       .addField('Pokemon', data[0], true)
       .addField('Other', data[2], true)
       .addField('Seller', `<@${msg.author.id}>`, true)
-      .addField('How to bid', 'DM the seller for the pokemon giving them the id, ' + id));
+      .addField('How to bid', 'DM the seller for the pokemon giving them the id, ' + id)
+  );
 };
 
 exports.conf = {
