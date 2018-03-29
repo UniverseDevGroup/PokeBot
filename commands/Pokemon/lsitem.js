@@ -28,7 +28,7 @@ exports.run = async (bot, msg, args) => {
   if (!mess.embeds) return;
   const id = parseInt(mess.embeds[0].author.name.split(':')[0]);
 
-  bot.channels.find('id', suggestionChannel).send(
+  bot.channels.find('id', '428738848420397057').send(
     new RichEmbed()
       .setTitle('A new pokemon is up for sale!')
       .setAuthor('ID: ' + id)
