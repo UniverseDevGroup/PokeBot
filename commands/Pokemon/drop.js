@@ -19,8 +19,8 @@
  * *************************************/
 
 exports.run = async (bot, msg) => {
-  const isWhitelist = await bot.plugins.isWhitelist(msg.guild.id);
-  if (isWhitelist) return msg.reply ('This is a Whiltelisted command. Get your server whitelisted by joining our server at https://discord.me/thedigitalregion and asking in the general channel. Sorry!');
+  const isWhitelist = await bot.plugins.whitelist.isWhitelist(msg.guild.id);
+  if (!isWhitelist) return msg.reply ('This is a Whiltelisted command. Get your server whitelisted by joining our server at https://discord.me/thedigitalregion and asking in the general channel. Sorry!');
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   if (msg.channel.topic == 'Current Owner: *none*') {
     msg.reply('There is no owner for this gym. Claim it now with p:claim!');

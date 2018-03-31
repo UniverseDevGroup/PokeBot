@@ -19,8 +19,8 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  const isWhitelist = await bot.plugins.isWhitelist(msg.guild.id);
-  if (isWhitelist) return msg.reply ('This is a Whiltelisted command. Get your server whitelisted by joining our server at https://discord.me/thedigitalregion and asking in the general channel. Sorry!');
+  const isWhitelist = await bot.plugins.whitelist.isWhitelist(msg.guild.id);
+  if (!isWhitelist) return msg.reply ('This is a Whiltelisted command. Get your server whitelisted by joining our server at https://discord.me/thedigitalregion and asking in the general channel. Sorry!');
 
   if (args.length < 1) return msg.reply('Please choose a team to join');
 
