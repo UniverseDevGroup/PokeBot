@@ -28,4 +28,4 @@ If you would like to suggest a feature, or report a bug, please be sure to check
 
 ## Code Contribution
 
-If you would like to add some code to PokeBot, please submit a **pull request**. These are very easy to do, and if you do not know how to do one, it is an easy Google search.
+If you would like to add some code to PokeBot, please submit a **pull request**. These are very easy to do, and if you do not know how to do one, it is an easy Google search. For our custom criteria, see **CONTRIBUTING.md** in the root of this repository.
