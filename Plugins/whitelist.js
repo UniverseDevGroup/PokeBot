@@ -27,7 +27,7 @@ exports.unwhitelist = async (guildID) => {
   await db.set(`whitelist_${guildID}`, false);
 };
 
-exports.checkWhitelist = async (guildID) => {
+exports.isWhitelist = async (guildID) => {
   const value = await db.fetch(`whitelist_${guildID}`);
   if (value) {
     return value;
