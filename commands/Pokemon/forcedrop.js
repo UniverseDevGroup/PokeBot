@@ -19,8 +19,9 @@
  * *************************************/
 
 exports.run = async (bot, msg) => {
-  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
-  
+  const isWhitelist = await bot.plugins.isWhitelist(msg.guild.id);
+  if (isWhitelist) return msg.reply ('This is a Whiltelisted command. Get your server whitelisted by joining our server at https://discord.me/thedigitalregion and asking in the general channel. Sorry!');
+
   if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permssion to ban members.');
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   if (msg.channel.topic == 'Current Owner: *none*') {

@@ -19,7 +19,8 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
+  const isWhitelist = await bot.plugins.isWhitelist(msg.guild.id);
+  if (isWhitelist) return msg.reply ('This is a Whiltelisted command. Get your server whitelisted by joining our server at https://discord.me/thedigitalregion and asking in the general channel. Sorry!');
 
   if (args.length < 1) return msg.reply('Please choose a team to join');
 
