@@ -165,7 +165,7 @@ of authorship subject to the following conditions: (i) You may not indicate in
 any way that your Modified License is the "Open Software License" or "OSL" and
 you may not use those names in the name of your Modified License; (ii) You
 must replace the notice specified in the first paragraph above with the notice
-"Licensed under <insert your license name here>" or with a notice of your own
+"Licensed under Universe" or with a notice of your own
 that is not confusingly similar to the notice in this License; and (iii) You
 may not claim that your original works are open source software unless your
 Modified License has been approved by Open Source Initiative (OSI) and You
