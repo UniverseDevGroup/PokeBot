@@ -24,8 +24,8 @@ This is PokeBot! PokeBot is a utility bot with fun and music functionality! For 
 
 ## Issue Reporting and Feature Suggestions
 
-If you would like to suggest a feature, or report a bug, please be sure to checkout our GitHub page! This will allow you to submit issues, and assign them to developers of the project.
+If you would like to suggest a feature, or report a bug, please be sure to checkout the Issue page here on Github! This will allow you to submit issues, and assign them to developers of the project.
 
 ## Code Contribution
 
-If you would like to add some code to PokeBot, please also visit the GitHub repository and submit a **pull request**. These are very easy to do, and if you do not know how to do one, it is an easy Google search.
+If you would like to add some code to PokeBot, please submit a **pull request**. These are very easy to do, and if you do not know how to do one, it is an easy Google search. For our custom criteria, see **CONTRIBUTING.md** in the root of this repository.
