@@ -14,7 +14,7 @@ exports.run = (bot, msg, args) => {
     embed
       .setColor (0x36393e)
       .setTitle('PokeBot Command List')
-      .setDescription('Full help contents can be found at http://www.digitalregion.ml/pokeworld/pokebot/commands/')
+      .setDescription('Full help contents can be found at http://universedevgroup.net/pokeworld/pokebot/commands/')
       .setFooter('PokeBot v1.0');
 
     const categories = Array.from(bot.categories.keys());
