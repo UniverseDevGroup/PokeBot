@@ -58,5 +58,5 @@ exports.conf = {
 exports.help = {
   name: 'join',
   description: 'Join one of the teams!',
-  usage: '<aqua/rocket/magma>',
+  usage: '<flare/skull>',
 };
