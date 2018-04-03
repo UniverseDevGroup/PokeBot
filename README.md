@@ -1,7 +1,7 @@
 <div align="center">
   <br />
   <p>
-    <a href="http://universedevgroup.net/pokeworld/pokebot/"><img src="http://digitalregion.ml/pokeworld/pokebot/pokebotbannerlogo.png" width="400" alt="PokeBot" /></a>
+    <a href="http://universedevgroup.net/pokeworld/pokebot/"><img src="http://universedevgroup.net/pokeworld/pokebot/pokebotbannerlogo.png" width="400" alt="PokeBot" /></a>
   </p>
   <br />
   <p>
