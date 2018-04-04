@@ -8,7 +8,7 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-  msg.channel.send('Want to help the bot? Here you go: https://github.com/PokeWorld/PokeBot.');
+  msg.channel.send('Want to help the bot? Here you go: https://github.com/UniverseDevGroup/PokeBot.');
 };
 
 exports.conf = {

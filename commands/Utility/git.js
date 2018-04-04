@@ -8,7 +8,7 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-  msg.channel.send('The GitHub page for PokeBot can be found here: https://github.com/PokeWorld/PokeBot');
+  msg.channel.send('The GitHub page for PokeBot can be found here: https://github.com/UniverseDevGroup/PokeBot.');
 };
 
 exports.conf = {
