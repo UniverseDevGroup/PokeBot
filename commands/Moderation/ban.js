@@ -12,12 +12,16 @@ exports.run = async (bot, msg, args) => {
   if (!msg.guild.member(bot.user).hasPermission('BAN_MEMBERS')) return msg.reply('I don\'t have permission to ban members.');
 
   const member = msg.mentions.members.first();
-  if (!member) return await msg.reply('Who am I gonna ban?');
+  if (!member) return await msg.reply('Who am I gonna ban? (Remember to @mention them)');
   const reason = args.join(' ').slice(3 + member.user.id.length);
 
   await member.ban({ days: 7, reason: msg.author.tag + (reason ? ': ' + reason : '') })
-    .catch(err => { msg.reply('There was an error.'); console.error(err.stack);});
-  msg.channel.send(`Alright, I banned **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
+    .catch(err => {
+      msg.reply('There was an error.'); return console.error(err.stack);
+    })
+    .then(() => {
+      msg.channel.send(`Alright, I banned **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
+    });
 
   const { RichEmbed } = require('discord.js');
   try {

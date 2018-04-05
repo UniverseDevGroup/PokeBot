@@ -12,7 +12,7 @@ exports.run = async (bot, msg, args) => {
   if (!msg.guild.member(bot.user).hasPermission('KICK_MEMBERS')) return msg.reply('I don\'t have permission to kick members.');
 
   const member = msg.mentions.members.first();
-  if (!member) return await msg.reply('Who am I gonna kick?');
+  if (!member) return await msg.reply('Who am I gonna kick? (Remember to @mention them)');
   const reason = args.join(' ').slice(3 + member.user.id.length);
 
   await member.kick(msg.author.tag + ': ' + (reason ? ': ' + reason : ''))

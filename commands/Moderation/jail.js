@@ -14,7 +14,7 @@ exports.run = async (bot, msg) => {
   if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot put anyone in jail.');
 
   const member = msg.mentions.members.first();
-  if (!member) return await msg.reply('Who do I put in jail?');
+  if (!member) return await msg.reply('Who do I put in jail? (Remember to @mention them)');
 
   member.addRole(msg.guild.roles.find('name', 'Jail'));
 

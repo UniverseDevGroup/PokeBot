@@ -17,7 +17,7 @@ exports.run = async (bot, msg) => {
     user = msg.mentions.users.first();
   }
 
-  var oldbal = bot.plugins.economy.get(user.id);
+  const oldbal = bot.plugins.economy.get(user.id);
 
   bot.plugins.economy.subtract(user.id, oldbal);
 

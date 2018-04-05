@@ -16,9 +16,19 @@ exports.run = async (bot, msg, args) => {
   const reason = args.join(' ').slice(3 + member.user.id.length);
 
   await member.ban({ days: 7, reason: msg.author.tag + ': ' + (reason ? reason : '') })
-    .catch(err => { msg.reply('There was an error.'); console.error(err.stack);});
-  await msg.guild.unban(member.user.id).catch(msg.reply('There was an error.'));
-  msg.channel.send(`Alright, I softbanned **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
+    .catch(err => {
+      msg.reply('There was an error.');
+      return console.error(err.stack);
+    })
+    .then(() => {
+      msg.channel.send(`Alright, I softbanned **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
+    });
+  await msg.guild.unban(member.user.id)
+    .catch(err => {
+      msg.reply('There was an error.');
+      return console.error(err.stack);
+    });
+
   const { RichEmbed } = require('discord.js');
   try {
     const embed = new RichEmbed()

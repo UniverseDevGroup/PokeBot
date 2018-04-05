@@ -14,7 +14,7 @@ exports.run = async (bot, msg) => {
   if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot interrogate anyone.');
 
   const member = msg.mentions.members.first();
-  if (!member) return await msg.reply('Who do I interrogate?');
+  if (!member) return await msg.reply('Who shall I interrogate? (Remember to @mention them)');
 
   member.addRole(msg.guild.roles.find('name', 'Interrogation'));
 
