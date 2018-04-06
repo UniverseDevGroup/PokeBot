@@ -23,7 +23,7 @@ exports.run = async (bot, msg) => {
   const team = bot.plugins.gyms.getTeam(msg.member);
   if (!team) return msg.reply('You have to join a team before you can claim a gym.');
 
-  const owner = bot.plguins.gyms.getOwnerId(msg.channel.topic);
+  const owner = bot.plugins.gyms.getOwnerId(msg.channel.topic);
   if (msg.guild.members.find('id', owner).roles.find('name', team)) return msg.reply('Don\'t try battling your own team. They won\'t like you.');
 
   if (bot.gyms.get(msg.channel.id) != null) return msg.reply('Nope, someone is already battling the gym.');
