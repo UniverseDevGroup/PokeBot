@@ -9,7 +9,11 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.categories = new Discord.Collection();
 bot.queue = new Discord.Collection();
-bot.plugins = { music : require('./plugins/music.js') , economy : require('./plugins/Economy.js'), settings : require('./plugins/settings.js'), whitelist: require('./plugins/whitelist.js')};
+bot.plugins = { music : require('./plugins/music.js') ,
+  economy : require('./plugins/Economy.js'),
+  settings : require('./plugins/settings.js'),
+  whitelist: require('./plugins/whitelist.js'),
+  gyms : require('./plugins/gyms.js')};
 cmdLoader();
 
 bot.Raven = require('raven');
