@@ -30,5 +30,5 @@ exports.getGymString = (bot, member) => {
 };
 
 exports.isOwned = (title) => {
-  return title != 'Current Owner: *none*';
+  return title == 'Current Owner: *none*';
 };
