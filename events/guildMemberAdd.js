@@ -3,18 +3,7 @@
  *   GuildMemberAdd: Plugin for PokeBot that setups up and welcomes any new user.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *   Licensed under the Open Software License version 3.0
  *
  * *************************************/
 
@@ -44,7 +33,7 @@ module.exports = async (bot, member) => {
   bot.channels.get('426829685289123850').setName('Member Count: ' + (member.guild.memberCount - botCount));
   bot.channels.get('426829838238613504').setName('Bot Count: ' + botCount);
   bot.channels.get('417100669980508160').send(`Welcome to the server **${member.user.tag}**! Make sure to read the rules! We now have ${member.guild.memberCount} members.`);
-  bot.channels.get('417088992329334794').send('Welcome to the server <@' + member.id + '>. Be sure to join a team: `p:join <skull, flare>`');
+  bot.channels.get('417088992329334794').send('Welcome to the server <@' + member.id + '>. Be sure to join a team: `p:join <flare, skull>`. Also, make sure to read our introduction: `p:start`.');
   const role = member.guild.roles.find('name', 'Trainers');
   member.addRole(role);
 };

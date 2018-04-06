@@ -3,23 +3,13 @@
  *   Join: Plugin for PokeBot that powers the PokeWorld team system.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *   Licensed under the Open Software License version 3.0
  *
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
+  const isWhitelist = await bot.plugins.whitelist.isWhitelist(msg.guild.id);
+  if (!isWhitelist) return msg.reply ('This is a Whiltelisted command. Only whitelisted servers can use this command. Sorry!');
 
   if (args.length < 1) return msg.reply('Please choose a team to join');
 
@@ -68,5 +58,5 @@ exports.conf = {
 exports.help = {
   name: 'join',
   description: 'Join one of the teams!',
-  usage: '<aqua/rocket/magma>',
+  usage: '<flare/skull>',
 };

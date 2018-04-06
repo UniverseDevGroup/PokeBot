@@ -3,18 +3,7 @@
  *   Ban: Plugin for PokeBot that performs moderation actions.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
- *   This program is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License as published by
- *   the Free Software Foundation, either version 3 of the License, or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *   Licensed under the Open Software License version 3.0
  *
  * *************************************/
 
@@ -23,12 +12,16 @@ exports.run = async (bot, msg, args) => {
   if (!msg.guild.member(bot.user).hasPermission('BAN_MEMBERS')) return msg.reply('I don\'t have permission to ban members.');
 
   const member = msg.mentions.members.first();
-  if (!member) return await msg.reply('Who am I gonna ban?');
+  if (!member) return await msg.reply('Who am I gonna ban? (Remember to @mention them)');
   const reason = args.join(' ').slice(3 + member.user.id.length);
 
   await member.ban({ days: 7, reason: msg.author.tag + (reason ? ': ' + reason : '') })
-    .catch(err => { msg.reply('There was an error.'); console.error(err.stack);});
-  msg.channel.send(`Alright, I banned **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
+    .catch(err => {
+      msg.reply('There was an error.'); return console.error(err.stack);
+    })
+    .then(() => {
+      msg.channel.send(`Alright, I banned **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
+    });
 
   const { RichEmbed } = require('discord.js');
   try {
