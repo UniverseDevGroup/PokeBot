@@ -46,8 +46,7 @@ exports.run = async (bot, msg) => {
     }
     else if (user.id == msg.author.id) {
       await msg.channel.send('The owner has been defeated! Transferring gym!');
-      bot.gyms.getTeam(mess.member);
-      await msg.channel.setTopic(bot.plugins.gyms.getGymString(bot, mess.member));
+      await msg.channel.setTopic(bot.plugins.gyms.getGymString(bot, msg.member));
     }
     else { return; }
     bot.gyms.set(msg.channel.id, null);
