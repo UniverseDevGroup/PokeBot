@@ -13,7 +13,7 @@ exports.run = async (bot, msg) => {
 
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
 
-  if (bot.plugins.isOwned(msg.channel.topic)) {
+  if (bot.plugins.gyms.isOwned(msg.channel.topic)) {
     const team = bot.plugins.gyms.getTeam(msg.member);
     if (!team) return msg.reply('You have to join a team before you can claim a gym.');
     msg.reply('Alright, you have claimed this gym as yours! Be ready to battle anyone who approaches you');
