@@ -13,17 +13,16 @@ exports.run = async (bot, msg, args) => {
   msg.member.setNickname(args.join(' '), 'Requested by bot');
   msg.channel.send('Changed nickname to: ' + args.join(' '));
   const logChannel = await bot.plugins.settings.getStr('logs', msg.member.guild.id);
-  setTimeout(() => {
-    bot.channels.find('id', logChannel).send(
-      new RichEmbed()
-        .setColor(0x00ae86)
-        .setTitle(`Nickname: ${msg.author.tag}`)
-        .setDescription(`*${msg.author.tag}* changed their nickname`)
-        .addField('New Nickname', msg.member.displayName, true)
-        .setTimestamp()
-        .setFooter('PokeBot v1.0')
-    );
-  }, 3000);
+
+  bot.channels.find('id', logChannel).send(
+    new RichEmbed()
+      .setColor(0x00ae86)
+      .setTitle(`Nickname: ${msg.author.tag}`)
+      .setDescription(`*${msg.author.tag}* changed their nickname`)
+      .addField('New Nickname', msg.member.displayName, true)
+      .setTimestamp()
+      .setFooter('PokeBot v1.0')
+  );
 
 };
 
