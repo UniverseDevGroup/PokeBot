@@ -26,12 +26,12 @@ exports.run = (bot, msg) => {
   ]
 
   if (bot.dbl.hasVoted(msg.author.id)) {
-    var creditsEarned = (Math.random() * Math.floor(650));
+    var creditsEarned = Math.floor(Math.random() * 650);
     bot.plugins.economy.add(msg.author.id, creditsEarned);
     msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' credits.');
   }
   else {
-    var creditsEarned = (Math.random() * Math.floor(250));
+    var creditsEarned = Math.floor(Math.random() * 250);
     bot.plugins.economy.add(msg.author.id, creditsEarned);
     msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' credits.');
   }
