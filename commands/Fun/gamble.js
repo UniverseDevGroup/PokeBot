@@ -66,6 +66,6 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'slots',
+  name: 'gamble',
   description: 'Develop a gambling addiction by playing Slots!',
 };
