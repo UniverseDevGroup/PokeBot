@@ -28,12 +28,12 @@ exports.run = (bot, msg) => {
   if (bot.dbl.hasVoted(msg.author.id)) {
     var creditsEarned = (Math.random() * Math.floor(650));
     bot.plugins.economy.add(msg.author.id, creditsEarned);
-    msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length())] + '\n\nYou earned ' + creditsEarned.toString() + 'credits.');
+    msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + 'credits.');
   }
   else {
     var creditsEarned = (Math.random() * Math.floor(250));
     bot.plugins.economy.add(msg.author.id, creditsEarned);
-    msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length())] + '\n\nYou earned ' + creditsEarned.toString() + 'credits.');
+    msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + 'credits.');
   }
   cooldown.add(msg.author.id);
   setTimeout(() => {
