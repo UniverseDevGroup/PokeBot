@@ -136,11 +136,11 @@ rl.on('line', function(cmd){
           }
           break;
       case "exit":
-        console.log('[i] AleeBot will now exit!')
+        console.log('[i] PokeBot will now exit!')
         process.exit(0);
           break;
       case "help":
-          var msg = (`AleeBot `+ settings.abVersion +` Console Help\n\n`);
+          var msg = (`PokeBot Console Help\n\n`);
           msg += (`guilds - Shows all guilds that AleeBot's on.\n`)
           msg += (`leave - Leaves a guild.\n`)
           msg += (`broadcast - Broadcasts a message to a server.\n`)
