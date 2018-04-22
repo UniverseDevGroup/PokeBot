@@ -153,6 +153,7 @@ rl.on('line', function(cmd){
       case "help":
           var msg = (`PokeBot Console Help\n\n`);
           msg += (`guilds - Shows all guilds that PokeBot's on.\n`)
+          msg += (`channels - Shows all the channels that the guilds have.\n`)
           msg += (`leave - Leaves a guild.\n`)
           msg += (`broadcast - Broadcasts a message to a server.\n`)
           msg += (`help - Shows this command.\n`)
