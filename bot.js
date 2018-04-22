@@ -2,8 +2,15 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const config = require('./config.json');
 const fs = require('fs');
+const readline = require('readline');
 const DBL = require('dblapi.js');
 bot.dbl = new DBL(config.dbltoken, bot);
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: '> '
+});
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -89,6 +96,63 @@ const { PlayerManager } = require('discord.js-lavalink');
 const nodes = [
   { 'host': 'localhost', 'port': 6547, 'region': 'us', 'shard': 1, 'password': 'iamaverysecurepassword' },
 ];
+
+rl.on('line', function(cmd){
+  var args = cmd.split(" ");
+  switch(args[0]) {
+      case "guilds":
+          if (client.guilds.size === 0) {
+              console.log(('[!] No guilds found.'));
+          } else {
+              console.log('[i] Here\'s the servers that AleeBot is connected to:')
+              for ([id, guild] of client.guilds) {
+                  console.log(`   Guild Name: ${guild.name} - ID: ${guild.id}`);
+              }
+          }
+          break;
+      case "leave":
+          if (!args[1]) {
+              console.log('[!] Please insert the guild\'s ID.');
+          } else {
+              var guild = client.guilds.get(args[1]);
+              guild.leave();
+          }
+          break;
+      case "broadcast":
+          if (!args[1]) {
+              console.log('[!] Please insert the guild\'s ID.');
+          } else {
+              let broadcast = args.join(" ").slice(48);
+              var guild = null;
+              guild = client.guilds.get(args[1]);
+              var channel = null;
+              channel = guild.channels.get(args[2])
+              if (channel != null) {
+                channel.send(broadcast);
+              }
+              if (channel = null) {
+                console.log ('Usage: broadcast [guildID] [channelID]')
+              }
+          }
+          break;
+      case "exit":
+        console.log('[i] AleeBot will now exit!')
+        process.exit(0);
+          break;
+      case "help":
+          var msg = (`AleeBot `+ settings.abVersion +` Console Help\n\n`);
+          msg += (`guilds - Shows all guilds that AleeBot's on.\n`)
+          msg += (`leave - Leaves a guild.\n`)
+          msg += (`broadcast - Broadcasts a message to a server.\n`)
+          msg += (`help - Shows this command.\n`)
+          msg += (`exit - Exits AleeBot.\n`)
+          console.log(msg);
+          break;
+      default:
+     console.log('Unknown Command type \'help\' to list the commands...')
+  }
+  rl.prompt();
+});
 
 process.on('unhandledRejection', (err) => {
   console.error(err.stack);
