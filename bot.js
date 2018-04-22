@@ -141,11 +141,11 @@ rl.on('line', function(cmd){
           break;
       case "help":
           var msg = (`PokeBot Console Help\n\n`);
-          msg += (`guilds - Shows all guilds that AleeBot's on.\n`)
+          msg += (`guilds - Shows all guilds that PokeBot's on.\n`)
           msg += (`leave - Leaves a guild.\n`)
           msg += (`broadcast - Broadcasts a message to a server.\n`)
           msg += (`help - Shows this command.\n`)
-          msg += (`exit - Exits AleeBot.\n`)
+          msg += (`exit - Exits PokeBot.\n`)
           console.log(msg);
           break;
       default:
