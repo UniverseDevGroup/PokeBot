@@ -110,6 +110,17 @@ rl.on('line', function(cmd){
               }
           }
           break;
+      case "channels":
+          if (!args[1]) {
+            console.log('[!] Please insert the guild\'s ID.')
+          } else {
+            var guild = client.guilds.get(args[1]);
+            console.log('[i] Here\'s the channels that this guild have:')
+            for ([id, channel, guild] of guild && client.channels) {
+                console.log(`   Channel: #${channel.name} - ID: ${channel.id}`);
+            }
+          }
+        break;
       case "leave":
           if (!args[1]) {
               console.log('[!] Please insert the guild\'s ID.');
