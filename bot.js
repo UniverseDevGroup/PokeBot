@@ -161,4 +161,5 @@ process.on('unhandledRejection', (err) => {
 
 bot.login(config.token).then(() => {
   bot.player = new PlayerManager(bot, nodes, { user: bot.user.id, shards: 1, password: 'iamaverysecurepassword' });
+  rl.prompt();
 });
