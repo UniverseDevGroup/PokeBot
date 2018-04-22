@@ -101,11 +101,11 @@ rl.on('line', function(cmd){
   var args = cmd.split(" ");
   switch(args[0]) {
       case "guilds":
-          if (client.guilds.size === 0) {
+          if (bot.guilds.size === 0) {
               console.log(('[!] No guilds found.'));
           } else {
               console.log('[i] Here\'s the servers that AleeBot is connected to:')
-              for ([id, guild] of client.guilds) {
+              for ([id, guild] of bot.guilds) {
                   console.log(`   Guild Name: ${guild.name} - ID: ${guild.id}`);
               }
           }
@@ -114,7 +114,7 @@ rl.on('line', function(cmd){
           if (!args[1]) {
               console.log('[!] Please insert the guild\'s ID.');
           } else {
-              var guild = client.guilds.get(args[1]);
+              var guild = bot.guilds.get(args[1]);
               guild.leave();
           }
           break;
@@ -124,7 +124,7 @@ rl.on('line', function(cmd){
           } else {
               let broadcast = args.join(" ").slice(48);
               var guild = null;
-              guild = client.guilds.get(args[1]);
+              guild = bot.guilds.get(args[1]);
               var channel = null;
               channel = guild.channels.get(args[2])
               if (channel != null) {
