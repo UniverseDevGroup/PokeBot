@@ -93,74 +93,74 @@ fs.readdir('./events', (err, files) => {
 
 
 
-rl.on('line', function(cmd){
-  var args = cmd.split(" ");
-  switch(args[0]) {
-      case "guilds":
-          if (bot.guilds.size === 0) {
-              console.log(('[!] No guilds found.'));
-          } else {
-              console.log('[i] Here\'s the servers that AleeBot is connected to:')
-              for ([id, guild] of bot.guilds) {
-                  console.log(`   Guild Name: ${guild.name} - ID: ${guild.id}`);
-              }
-          }
-          break;
-      case "channels":
-          if (!args[1]) {
-            console.log('[!] Please insert the guild\'s ID.')
-          } else {
-            var guild = client.guilds.get(args[1]);
-            console.log('[i] Here\'s the channels that this guild have:')
-            for ([id, channel, guild] of guild && client.channels) {
-                console.log(`   Channel: #${channel.name} - ID: ${channel.id}`);
-            }
-          }
-        break;
-      case "leave":
-          if (!args[1]) {
-              console.log('[!] Please insert the guild\'s ID.');
-          } else {
-              var guild = bot.guilds.get(args[1]);
-              guild.leave();
-          }
-          break;
-      case "broadcast":
-          if (!args[1]) {
-              console.log('[!] Please insert the guild\'s ID.');
-          } else {
-              let broadcast = args.join(" ").slice(48);
-              var guild = null;
-              guild = bot.guilds.get(args[1]);
-              var channel = null;
-              channel = guild.channels.get(args[2])
-              if (channel != null) {
-                channel.send(broadcast);
-              }
-              if (channel = null) {
-                console.log ('Usage: broadcast [guildID] [channelID]')
-              }
-          }
-          break;
-      case "exit":
-        console.log('[i] PokeBot will now exit!')
-        process.exit(0);
-          break;
-      case "help":
-          var msg = (`PokeBot Console Help\n\n`);
-          msg += (`guilds - Shows all guilds that PokeBot's on.\n`)
-          msg += (`channels - Shows all the channels that the guilds have.\n`)
-          msg += (`leave - Leaves a guild.\n`)
-          msg += (`broadcast - Broadcasts a message to a server.\n`)
-          msg += (`help - Shows this command.\n`)
-          msg += (`exit - Exits PokeBot.\n`)
-          console.log(msg);
-          break;
-      default:
-     console.log('Unknown Command type \'help\' to list the commands...')
+/*rl.on('line', function(cmd) {
+  const args = cmd.split(' ');
+  switch (args[0]) {
+    case 'guilds':
+      if (bot.guilds.size === 0) {
+        console.log(('[!] No guilds found.'));
+      } else {
+        console.log('[i] Here\'s the servers that PokeBot is connected to:');
+        for (const [id, guild] of bot.guilds) {
+          console.log(`   Guild Name: ${guild.name} - ID: ${guild.id}`);
+        }
+      }
+      break;
+    case 'channels':
+      if (!args[1]) {
+        console.log('[!] Please insert the guild\'s ID.');
+      } else {
+        var guild = bot.guilds.get(args[1]);
+        console.log('[i] Here\'s the channels that this guild have:');
+        for ([id, channel, guild] of guild && client.channels) {
+          console.log(`   Channel: #${channel.name} - ID: ${channel.id}`);
+        }
+      }
+      break;
+    case 'leave':
+      if (!args[1]) {
+        console.log('[!] Please insert the guild\'s ID.');
+      } else {
+        var guild = bot.guilds.get(args[1]);
+        guild.leave();
+      }
+      break;
+    case 'broadcast':
+      if (!args[1]) {
+        console.log('[!] Please insert the guild\'s ID.');
+      } else {
+        const broadcast = args.join(' ').slice(48);
+        var guild = null;
+        guild = bot.guilds.get(args[1]);
+        var channel = null;
+        channel = guild.channels.get(args[2]);
+        if (channel != null) {
+          channel.send(broadcast);
+        }
+        if (channel = null) {
+          console.log ('Usage: broadcast [guildID] [channelID]');
+        }
+      }
+      break;
+    case 'exit':
+      console.log('[i] PokeBot will now exit!');
+      process.exit(0);
+      break;
+    case 'help':
+      var msg = ('PokeBot Console Help\n\n');
+      msg += ('guilds - Shows all guilds that PokeBot\'s on.\n');
+      msg += ('channels - Shows all the channels that the guilds have.\n');
+      msg += ('leave - Leaves a guild.\n');
+      msg += ('broadcast - Broadcasts a message to a server.\n');
+      msg += ('help - Shows this command.\n');
+      msg += ('exit - Exits PokeBot.\n');
+      console.log(msg);
+      break;
+    default:
+      console.log('Unknown Command type \'help\' to list the commands...');
   }
   rl.prompt();
-});
+});*/
 
 process.on('unhandledRejection', (err) => {
   console.error(err.stack);
