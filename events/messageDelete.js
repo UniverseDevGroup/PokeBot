@@ -19,7 +19,10 @@ module.exports = async (bot, msg) => {
       .setTimestamp()
       .setFooter(`Deleted message orginally created by: ${msg.author.tag}`, msg.author.avatarURL);
     const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
-    msg.guild.channels.find('id', logChannel).send({ embed });
+    if (!logChannel) return;
+    const channelObj = bot.channels.find('id', logChannel);
+    if (!channelObj) return;
+    channelObj.send({ embed });
   }
   catch (err) {
     console.error(err.stack);

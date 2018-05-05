@@ -17,7 +17,10 @@ module.exports = async (bot, msgs) => {
       .setTimestamp()
       .setFooter('Messages purged');
     const logChannel = await bot.plugins.settings.getStr('logs', msgs.first().guild.id);
-    msgs.first().guild.channels.find('id', logChannel).send({ embed });
+    if (!logChannel) return;
+    const channelObj = bot.channels.find('id', logChannel);
+    if (!channelObj) return;
+    channelObj.send({ embed });
   }
   catch (err) {
     console.error(err.stack);

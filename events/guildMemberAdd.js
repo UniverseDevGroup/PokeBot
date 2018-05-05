@@ -10,7 +10,10 @@
 module.exports = async (bot, member) => {
   const { RichEmbed } = require('discord.js');
   const logChannel = await bot.plugins.settings.getStr('logs', member.guild.id);
-  bot.channels.find('id', logChannel).send(
+  if (!logChannel) return;
+  const channelObj = bot.channels.find('id', logChannel);
+  if (!channelObj) return;
+  channelObj.send(
     new RichEmbed()
       .setColor(0x00ae86)
       .setTitle(`:arrow_right: ${member.user.tag}`)
