@@ -20,7 +20,10 @@ module.exports = async (bot, oldMsg, newMsg) => {
       .setTimestamp()
       .setFooter(`Edited message originally created by: ${oldMsg.author.tag}`, oldMsg.author.avatarURL);
     const logChannel = await bot.plugins.settings.getStr('logs', oldMsg.guild.id);
-    newMsg.guild.channels.find('id', logChannel).send({ embed });
+    if (!logChannel) return;
+    const channelObj = bot.channels.find('id', logChannel);
+    if (!channelObj) return;
+    channelObj.send({ embed });
   }
   catch (err) {
     console.error(err.stack);
