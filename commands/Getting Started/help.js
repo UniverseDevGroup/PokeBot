@@ -14,8 +14,7 @@ exports.run = (bot, msg, args) => {
     embed
       .setColor (0x36393e)
       .setTitle('PokeBot Command List')
-      .setDescription('Full help contents can be found at http://universedevgroup.net/pokeworld/pokebot/commands/')
-      .addField('Hey You', 'Yes You over there, have you been noticing these awful pings? Well that\'s because our old server died and we are hosting on a rpi on a network that is very bad. Donate Today @ https://patreon.com/pallet to keep this project going.')
+      .setDescription('Our main VPS just died, so now we host PokeBot on a RPI with pings of over 2000 MS. Therefore, we need to rely on you for our funding. Please support us using the below links to keep this project alive!\nhttps://patreon.com/pallet\nhttps://fiverr.com/universedg')
       .setFooter('PokeBot v1.0');
 
     const categories = Array.from(bot.categories.keys());
