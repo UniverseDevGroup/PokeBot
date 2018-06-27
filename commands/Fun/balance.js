@@ -9,11 +9,11 @@
 
 exports.run = async (bot, msg) => {
   const credits = await bot.plugins.economy.get(msg.author.id);
-  msg.reply(credits + ' credits');
+  msg.reply(credits + ' PokeCoins');
 };
 
 exports.conf = {
-  aliases: ['bal', 'money', 'credits'],
+  aliases: ['bal', 'money', 'coins'],
   guildOnly: true,
 };
 
