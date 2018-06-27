@@ -8,7 +8,16 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-  msg.channel.send(':ping_pong: Pong! ' + Math.floor(bot.ping) + 'ms.');
+  
+  const embed = new RichEmbed();
+  embed
+    .setColor (0x00ae86)
+    .setDescription('Showing bot statistics:')
+    .setFooter('Pokebot 2.0 Alpha 1');
+
+  embed.addField('Client Heartbeat', Math.floor(bot.ping) + 'ms.');
+  
+  msg.channel.send(embed)
 };
 
 exports.conf = {
