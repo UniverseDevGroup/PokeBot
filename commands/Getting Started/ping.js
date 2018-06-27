@@ -8,7 +8,7 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-  
+  const { RichEmbed } = require('discord.js');
   const embed = new RichEmbed();
   embed
     .setColor (0x00ae86)
@@ -17,7 +17,7 @@ exports.run = (bot, msg) => {
 
   embed.addField('Client Heartbeat', Math.floor(bot.ping) + 'ms.');
   
-  msg.channel.send(embed)
+  msg.channel.send({ embed })
 };
 
 exports.conf = {
