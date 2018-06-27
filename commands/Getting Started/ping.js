@@ -12,10 +12,11 @@ exports.run = (bot, msg) => {
   const embed = new RichEmbed();
   embed
     .setColor (0x00ae86)
+    .setTitle(':computer: Bot Statistics')
     .setDescription('Showing bot statistics:')
     .setFooter('Pokebot 2.0 Alpha 1');
 
-  embed.addField('Client Heartbeat', Math.floor(bot.ping) + 'ms.');
+  embed.addField('Client Heartbeat', Math.floor(bot.ping) + ' ms.');
   
   msg.channel.send({ embed })
 };
