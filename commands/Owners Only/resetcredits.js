@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Modify Credits: Plugin for PokeBot that modifies economy features.
+ *   Reset Credits: Plugin for PokeBot that modifies economy features.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0
@@ -30,7 +30,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'modifycredits',
+  name: 'resetcredits',
   description: 'Modifies the credits of a user',
   usage: '@user <credits>',
 };

@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Testing Credits: Plugin for PokeBot that modifies economy features.
+ *   Add1k: Plugin for PokeBot that modifies economy features.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0
@@ -28,7 +28,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'testingcredits',
+  name: 'add1k',
   description: 'Modifies the credits of a user',
   usage: '@user <credits>',
 };

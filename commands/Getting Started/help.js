@@ -13,9 +13,8 @@ exports.run = (bot, msg, args) => {
     const embed = new RichEmbed();
     embed
       .setColor (0x36393e)
-      .setTitle('PokeBot Command List')
-      .setDescription('Our main VPS just died, so now we host PokeBot on a RPI with pings of over 2000 MS. Therefore, we need to rely on you for our funding. Please support us using the below links to keep this project alive!\nhttps://patreon.com/pallet\nhttps://fiverr.com/universedg')
-      .setFooter('PokeBot v1.0');
+      .setTitle('PokeBot Command Contents')
+      .setFooter('PokeBot 2.0 Alpha 1');
 
     const categories = Array.from(bot.categories.keys());
     categories.forEach(x => {
@@ -34,7 +33,7 @@ exports.run = (bot, msg, args) => {
     embed
       .setColor (0x00ae86)
       .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
-      .setFooter('PokeBot v1.0');
+      .setFooter('PokeBot 2.0 Alpha 1');
 
     const categories = Array.from(bot.categories.keys());
     categories.forEach(x => {
