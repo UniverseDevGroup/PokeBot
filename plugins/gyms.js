@@ -10,14 +10,14 @@
 exports.isTeam = (member) => {
   let team;
   if (member.roles.find('name', 'Skull')) team = 'Skull';
-  if (member.roles.find('name', 'Flare')) team = 'Flare';
+  if (member.roles.find('name', 'Dark Side')) team = 'Dark Side';
   return team ? true : false;
 };
 
 exports.getTeam = (member) => {
   let team;
   if (member.roles.find('name', 'Skull')) team = 'Skull';
-  if (member.roles.find('name', 'Flare')) team = 'Flare';
+  if (member.roles.find('name', 'Dark Side')) team = 'Dark Side';
   return team;
 };
 
