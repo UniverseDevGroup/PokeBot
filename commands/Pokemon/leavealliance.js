@@ -30,6 +30,6 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'leave',
+  name: 'leavealliance',
   description: 'Leave the alliance you currently are in.',
 };
