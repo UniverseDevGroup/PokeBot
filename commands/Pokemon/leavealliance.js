@@ -13,11 +13,11 @@ exports.run = async (bot, msg) => {
 
   if (msg.member.roles.find('name', 'Skull')) {
     msg.member.removeRole(msg.guild.roles.find('name', 'Skull'));
-    msg.reply('Alright, you are not longer in team Skull.');
+    msg.reply('Alright, you are not longer in the alliance `Skull`.');
   }
-  else if (msg.member.roles.find('name', 'Flare')) {
-    msg.member.removeRole(msg.guild.roles.find('name', 'Flare'));
-    msg.reply('Alright, you are not longer in team Flare.');
+  else if (msg.member.roles.find('name', 'Dark Side')) {
+    msg.member.removeRole(msg.guild.roles.find('name', 'Dark Side'));
+    msg.reply('Alright, you are not longer in the alliance `Dark Side`.');
   }
   else {
     msg.reply('You are not in a team.');
@@ -31,5 +31,5 @@ exports.conf = {
 
 exports.help = {
   name: 'leave',
-  description: 'Leave the team you currently are in.',
+  description: 'Leave the alliance you currently are in.',
 };
