@@ -11,7 +11,7 @@ exports.run = async (bot, msg, args) => {
   const isWhitelist = await bot.plugins.whitelist.isWhitelist(msg.guild.id);
   if (!isWhitelist) return msg.reply ('This is a Whiltelisted command. Only whitelisted servers can use this command. Sorry!');
 
-  if (args.length < 1) return msg.reply('Please choose an alliance to join');
+  if (args.length < 1) return msg.reply('You did not pick an existing alliance. The list of alliances are as follows:\nDarkSide, Skull');
 
   const team = findTeam(msg, args[0]);
   switch (args[0])
