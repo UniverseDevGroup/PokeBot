@@ -9,23 +9,12 @@
 
 module.exports = (bot) => {
   console.log('PokeBot has finished loading.');
-  bot.setInterval(function() {
-    const games = [
-      'Pokemon',
-      'Catching things',
-      'Finding pokemon',
-      'Type p:help for help',
-      'Fighting AstralMod',
-      'Arrays start at 1',
-    ];
-
-    bot.user.setPresence({
-      status: 'online',
-      afk: false,
-      game: {
-        type: 0,
-        name: games[Math.floor(Math.random() * games.length)],
-      },
-    });
-  }, 200000);
+  bot.user.setPresence({
+    status: 'online',
+    afk: false,
+    game: {
+      type: 0,
+      name: 'v2.0 Alpha 1 - g:',
+    },
+  });
 };
