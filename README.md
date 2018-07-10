@@ -1,12 +1,12 @@
 <div align="center">
   <br />
   <p>
-    <a href="http://universedevgroup.net/pokeworld/pokebot/"><img src="http://universedevgroup.net/pokeworld/pokebot/pokebotbannerlogo.png" width="400" alt="PokeBot" /></a>
+    <a href="http://universedevgroup.net/galaxy/"><img src="http://universedevgroup.net/archive/pokeworld/pokebot/pokebotbannerlogo.png" width="400" alt="PokeBot" /></a>
   </p>
   <br />
   <p>
     <a href="https://discord.me/thedigitalregion"><img src="https://img.shields.io/discord/417088992329334792.svg?colorB=7289DA&label=discord&style=flat-square" alt="PokeWorld Discord" /></a>
-    <a href="https://github.com/UniverseDevGroup/PokeBot"><img src="https://img.shields.io/github/commits-since/UniverseDevGroup/PokeBot/latest.svg?style=flat-square" alt="GitHub commits (since latest release)" /></a>
+    <a href="https://github.com/UniverseDevGroup/GalaxyBot"><img src="https://img.shields.io/github/commits-since/UniverseDevGroup/GalaxyBot/latest.svg?style=flat-square" alt="GitHub commits (since latest release)" /></a>
  	<a href="https://discordbots.org/bot/417096530596724737"><img src="https://discordbots.org/api/widget/status/417096530596724737.svg" alt="Discord Bot List" /></a>
   </p>
 </div>
