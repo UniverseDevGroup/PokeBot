@@ -14,7 +14,7 @@ exports.run = (bot, msg) => {
     .setColor (0x00ae86)
     .setTitle(':computer: Bot Statistics')
     .setDescription('Showing bot statistics:')
-    .setFooter('Pokebot 2.0 Alpha 1');
+    .setFooter('Galaxy 2.0 Alpha 1');
 
   embed.addField('Client Heartbeat', Math.floor(bot.ping) + ' ms.');
   

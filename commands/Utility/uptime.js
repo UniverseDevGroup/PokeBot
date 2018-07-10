@@ -21,7 +21,7 @@ exports.run = (bot, msg, args) => {
   if (args[0] === 'ms') return msg.channel.send(bot.uptime + ' ms.');
   if (args[0] === 's') return msg.channel.send(uptimeSeconds + ' seconds.');
   if (args[0] === 'min') return msg.channel.send(Math.floor(uptime / 60) + ' minutes ' + uptimeSeconds + ' seconds.');
-  msg.channel.send(':clock3: Pokebot has been up for ' + hours + ' hours, ' + uptimeMinutes + ' minutes, and ' + uptimeSeconds + ' seconds.');
+  msg.channel.send(':clock3: Galaxy has been online for ' + hours + ' hours, ' + uptimeMinutes + ' minutes, and ' + uptimeSeconds + ' seconds.');
 
 };
 

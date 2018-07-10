@@ -13,8 +13,8 @@ exports.run = (bot, msg, args) => {
     const embed = new RichEmbed();
     embed
       .setColor (0x36393e)
-      .setTitle('PokeBot Command Contents')
-      .setFooter('PokeBot 2.0 Alpha 1');
+      .setTitle('Galaxy Command Contents')
+      .setFooter('Galaxy 2.0 Alpha 1');
 
     const categories = Array.from(bot.categories.keys());
     categories.forEach(x => {
@@ -32,8 +32,8 @@ exports.run = (bot, msg, args) => {
     const embed = new RichEmbed();
     embed
       .setColor (0x00ae86)
-      .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
-      .setFooter('PokeBot 2.0 Alpha 1');
+      .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: g:suggest Test)')
+      .setFooter('Galaxy 2.0 Alpha 1');
 
     const categories = Array.from(bot.categories.keys());
     categories.forEach(x => {

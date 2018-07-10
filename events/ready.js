@@ -8,7 +8,7 @@
  * *************************************/
 
 module.exports = (bot) => {
-  console.log('PokeBot has finished loading.');
+  console.log('Galaxy has finished loading.');
   bot.user.setPresence({
     status: 'online',
     afk: false,

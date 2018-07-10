@@ -23,7 +23,7 @@ exports.run = async (bot, msg, args) => {
       .setDescription(`*${msg.author.tag}* changed their nickname`)
       .addField('New Nickname', msg.member.displayName, true)
       .setTimestamp()
-      .setFooter('PokeBot v1.0')
+      .setFooter('Galaxy v2.0 Alpha 1')
   );
 
 };

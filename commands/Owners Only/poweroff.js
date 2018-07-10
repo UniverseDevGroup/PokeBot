@@ -12,8 +12,8 @@ exports.run = async (bot, msg) => {
     msg.reply('Nope! You need the person who created this bot to use this command.');
   }
   else {
-    await msg.reply(':warning: Pokebot is now powering off!');
-    console.log('Pokebot is now powering off...');
+    await msg.reply(':warning: Galaxy is now powering off!');
+    console.log('Galaxy is now powering off...');
     process.exit(0);
   }
 };
