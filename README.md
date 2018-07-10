@@ -12,9 +12,9 @@
 </div>
 
 
-This is PokeBot! PokeBot is a utility bot with fun and music functionality! For more info, continue to read below!
+This is Galaxy! Galaxy is a utility bot with fun and music functionality! For more info, continue to read below!
 
-## What can I expect to see in PokeBot?
+## What can I expect to see in Galaxy?
 * Custom Log Channels
 * Fun Games to keep you engaged
 * Logs to enhance the experience of you and your users
@@ -28,4 +28,4 @@ If you would like to suggest a feature, or report a bug, please be sure to check
 
 ## Code Contribution
 
-If you would like to add some code to PokeBot, please submit a **pull request**. These are very easy to do, and if you do not know how to do one, it is an easy Google search. For our custom criteria, see **CONTRIBUTING.md** in the root of this repository.
+If you would like to add some code to Galaxy, please submit a **pull request**. These are very easy to do, and if you do not know how to do one, it is an easy Google search. For our custom criteria, see **CONTRIBUTING.md** in the root of this repository.
