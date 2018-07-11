@@ -21,7 +21,7 @@ exports.run = async (bot, msg) => {
   ];
 
   const balance = await bot.plugins.economy.get(msg.author.id);
-  if (balance < 10) return await msg.reply('You don\'t have enough credits (10) to play the slots');
+  if (balance < 10) return await msg.reply('You don\'t have enough atoms (10) to play the slots');
 
   const number1 = slotNumbers[Math.floor(Math.random() * slotNumbers.length)];
   const number2 = slotNumbers[Math.floor(Math.random() * slotNumbers.length)];
@@ -31,12 +31,12 @@ exports.run = async (bot, msg) => {
   if (number2 == number1 + 1  && number3 == number2 + 1) {
     await bot.plugins.economy.add(msg.author.id, 1000);
     const balance = await bot.plugins.economy.get(msg.author.id);
-    return await msg.channel.send('You won 1000 PokeCoins!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
+    return await msg.channel.send('You won 1000 atoms!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
   }
   else if (number2 == number3 - 1 && number1 == number2 - 1) {
     await bot.plugins.economy.add(msg.author.id, 1500);
     const balance = await bot.plugins.economy.get(msg.author.id);
-    return await msg.channel.send('You won 1500 PokeCoins!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
+    return await msg.channel.send('You won 1500 atoms!\nCurrent Balance: ' + balance + ' \n> ' + emojify(number1, number2, number3));
   }
   else {
     await bot.plugins.economy.subtract(msg.author.id, 10);

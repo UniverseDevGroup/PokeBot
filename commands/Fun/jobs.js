@@ -28,12 +28,12 @@ exports.run = (bot, msg) => {
   if (bot.dbl.hasVoted(msg.author.id)) {
     var creditsEarned = Math.floor(Math.random() * 650);
     bot.plugins.economy.add(msg.author.id, creditsEarned);
-    msg.channel.send('You ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' credits.');
+    msg.channel.send('You ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' atoms.');
   }
   else {
     var creditsEarned = Math.floor(Math.random() * 250);
     bot.plugins.economy.add(msg.author.id, creditsEarned);
-    msg.channel.send('You ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' credits.');
+    msg.channel.send('You ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' atoms.');
   }
   cooldown.add(msg.author.id);
   setTimeout(() => {
@@ -48,5 +48,5 @@ exports.conf = {
 
 exports.help = {
   name: 'jobs',
-  description: 'Work to add credits to your account.',
+  description: 'Work to add atoms to your account.',
 };

@@ -9,7 +9,7 @@
 
 exports.run = async (bot, msg) => {
   const credits = await bot.plugins.economy.get(msg.author.id);
-  msg.reply(credits + ' PokeCoins');
+  msg.reply(credits + ' atoms');
 };
 
 exports.conf = {
