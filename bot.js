@@ -19,8 +19,7 @@ bot.queue = new Discord.Collection();
 bot.plugins = {
   economy : require('./plugins/economy.js'),
   settings : require('./plugins/settings.js'),
-  whitelist: require('./plugins/whitelist.js'),
-  gyms : require('./plugins/gyms.js')};
+  whitelist: require('./plugins/whitelist.js')};
 cmdLoader();
 
 bot.Raven = require('raven');
