@@ -28,7 +28,7 @@ module.exports.run = async (client, message) => {
         const url = quo.url;
     
         VictorQuote.setAuthor(author, authorImage);
-        VictorQuote.setColor('#1fd619');
+        VictorQuote.setColor(0x36393e);
         VictorQuote.setDescription(quote);
         VictorQuote.setFooter('- ' + year);
         VictorQuote.setURL(url);

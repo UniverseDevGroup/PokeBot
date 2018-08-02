@@ -10,12 +10,12 @@ module.exports.run = async (client, message) => {
     const Discord = require('discord.js');
     const os = require('os');
     const embed = new Discord.RichEmbed()
-      .setTitle('Information on AleeBot\'s Host')
+      .setTitle('Information on Galaxy\'s Host')
       .addField('OS Hostname: ', os.hostname() , true)
       .addField('NodeJS Version: ', process.versions.node , true)
       .addField('OS Platform: ', os.platform() , true)
       .addField('OS Version: ', os.release() , true)
-      .setColor('#1fd619');
+      .setColor(0x36393e);
     message.channel.send({embed});
   };
   

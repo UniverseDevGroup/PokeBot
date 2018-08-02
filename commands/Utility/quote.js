@@ -28,7 +28,7 @@ let NewQuote;
     const url = quo.url;
 
     NewQuote.setAuthor(author, authorImage);
-    NewQuote.setColor('#1fd619');
+    NewQuote.setColor(0x36393e);
     NewQuote.setDescription(quote);
     NewQuote.setFooter('- ' + year);
     NewQuote.setURL(url);
