@@ -96,11 +96,11 @@ rl.on('line', function(cmd){
   var args = cmd.split(" ");
   switch(args[0]) {
       case "guilds":
-          if (client.guilds.size === 0) {
+          if (bot.guilds.size === 0) {
               console.log(('[!] No guilds found.'));
           } else {
               console.log('[i] Here\'s the servers that Galaxy is connected to:')
-              for ([id, guild] of client.guilds) {
+              for ([id, guild] of bot.guilds) {
                   console.log(`   Guild Name: ${guild.name} - ID: ${guild.id}`);
               }
           }
@@ -109,9 +109,9 @@ rl.on('line', function(cmd){
             if (!args[1]) {
               console.log('[!] Please insert the guild\'s ID.')
             } else {
-              var guild = client.guilds.get(args[1]);
+              var guild = bot.guilds.get(args[1]);
               console.log('[i] Here\'s the channels that this guild have:')
-              for ([id, channel, guild] of guild && client.channels) {
+              for ([id, channel, guild] of guild && bot.channels) {
                   console.log(`   Channel: #${channel.name} - ID: ${channel.id}`);
               }
             }
@@ -120,7 +120,7 @@ rl.on('line', function(cmd){
           if (!args[1]) {
               console.log('[!] Please insert the guild\'s ID.');
           } else {
-              var guild = client.guilds.get(args[1]);
+              var guild = bot.guilds.get(args[1]);
               guild.leave();
           }
           break;
@@ -130,7 +130,7 @@ rl.on('line', function(cmd){
           } else {
               let broadcast = args.join(" ").slice(48);
               var guild = null;
-              guild = client.guilds.get(args[1]);
+              guild = bot.guilds.get(args[1]);
               var channel = null;
               channel = guild.channels.get(args[2])
               if (channel != null) {
@@ -139,7 +139,7 @@ rl.on('line', function(cmd){
           }
           break;
       case "uptime":
-      let uptime = parseInt(client.uptime);
+      let uptime = parseInt(bot.uptime);
       uptime = Math.floor(uptime / 1000);
       let uptimeMinutes = Math.floor(uptime / 60);
       const minutes = uptime % 60;
@@ -167,7 +167,7 @@ rl.on('line', function(cmd){
           console.log(msg);
           break;
       default:
-     console.log('Unknown command, type \'help\' to list the commands...'.yellow)
+     console.log('Unknown command, type \'help\' to list the commands...')
   }
   rl.prompt();
 });
