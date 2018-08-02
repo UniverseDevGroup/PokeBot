@@ -2,5 +2,5 @@
 for (( ; ; ))
 do
     git pull
-    node bot_discord.js
+    node bot.js
 done
