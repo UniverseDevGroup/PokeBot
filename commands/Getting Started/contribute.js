@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Contribute: Plugin for PokeBot that redirects users to the proper place to contribute.
+ *   Contribute: Plugin for Galaxy that allows users to contribute to the bot's development.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

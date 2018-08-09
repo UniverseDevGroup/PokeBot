@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Ping: Plugin for PokeBot that provides diagnostic information.
+ *   Ping: Plugin for Galaxy that provides diagnostic information.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

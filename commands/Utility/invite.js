@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Invite: Plugin for PokeBot that provides gives the user information about the bot.
+ *   Invite: Plugin for Galaxy that allows the user to use the bot on their own guilds.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

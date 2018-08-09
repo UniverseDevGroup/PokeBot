@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Ship: Plugin for PokeBot that ships the user with someone else.
+ *   Ship: Plugin for Galaxy that provides love advice.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

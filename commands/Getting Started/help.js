@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Help: Plugin for PokeBot that guides the user on how to use the bot.
+ *   Help: Plugin for Galaxy that lists commands in a neat fashion.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

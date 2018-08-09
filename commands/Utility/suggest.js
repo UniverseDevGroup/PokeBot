@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Suggest: Plugin for PokeBot that allows users to suggest things.
+ *   Suggest: Plugin for Galaxy that allows users to suggest things.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

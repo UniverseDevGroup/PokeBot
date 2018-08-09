@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Say: Plugin for PokeBot that sends a message with the provided content.
+ *   Say: Plugin for Galaxy that sends a message with the provided content.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

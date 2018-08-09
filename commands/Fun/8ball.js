@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   8ball: Plugin for PokeBot that allows users to use an 8ball.
+ *   8ball: Plugin for Galaxy that allows users to use an 8ball.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

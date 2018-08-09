@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Set Log: Plugin for PokeBot that performs moderation actions.
+ *   Set Log: Plugin for Galaxy that performs moderation actions.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

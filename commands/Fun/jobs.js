@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Get Credits: Plugin for PokeBot that gives you credits.
+ *   Jobs: Plugin for Galaxy that modifies balances of users.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Get Credits: Plugin for PokeBot that gives you credits.
+ *   Balance: Plugin for Galaxy that monitors economy features.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

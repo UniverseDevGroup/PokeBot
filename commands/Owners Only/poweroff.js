@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Poweroff: Plugin for PokeBot that remotely exits the process.
+ *   Poweroff: Plugin for Galaxy that remotely exits the process.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

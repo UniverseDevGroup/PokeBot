@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Nick: Plugin for PokeBot that changes the user's display name.
+ *   Nick: Plugin for Galaxy that changes the user's display name.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   Licensed under the Open Software License version 3.0

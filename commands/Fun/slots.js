@@ -1,6 +1,6 @@
 /** **************************************
  *
- *   Slots: Plugin for PokeBot that allows you to gamble.
+ *   Slots: Plugin for Galaxy that emulates the casino.
  *   Copyright (C) 2018 TheEdge, jtsshieh, Alee
  *
  *   TLicensed under the Open Software License version 3.0
