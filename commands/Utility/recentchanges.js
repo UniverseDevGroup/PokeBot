@@ -6,7 +6,7 @@
  *   Licensed under the Open Software License version 3.0
  * 
  * *************************************/
-module.exports.run = async (client, bot, message) => {
+module.exports.run = async (bot, message) => {
     const { RichEmbed } = require('discord.js');
     
     msg.channel.send(
@@ -28,7 +28,6 @@ module.exports.run = async (client, bot, message) => {
   exports.help = {
     name: 'recentchanges',
     description: 'Tells you information about the bot',
-    usage: '',
-    category: '- Information Commands',
+    usage: 'n/A',,
   };
   
