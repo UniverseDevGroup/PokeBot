@@ -157,11 +157,11 @@ rl.on('line', function(cmd){
           break;
       case "help":
           var msg = (`Galaxy 2.0 Alpha 1 Console Help\n\n`);
-          msg += (`NOTE: Running some commands may contain sensitive information about the bot or perform other sensitive actions. Sensitive commands will be marked with a pound sign.\n\n`)
-          msg += (`guilds* - Shows all guilds that Galaxy's on.\n`)
-          msg += (`channels* - Shows all the channels that the guilds have.\n`)
-          msg += (`leave* - Leaves a guild.\n`)
-          msg += (`broadcast* - Broadcasts a message to a server.\n`)
+          msg += (`NOTE: Running some commands may contain sensitive information about the bot or perform other sensitive actions.\n\n`)
+          msg += (`guilds - Shows all guilds that Galaxy's on.\n`)
+          msg += (`channels - Shows all the channels that the guilds have.\n`)
+          msg += (`leave - Leaves a guild.\n`)
+          msg += (`broadcast - Broadcasts a message to a server.\n`)
           msg += (`uptime - Shows the uptime for Galaxy.\n`)
           msg += (`help - Shows this command.\n`)
           msg += (`exit - Exits Galaxy.\n`)
