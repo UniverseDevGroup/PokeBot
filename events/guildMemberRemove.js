@@ -33,9 +33,9 @@ module.exports = async (bot, member) => {
     bot.Raven.captureException(err);
   }
   const botCount = member.guild.members.filter(x => x.user.bot).size;
-  bot.channels.get('426548985172459533').setName('User Count: ' + member.guild.memberCount);
-  bot.channels.get('426829685289123850').setName('Member Count: ' + (member.guild.memberCount - botCount));
-  bot.channels.get('426829838238613504').setName('Bot Count: ' + botCount);
+  bot.channels.get('635835832913231872').setName('User Count: ' + member.guild.memberCount);
+  bot.channels.get('635835832913231872').setName('Member Count: ' + (member.guild.memberCount - botCount));
+  bot.channels.get('635835832913231872').setName('Bot Count: ' + botCount);
   bot.channels.get('417100669980508160').send(`**${member.user.tag}** just left. We now have ${member.guild.memberCount} members left. Aww man...`);
 };
 
