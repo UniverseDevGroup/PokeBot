@@ -14,8 +14,8 @@ exports.run = (bot, msg, args) => {
     embed
       .setColor (0x36393e)
       .setTitle('PokeBot Command List')
-      .setDescription('PokeBot is back :D')
-      .setFooter('PokeBot v1.0');
+      .setDescription('PokeBot prefix is `p:`.')
+      .setFooter(`PokeBot v1.0 is on ${bot.guilds.size} servers.`);
 
     const categories = Array.from(bot.categories.keys());
     categories.forEach(x => {
