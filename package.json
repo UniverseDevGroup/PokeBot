@@ -4,7 +4,7 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "test": "node test.js"
+    "start": "node bot.js"
   },
   "author": "Alee, Justin, and Trey",
   "license": "GPL-3.0",

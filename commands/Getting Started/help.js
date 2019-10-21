@@ -14,7 +14,7 @@ exports.run = (bot, msg, args) => {
     embed
       .setColor (0x36393e)
       .setTitle('PokeBot Command List')
-      .setDescription('Our main VPS just died, so now we host PokeBot on a RPI with pings of over 2000 MS. Therefore, we need to rely on you for our funding. Please support us using the below links to keep this project alive!\nhttps://patreon.com/pallet\nhttps://fiverr.com/universedg')
+      .setDescription('PokeBot is back :D')
       .setFooter('PokeBot v1.0');
 
     const categories = Array.from(bot.categories.keys());

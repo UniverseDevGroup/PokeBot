@@ -17,7 +17,7 @@ bot.aliases = new Discord.Collection();
 bot.categories = new Discord.Collection();
 bot.queue = new Discord.Collection();
 bot.plugins = {
-  //economy : require('./plugins/economy.js'),
+  economy : require('./plugins/economy.js'),
   settings : require('./plugins/settings.js'),
   whitelist: require('./plugins/whitelist.js'),
   gyms : require('./plugins/gyms.js')};
