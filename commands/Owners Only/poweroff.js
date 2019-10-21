@@ -13,6 +13,7 @@ exports.run = async (bot, msg) => {
   }
   else {
     await msg.reply(':warning: Pokebot is now powering off!');
+    await bot.user.setStatus('invisible')
     console.log('Pokebot is now powering off...');
     process.exit(0);
   }
