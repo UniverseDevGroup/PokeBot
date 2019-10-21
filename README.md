@@ -5,7 +5,7 @@
   </p>
   <br />
   <p>
-    <a href="https://discord.me/thedigitalregion"><img src="https://img.shields.io/discord/417088992329334792.svg?colorB=7289DA&label=discord&style=flat-square" alt="PokeWorld Discord" /></a>
+    <a href="https://discord.gg/6ng7xmp"><img src="https://img.shields.io/discord/417088992329334792.svg?colorB=7289DA&label=discord&style=flat-square" alt="PokeWorld Discord" /></a>
     <a href="https://github.com/UniverseDevGroup/PokeBot"><img src="https://img.shields.io/github/commits-since/UniverseDevGroup/PokeBot/latest.svg?style=flat-square" alt="GitHub commits (since latest release)" /></a>
  	<a href="https://discordbots.org/bot/417096530596724737"><img src="https://discordbots.org/api/widget/status/417096530596724737.svg" alt="Discord Bot List" /></a>
   </p>
@@ -13,6 +13,8 @@
 
 
 This is PokeBot! PokeBot is a utility bot with fun and music functionality! For more info, continue to read below!
+
+### UPDATE: PokeBot is back and online as of October 21st 2019, we are trying to squash bugs so if you see any feel free to submit a bug report or submit a pull request.
 
 ## What can I expect to see in PokeBot?
 * Custom Log Channels
