@@ -10,11 +10,12 @@
 exports.run = (bot, msg, args) => {
   const { RichEmbed } = require('discord.js');
   if (!args[0]) {
+    const settings = require("../../assets/settings.json");
     const embed = new RichEmbed();
     embed
       .setColor (0x36393e)
       .setTitle('PokeBot Command List')
-      .setDescription('PokeBot prefix is `p:`.')
+      .setDescription(`PokeBot prefix is \`${settings.prefix}\`.`)
       .setFooter(`PokeBot v1.0 is on ${bot.guilds.size} servers.`);
 
     const categories = Array.from(bot.categories.keys());
