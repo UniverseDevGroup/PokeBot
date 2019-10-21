@@ -16,7 +16,7 @@ exports.run = async (bot, msg) => {
   const member = msg.mentions.members.first();
   if (!member) return await msg.reply('Who do I put in time-out?');
 
-  msg.member.addRole(msg.guild.roles.find('name', 'Timeout'));
+  member.addRole(msg.guild.roles.find('name', 'Timeout'));
 
   const { RichEmbed } = require('discord.js');
   try {
