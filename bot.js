@@ -4,7 +4,14 @@ const config = require('./config.json');
 const fs = require('fs');
 const readline = require('readline');
 const DBL = require('dblapi.js');
-bot.dbl = new DBL(config.dbltoken, bot);
+if (typeof config.dbltoken == 'undefined') {
+    console.log("Skipping DBL...");
+} else {
+    bot.dbl = new DBL(config.dbltoken, bot);
+    console.log("DBL has been found...");
+
+}
+
 
 const rl = readline.createInterface({
   input: process.stdin,
