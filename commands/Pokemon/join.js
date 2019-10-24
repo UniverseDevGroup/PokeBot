@@ -9,25 +9,25 @@
 
 exports.run = async (bot, msg, args) => {
   const isWhitelist = await bot.plugins.whitelist.isWhitelist(msg.guild.id);
-  if (!isWhitelist) return msg.reply ('This is a Whiltelisted command. Only whitelisted servers can use this command. Sorry!');
+  if (!isWhitelist) return msg.reply ('This command is still in testing. Only whitelisted servers can use this command. Sorry!');
 
   if (args.length < 1) return msg.reply('Please choose a team to join');
 
-  const team = findTeam(msg, args[0]);
+  const team = findTeam(msg, args[0].toUpperCase());
   switch (args[0])
   {
-    case 'skull': {
+    case 'SKULL': {
       msg.member.addRole(msg.guild.roles.find('name', 'Skull'));
       msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Skull.`);
       break;
     }
-    case 'flare' : {
+    case 'FLARE' : {
       msg.member.addRole(msg.guild.roles.find('name', 'Flare'));
       msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Flare.`);
       break;
     }
     default : {
-      msg.reply('You have to pick skull, or flare.');
+      msg.reply('You have to pick a team (skull, flare.)');
       break;
     }
   }

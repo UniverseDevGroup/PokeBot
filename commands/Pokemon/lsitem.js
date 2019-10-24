@@ -8,7 +8,7 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
+  if (msg.guild.id != '417088992329334792') return msg.reply ('This command is still in early testing, so it is only available within Pokeworld.');
 
   const { RichEmbed } = require('discord.js');
   const data = args.join(' ').split('|');

@@ -9,7 +9,7 @@
 
 exports.run = async (bot, msg) => {
   const isWhitelist = await bot.plugins.whitelist.isWhitelist(msg.guild.id);
-  if (!isWhitelist) return msg.reply ('This is a Whiltelisted command. Only whitelisted servers can use this command. Sorry!');
+  if (!isWhitelist) return msg.reply ('This command is still in testing. Only whitelisted servers can use this command. Sorry!');
   if (!msg.channel.name.startsWith('gym-')) return msg.reply('Go into one of the gym channels and try again.');
   if (msg.channel.topic == 'Current Owner: *none*') {
     msg.reply('There is no owner for this gym. Claim it now with p:claim!');
