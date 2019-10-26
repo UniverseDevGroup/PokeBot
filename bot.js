@@ -98,9 +98,7 @@ fs.readdir('./events', (err, files) => {
   console.log('\n');
 });
 
-
-
-/*rl.on('line', function(cmd) {
+rl.on('line', function(cmd) {
   const args = cmd.split(' ');
   switch (args[0]) {
     case 'guilds':
@@ -119,7 +117,7 @@ fs.readdir('./events', (err, files) => {
       } else {
         var guild = bot.guilds.get(args[1]);
         console.log('[i] Here\'s the channels that this guild have:');
-        for ([id, channel, guild] of guild && client.channels) {
+        for ([id, channel, guild] of guild && bot.channels) {
           console.log(`   Channel: #${channel.name} - ID: ${channel.id}`);
         }
       }
@@ -151,6 +149,7 @@ fs.readdir('./events', (err, files) => {
       break;
     case 'exit':
       console.log('[i] PokeBot will now exit!');
+      bot.user.setStatus('invisible');
       process.exit(0);
       break;
     case 'help':
@@ -167,7 +166,7 @@ fs.readdir('./events', (err, files) => {
       console.log('Unknown Command type \'help\' to list the commands...');
   }
   rl.prompt();
-});*/
+});
 
 process.on('unhandledRejection', (err) => {
   console.error(err.stack);
