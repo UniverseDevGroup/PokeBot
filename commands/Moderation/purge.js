@@ -8,7 +8,6 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permission to manage messages.');
   if (!msg.guild.member(bot.user).hasPermission('MANAGE_MESSAGES')) return msg.reply('I don\'t have permission to manage messages.');
 
   const user = msg.mentions.users.first();
@@ -26,6 +25,11 @@ exports.run = async (bot, msg, args) => {
   }
   msg.channel.bulkDelete(msgs).catch(error => console.log(error.stack));
 };
+
+exports.checkPermission = (bot, member) => {
+  if (!member.hasPermission('MANAGE_MESSAGES')) return 'You don\'t have permission to manage messages.';
+  return true;
+}
 
 exports.conf = {
   aliases: ['prune', 'rm'],

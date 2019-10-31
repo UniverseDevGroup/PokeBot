@@ -7,10 +7,14 @@
  * 
  * *************************************/
 module.exports.run = async (bot, msg) => {
-    if (!['242775871059001344', '247221105515823104', '236279900728721409', msg.guild.owner.user.id].includes(msg.author.id)) return msg.reply('Nope! You need the person who created this bot or the owner of this guild to use this command.');
     msg.channel.send('Alright, I\'m leaving the server now. Bye everyone!')
     msg.guild.leave();
   };
+
+  exports.checkPermission = (bot, member) => {
+    if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(member.id)) return false;
+    return true;
+  }
 
   exports.conf = {
     aliases: [],

@@ -8,7 +8,6 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You don\'t have permission to warn.');
   args.shift();
   const warnReason = args.join(' ');
   const victim = msg.mentions.members.first();
@@ -42,6 +41,11 @@ exports.run = async (bot, msg, args) => {
       .setFooter('Warned by: ' + msg.author.tag, msg.author.avatarURL)
   );
 };
+
+exports.checkPermission = (bot, member) => {
+  if (!member.hasPermission('MANAGE_MESSAGES')) return 'You don\'t have permission to warn.';
+  return true;
+}
 
 exports.conf = {
   aliases: [],

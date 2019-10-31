@@ -8,7 +8,6 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to ban members.');
   if (!msg.guild.member(bot.user).hasPermission('BAN_MEMBERS')) return msg.reply('I don\'t have permission to ban members.');
 
   const member = msg.mentions.members.first();
@@ -41,6 +40,11 @@ exports.run = async (bot, msg, args) => {
     console.error(err.stack);
   }
 };
+
+exports.checkPermission = (bot, member) => {
+  if (!member.hasPermission('BAN_MEMBERS')) return 'You don\'t have permission to ban members.';
+  return true;
+}
 
 exports.conf = {
   aliases: [],

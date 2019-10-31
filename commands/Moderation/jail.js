@@ -10,7 +10,6 @@
 exports.run = async (bot, msg) => {
   if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
 
-  if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to put members in jail.');
   if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot put anyone in jail.');
 
   const member = msg.mentions.members.first();
@@ -35,6 +34,11 @@ exports.run = async (bot, msg) => {
     console.error(err.stack);
   }
 };
+
+exports.checkPermission = (bot, member) => {
+  if (!member.hasPermission('BAN_MEMBERS')) return 'You don\'t have permission to put members in jail.';
+  return true;
+}
 
 exports.conf = {
   aliases: [],

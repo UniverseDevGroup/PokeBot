@@ -50,9 +50,15 @@ function parseCommand(bot, msg) {
   }
 
   if (cmd) {
-    if (cmd.conf.guildOnly == true) {
-      if (!msg.channel.guild) {
-        return msg.reply('This command can only be ran in a guild.');
+    if (cmd.conf.guildOnly == true && !msg.channel.guild) {
+      return msg.reply('This command can only be ran in a guild.');
+    }
+    if (cmd.checkPermission != null) {
+      let result = cmd.checkPermission(bot, msg.member)
+      if (result != true)
+      {
+        if (result == false) return msg.reply('You are not authorized to run this command.');
+        return msg.reply(result);
       }
     }
     try {

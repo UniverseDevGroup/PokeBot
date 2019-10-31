@@ -36,6 +36,11 @@ exports.run = async (bot, msg) => {
   }
 };
 
+exports.checkPermission = (bot, member) => {
+  if (!member.hasPermission('BAN_MEMBERS')) return 'You don\'t have permission to put members in time-out..';
+  return true;
+}
+
 exports.conf = {
   aliases: [],
   guildOnly: true,

@@ -24,9 +24,17 @@ exports.run = (bot, msg, args) => {
       const commands = bot.categories.get(x);
       commands.forEach(cmd => {
         const command = bot.commands.get(x).get(cmd);
-        cat += `**${command.help.name}**\n`;
+        if (command.checkPermission != null) {
+          if (command.checkPermission(bot, msg.member) == true)
+          {
+            cat += `**${command.help.name}**\n`;
+          }
+        }
+        else {
+          cat += `**${command.help.name}**\n`;
+        }
       });
-      embed.addField(x, cat, true);
+      if (cat != '') embed.addField(x, cat, true);
     });
     msg.channel.send({ embed });
   }

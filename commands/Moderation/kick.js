@@ -8,7 +8,6 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  if (!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You don\'t have permission to kick members.');
   if (!msg.guild.member(bot.user).hasPermission('KICK_MEMBERS')) return msg.reply('I don\'t have permission to kick members.');
 
   const member = msg.mentions.members.first();
@@ -19,6 +18,11 @@ exports.run = async (bot, msg, args) => {
     .catch(err => { msg.reply('There was an error.'); console.error(err.stack);});
   msg.channel.send(`Alright, I kicked **${member.user.tag}**${(reason ? ` for the reason **${reason}**.` : '.')}`);
 };
+
+exports.checkPermission = (bot, member) => {
+  if (!member.hasPermission('KICK_MEMBERS')) return 'You don\'t have permission to kick members.';
+  return true;
+}
 
 exports.conf = {
   aliases: [],
