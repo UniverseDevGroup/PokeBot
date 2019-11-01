@@ -30,6 +30,6 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'leave',
+  name: 'leaveteam',
   description: 'Leave the team you currently are in.',
 };

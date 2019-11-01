@@ -16,12 +16,12 @@ exports.run = async (bot, msg, args) => {
   const team = findTeam(msg, args[0].toUpperCase());
   switch (args[0])
   {
-    case 'SKULL': {
+    case 'skull': {
       msg.member.addRole(msg.guild.roles.find('name', 'Skull'));
       msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Skull.`);
       break;
     }
-    case 'FLARE' : {
+    case 'flare' : {
       msg.member.addRole(msg.guild.roles.find('name', 'Flare'));
       msg.reply(`Alright, ${team ? 'you have left team ' + team + ' and ' : 'you have '}joined team Flare.`);
       break;
@@ -56,7 +56,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'join',
+  name: 'jointeam',
   description: 'Join one of the teams!',
   usage: '<flare/skull>',
 };

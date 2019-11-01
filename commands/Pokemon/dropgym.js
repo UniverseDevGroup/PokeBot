@@ -32,6 +32,6 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'drop',
+  name: 'dropgym',
   description: 'Drop a gym.',
 };
