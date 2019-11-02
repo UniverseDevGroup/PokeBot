@@ -6,4 +6,6 @@ for (( ; ; ))
 do
     git pull
     npm start
+    echo 'Starting back up in 2 seconds...'
+    sleep 2
 done
