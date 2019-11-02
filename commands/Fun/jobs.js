@@ -9,31 +9,32 @@
 const cooldown = new Set();
 
 exports.run = (bot, msg) => {
-  if (cooldown.has(msg.author.id)) return msg.reply('You have worked too recently');
+  if (cooldown.has(msg.author.id)) {
+    return msg.reply('You have worked too recently');
+  }
 
   const jobs = [
-    "started a BitCoin farm",
-    "pissed for an elderly woman",
-    "became a doctor and illegally sold organs",
-    "extracted eggs from elderly women",
-    "became a bus driver",
-    "started working for Universe Dev Group",
-    "programmed a Discord bot",
-    "made a crowdfunding campaign",
-    "became a news anchor",
-    "flooded Amsterdam",
-    "became YouTube famous.",
-  ]
+    'started a BitCoin farm',
+    'pissed for an elderly woman',
+    'became a doctor and illegally sold organs',
+    'extracted eggs from elderly women',
+    'became a bus driver',
+    'started working for Universe Dev Group',
+    'programmed a Discord bot',
+    'made a crowdfunding campaign',
+    'became a news anchor',
+    'flooded Amsterdam',
+    'became YouTube famous.'
+  ];
 
   if (bot.dbl.hasVoted(msg.author.id)) {
-    var creditsEarned = Math.floor(Math.random() * 650);
+    const creditsEarned = Math.floor(Math.random() * 650);
     bot.plugins.economy.add(msg.author.id, creditsEarned);
-    msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' credits.');
-  }
-  else {
-    var creditsEarned = Math.floor(Math.random() * 250);
+    msg.channel.send(`You worked and ${ jobs[Math.floor(Math.random() * jobs.length)] }\n\nYou earned ${ creditsEarned.toString() } credits.`);
+  } else {
+    const creditsEarned = Math.floor(Math.random() * 250);
     bot.plugins.economy.add(msg.author.id, creditsEarned);
-    msg.channel.send('You worked and ' + jobs[Math.floor(Math.random() * jobs.length)] + '\n\nYou earned ' + creditsEarned.toString() + ' credits.');
+    msg.channel.send(`You worked and ${ jobs[Math.floor(Math.random() * jobs.length)] }\n\nYou earned ${ creditsEarned.toString() } credits.`);
   }
   cooldown.add(msg.author.id);
   setTimeout(() => {
@@ -43,10 +44,10 @@ exports.run = (bot, msg) => {
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'jobs',
-  description: 'Work to add credits to your account.',
+  description: 'Work to add credits to your account.'
 };

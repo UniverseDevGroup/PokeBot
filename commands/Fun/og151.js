@@ -159,7 +159,7 @@ exports.run = (bot, msg) => {
     'Weezing',
     'Wigglytuff',
     'Zapdos',
-    'Zubat',
+    'Zubat'
   ];
 
   msg.channel.send(pokemon[Math.floor(Math.random() * pokemon.length)]);
@@ -167,10 +167,10 @@ exports.run = (bot, msg) => {
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'og151',
-  description: 'Randomly picks one of the generation 1 pokemon, and gives you its name.',
+  description: 'Randomly picks one of the generation 1 pokemon, and gives you its name.'
 };

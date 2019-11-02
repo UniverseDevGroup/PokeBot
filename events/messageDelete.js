@@ -8,8 +8,10 @@
  * *************************************/
 
 module.exports = async (bot, msg) => {
-  const { RichEmbed } = require('discord.js');
-  if (!msg.content) return;
+  const {RichEmbed} = require('discord.js');
+  if (!msg.content) {
+    return;
+  }
   try {
     const embed = new RichEmbed()
       .setColor(0x00ae86)
@@ -19,12 +21,15 @@ module.exports = async (bot, msg) => {
       .setTimestamp()
       .setFooter(`Deleted message orginally created by: ${msg.author.tag}`, msg.author.avatarURL);
     const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
-    if (!logChannel) return;
+    if (!logChannel) {
+      return;
+    }
     const channelObj = bot.channels.find('id', logChannel);
-    if (!channelObj) return;
-    channelObj.send({ embed });
-  }
-  catch (err) {
+    if (!channelObj) {
+      return;
+    }
+    channelObj.send({embed});
+  } catch (err) {
     console.error(err.stack);
   }
 };

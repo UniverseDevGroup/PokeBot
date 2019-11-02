@@ -20,9 +20,8 @@ exports.isWhitelist = async (guildID) => {
   const value = await db.fetch(`whitelist_${guildID}`);
   if (value) {
     return value;
-  }
-  else {
+  } else {
     await db.set(`whitelist_${guildID}`, false);
-    return await db.fetch(`whitelist_${guildID}`);
+    return db.fetch(`whitelist_${guildID}`);
   }
 };

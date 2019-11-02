@@ -9,24 +9,26 @@
 
 exports.run = async (bot, msg) => {
   const db = require('quick.db');
-  const { RichEmbed } = require('discord.js');
+  const {RichEmbed} = require('discord.js');
 
   const warns = await db.fetch(`warns_${msg.guild.id}_${msg.author.id}`);
-  if (!warns) return await msg.reply('You don\'t have any warnings in this server.');
+  if (!warns) {
+    return msg.reply('You don\'t have any warnings in this server.');
+  }
   const embed = new RichEmbed()
     .setTitle('Warns');
   for (let i = 0; i < warns.count; i++) {
-    embed.addField('Warning #' + i + 1, warns.reasons[i]);
+    embed.addField(`Warning #${ i }${1}`, warns.reasons[i]);
   }
-  msg.channel.send({ embed });
+  msg.channel.send({embed});
 };
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'lswarns',
-  description: 'Shows all the warnings a user has.',
+  description: 'Shows all the warnings a user has.'
 };

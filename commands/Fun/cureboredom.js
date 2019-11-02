@@ -26,20 +26,22 @@ exports.run = (bot, msg, args) => {
     'Messing with Rich Presence :gear:',
     'Making videos :movie_camera:',
     'Taking pictures :camera:',
-    'Suggesting things for the server :dancers:',
+    'Suggesting things for the server :dancers:'
   ];
 
-  if (args[0] === 'list') return msg.channel.send(ideas.join('\n'));
+  if (args[0] === 'list') {
+    return msg.channel.send(ideas.join('\n'));
+  }
 
   msg.channel.send(ideas[Math.floor(Math.random() * ideas.length)]);
 };
 
 exports.conf = {
   aliases: ['cboredom'],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'cureboredom',
-  description: 'Finds you something to do.',
+  description: 'Finds you something to do.'
 };

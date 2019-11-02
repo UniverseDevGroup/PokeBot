@@ -7,23 +7,25 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg, args) => {
+exports.run = (bot, msg, args) => {
   msg.channel.send(args.join(' '));
   msg.delete();
 };
 
 exports.checkPermission = (bot, member) => {
-  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(member.id)) return false;
+  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(member.id)) {
+    return false;
+  }
   return true;
-}
+};
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'say',
   description: 'Control on what the bot says.',
-  usage: '<...text>',
+  usage: '<...text>'
 };

@@ -8,8 +8,10 @@
  * *************************************/
 
 exports.run = (bot, msg) => {
-  const { RichEmbed } = require('discord.js');
-  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
+  const {RichEmbed} = require('discord.js');
+  if (msg.guild.id != '417088992329334792') {
+    return msg.reply('This is a PokeWorld exclusive command. Sorry!');
+  }
   msg.channel.send(
     new RichEmbed()
       .setColor(0x00ae86)
@@ -23,10 +25,10 @@ exports.run = (bot, msg) => {
 
 exports.conf = {
   aliases: ['noobs', 'newcomers'],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'start',
-  description: 'Introduces you to the PokeWorld server!',
+  description: 'Introduces you to the PokeWorld server!'
 };

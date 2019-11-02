@@ -8,12 +8,12 @@
  * *************************************/
 
 exports.run = (bot, msg, args) => {
-  const { RichEmbed } = require('discord.js');
+  const {RichEmbed} = require('discord.js');
   if (!args[0]) {
-    const settings = require("../../assets/settings.json");
+    const settings = require('../../assets/settings.json');
     const embed = new RichEmbed();
     embed
-      .setColor (0x36393e)
+      .setColor(0x36393e)
       .setTitle('PokeBot Command List')
       .setDescription(`PokeBot prefix is \`${settings.prefix}\`.`)
       .setFooter(`PokeBot v1.0 is on ${bot.guilds.size} servers.`);
@@ -25,23 +25,22 @@ exports.run = (bot, msg, args) => {
       commands.forEach(cmd => {
         const command = bot.commands.get(x).get(cmd);
         if (command.checkPermission != null) {
-          if (command.checkPermission(bot, msg.member) == true)
-          {
+          if (command.checkPermission(bot, msg.member) == true) {
             cat += `**${command.help.name}**\n`;
           }
-        }
-        else {
+        } else {
           cat += `**${command.help.name}**\n`;
         }
       });
-      if (cat != '') embed.addField(x, cat, true);
+      if (cat != '') {
+        embed.addField(x, cat, true);
+      }
     });
-    msg.channel.send({ embed });
-  }
-  else {
+    msg.channel.send({embed});
+  } else {
     const embed = new RichEmbed();
     embed
-      .setColor (0x00ae86)
+      .setColor(0x00ae86)
       .setDescription('Notice: When using a command do not include "<" and ">".\n(Example: p:suggest Test)')
       .setFooter('PokeBot v1.0');
 
@@ -56,7 +55,7 @@ exports.run = (bot, msg, args) => {
           embed.addField('Description', command.help.description, true);
           embed.addField('Usage', usage, true);
           embed.addField('Aliases', command.conf.aliases, true);
-          msg.channel.send({ embed });
+          msg.channel.send({embed});
         }
       });
     });
@@ -65,10 +64,10 @@ exports.run = (bot, msg, args) => {
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'help',
-  description: 'Displays this help message.',
+  description: 'Displays this help message.'
 };

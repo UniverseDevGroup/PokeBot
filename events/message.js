@@ -26,23 +26,35 @@ module.exports = (bot, msg) => {
 };
 
 function parseCommand(bot, msg) {
-  let category;
-  const settings = require("../assets/settings.json");
-  const prefix = settings.prefix;
-  if (msg.author.bot) return;
+  if (msg.author.bot) {
+    return;
+  }
 
-  if (!msg.content.startsWith(prefix)) return;
+  const settings = require('../assets/settings.json');
+  const prefix = settings.prefix;
+
+  if (!msg.content.startsWith(prefix)) {
+    return;
+  }
+
   const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+
+  let category;
   const command = args.shift();
   let cmd;
 
   Array.from(bot.categories.keys()).forEach(i => {
     const cmds = bot.categories.get(i);
-    if (cmds.includes(command)) category = i;
-    if (bot.aliases.get(i).has(command)) category = i;
+    if (cmds.includes(command)) {
+      category = i;
+    }
+    if (bot.aliases.get(i).has(command)) {
+      category = i;
+    }
   });
-  if (!category) return;
-
+  if (!category) {
+    return;
+  }
   if (bot.commands.get(category).has(command)) {
     cmd = bot.commands.get(category).get(command);
   } else if (bot.aliases.get(category).has(command)) {
@@ -54,18 +66,18 @@ function parseCommand(bot, msg) {
       return msg.reply('This command can only be ran in a guild.');
     }
     if (cmd.checkPermission != null) {
-      let result = cmd.checkPermission(bot, msg.member)
-      if (result != true)
-      {
-        if (result == false) return msg.reply('You are not authorized to run this command.');
+      const result = cmd.checkPermission(bot, msg.member);
+      if (result != true) {
+        if (result == false) {
+          return msg.reply('You are not authorized to run this command.');
+        }
         return msg.reply(result);
       }
     }
     try {
       console.log(`${msg.author.tag} ran the command '${cmd.help.name}' in the guild '${msg.member.guild.name}'`);
       cmd.run(bot, msg, args);
-    }
-    catch (e) {
+    } catch (e) {
       console.error(e.stack);
       bot.Raven.captureException(e);
       msg.channel.send('There was an error trying to process your command. Don\'t worry because this issue is being looked into');

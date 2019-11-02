@@ -8,17 +8,25 @@
  * *************************************/
 
 exports.run = async (bot, msg) => {
-  if (msg.guild.id != '417088992329334792') return msg.reply ('This is a PokeWorld exclusive command. Sorry!');
+  if (msg.guild.id != '417088992329334792') {
+    return msg.reply('This is a PokeWorld exclusive command. Sorry!');
+  }
 
-  if (!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You don\'t have permission to put members in time-out..');
-  if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) return msg.reply('I cannot put anyone in time-out.');
+  if (!msg.member.hasPermission('BAN_MEMBERS')) {
+    return msg.reply('You don\'t have permission to put members in time-out..');
+  }
+  if (!msg.guild.member(bot.user).hasPermission('MANAGE_ROLES')) {
+    return msg.reply('I cannot put anyone in time-out.');
+  }
 
   const member = msg.mentions.members.first();
-  if (!member) return await msg.reply('Who do I put in time-out?');
+  if (!member) {
+    return msg.reply('Who do I put in time-out?');
+  }
 
   member.addRole(msg.guild.roles.find('name', 'Timeout'));
 
-  const { RichEmbed } = require('discord.js');
+  const {RichEmbed} = require('discord.js');
   try {
     const embed = new RichEmbed()
       .setColor(0x00ae86)
@@ -29,25 +37,26 @@ exports.run = async (bot, msg) => {
       .setTimestamp()
       .setFooter(`${msg.author.tag} put ${member.user.tag} in time-out.`, msg.author.avatarURL);
     const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
-    msg.guild.channels.find('id', logChannel).send({ embed });
-  }
-  catch (err) {
+    msg.guild.channels.find('id', logChannel).send({embed});
+  } catch (err) {
     console.error(err.stack);
   }
 };
 
 exports.checkPermission = (bot, member) => {
-  if (!member.hasPermission('BAN_MEMBERS')) return 'You don\'t have permission to put members in time-out..';
+  if (!member.hasPermission('BAN_MEMBERS')) {
+    return 'You don\'t have permission to put members in time-out..';
+  }
   return true;
-}
+};
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'timeout',
   description: 'Put a user in time-out',
-  usage: '@user',
+  usage: '@user'
 };

@@ -16,7 +16,7 @@ module.exports = (bot) => {
       'Finding pokemon',
       'Type p:help for help',
       'Fighting AstralMod',
-      'Arrays start at 1',
+      'Arrays start at 1'
     ];
 
     bot.user.setPresence({
@@ -24,8 +24,8 @@ module.exports = (bot) => {
       afk: false,
       game: {
         type: 0,
-        name: games[Math.floor(Math.random() * games.length)],
-      },
+        name: games[Math.floor(Math.random() * games.length)]
+      }
     });
   }, 200000);
 };

@@ -8,14 +8,16 @@
  * *************************************/
 
 exports.run = (bot, msg, args) => {
-  const { RichEmbed } = require('discord.js');
+  const {RichEmbed} = require('discord.js');
   const embed = new RichEmbed()
     .setTitle('***Character Analysis***')
     .setDescription('Find out the decimal and hexadecimal of each and every character in a string.')
     .setColor('#000');
 
   const str = args.join(' ');
-  if (str.length > 50) return msg.reply('The limit is 50 for how many characters you can input');
+  if (str.length > 50) {
+    return msg.reply('The limit is 50 for how many characters you can input');
+  }
   const array = str.split('');
 
   let decimal = '';
@@ -29,22 +31,22 @@ exports.run = (bot, msg, args) => {
     const code = str.charCodeAt(x);
     let codeHex = code.toString(16).toUpperCase();
     while (codeHex.length < 4) {
-      codeHex = '0' + codeHex;
+      codeHex = `0${codeHex}`;
     }
     hexadecimal += `\`\\u${codeHex}\`\t${array[x]}\n`;
   }
   embed.addField('*Hexadecimal*', hexadecimal, true);
 
-  msg.channel.send({ embed });
+  msg.channel.send({embed});
 };
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'character',
   description: 'Gets the decimal and hexadecimal of (a) character(s)',
-  usage: '<...characters>',
+  usage: '<...characters>'
 };

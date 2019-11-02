@@ -13,10 +13,10 @@ exports.run = (bot, msg) => {
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'invite',
-  description: 'Gives the user a link to invite the bot.',
+  description: 'Gives the user a link to invite the bot.'
 };

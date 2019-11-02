@@ -21,13 +21,12 @@ exports.run = async (bot, msg, args) => {
   if (warns) {
     const reasons = warns.reasons;
     reasons.push(warnReason);
-    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, { count : warns.count + 1, reasons : reasons });
-  }
-  else {
-    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, { count : 1, reasons : [warnReason]});
+    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, {count : warns.count + 1, reasons : reasons});
+  } else {
+    await db.set(`warns_${msg.guild.id}_${victim.user.id}`, {count : 1, reasons : [warnReason]});
   }
 
-  const { RichEmbed } = require('discord.js');
+  const {RichEmbed} = require('discord.js');
   const logChannel = await bot.plugins.settings.getStr('logs', msg.guild.id);
   bot.channels.find('id', logChannel).send(
     new RichEmbed()
@@ -38,22 +37,24 @@ exports.run = async (bot, msg, args) => {
       .addField('ID', victim.id, true)
       .addField('Created Account', victim.user.createdAt, true)
       .setTimestamp()
-      .setFooter('Warned by: ' + msg.author.tag, msg.author.avatarURL)
+      .setFooter(`Warned by: ${msg.author.tag}`, msg.author.avatarURL)
   );
 };
 
 exports.checkPermission = (bot, member) => {
-  if (!member.hasPermission('MANAGE_MESSAGES')) return 'You don\'t have permission to warn.';
+  if (!member.hasPermission('MANAGE_MESSAGES')) {
+    return 'You don\'t have permission to warn.';
+  }
   return true;
-}
+};
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'warn',
   description: 'Logs a warning to the user.',
-  usage : '@user <reason>',
+  usage : '@user <reason>'
 };

@@ -7,8 +7,8 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg, args) => {
-  const { RichEmbed } = require('discord.js');
+exports.run = (bot, msg, args) => {
+  const {RichEmbed} = require('discord.js');
   const code = args.join(' ');
 
   let evaled;
@@ -17,7 +17,7 @@ exports.run = async (bot, msg, args) => {
   try {
     remove = text => {
       if (typeof(text) === 'string') {
-        return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203));
+        return text.replace(/`/g, `\`${String.fromCharCode(8203)}`).replace(/@/g, `@${ String.fromCharCode(8203)}`);
       } else {
         return text;
       }
@@ -37,7 +37,7 @@ exports.run = async (bot, msg, args) => {
       .addField(':outbox_tray: Output:', `\`\`\`${err}\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('RED');
-    return msg.channel.send({ embed });
+    return msg.channel.send({embed});
   }
 
   try {
@@ -49,7 +49,7 @@ exports.run = async (bot, msg, args) => {
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('GREEN');
 
-    return msg.channel.send({ embed });
+    return msg.channel.send({embed});
   } catch (err) {
     const embed = new RichEmbed()
       .setAuthor('Eval Error')
@@ -58,22 +58,24 @@ exports.run = async (bot, msg, args) => {
       .addField(':outbox_tray: Output:', `\`\`\`${err}\`\`\``)
       .setFooter('Eval', bot.user.avatarURL)
       .setColor('RED');
-    return msg.channel.send({ embed });
+    return msg.channel.send({embed});
   }
 };
 
 exports.checkPermission = (bot, member) => {
-  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(member.id)) return false;
+  if (!['242775871059001344', '247221105515823104', '236279900728721409'].includes(member.id)) {
+    return false;
+  }
   return true;
-}
+};
 
 exports.conf = {
   aliases: ['exec'],
-  guildOnly: false,
+  guildOnly: false
 };
 
 exports.help = {
   name: 'eval',
   description: 'Evaluates Javascript Code',
-  usage: '<code>',
+  usage: '<code>'
 };

@@ -8,14 +8,18 @@
  * *************************************/
 
 exports.run = async (bot, msg, args) => {
-  const { RichEmbed } = require('discord.js');
+  const {RichEmbed} = require('discord.js');
 
   msg.member.setNickname(args.join(' '), 'Requested by bot');
-  msg.channel.send('Changed nickname to: ' + args.join(' '));
+  msg.channel.send(`Changed nickname to: ${args.join(' ')}`);
   const logChannel = await bot.plugins.settings.getStr('logs', msg.member.guild.id);
-  if (!logChannel) return;
+  if (!logChannel) {
+    return;
+  }
   const channelObj = bot.channels.find('id', logChannel);
-  if (!channelObj) return;
+  if (!channelObj) {
+    return;
+  }
   channelObj.send(
     new RichEmbed()
       .setColor(0x00ae86)
@@ -25,16 +29,15 @@ exports.run = async (bot, msg, args) => {
       .setTimestamp()
       .setFooter('PokeBot v1.0')
   );
-
 };
 
 exports.conf = {
   aliases: ['nickname'],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'nick',
   description: 'Change your nickname.',
-  usage: '<...new nick>',
+  usage: '<...new nick>'
 };

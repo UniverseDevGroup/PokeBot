@@ -19,7 +19,7 @@ exports.run = (bot, msg) => {
     'Stockton',
     'Colorado Springs',
     'Portland',
-    'Cincinnati',
+    'Cincinnati'
   ];
 
   msg.channel.send(cities[Math.floor(Math.random() * cities.length)]);
@@ -27,10 +27,10 @@ exports.run = (bot, msg) => {
 
 exports.conf = {
   aliases: ['findphone', 'findmyiphone', 'findmyandroid', 'findmyandroidphone'],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'findmyphone',
-  description: 'Find your phone. Not just a random list of cities being randomly picked.',
+  description: 'Find your phone. Not just a random list of cities being randomly picked.'
 };

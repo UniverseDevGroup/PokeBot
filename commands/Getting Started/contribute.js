@@ -13,10 +13,10 @@ exports.run = (bot, msg) => {
 
 exports.conf = {
   aliases: [],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: 'contribute',
-  description: 'Contributing to the bot.',
+  description: 'Contributing to the bot.'
 };

@@ -7,8 +7,10 @@
  *
  * *************************************/
 
-exports.run = async (bot, msg, args) => {
-  if (args.length < 1) return msg.reply('You need to ask the 8-ball something for it to respond!');
+exports.run = (bot, msg, args) => {
+  if (args.length < 1) {
+    return msg.reply('You need to ask the 8-ball something for it to respond!');
+  }
 
   const responses = [
     'May the odds ever be in your favor...',
@@ -38,19 +40,19 @@ exports.run = async (bot, msg, args) => {
     'My reply is no',
     'My sources say no',
     'Outlook not so good',
-    'Very doubtful',
+    'Very doubtful'
   ];
 
-  msg.channel.send(':8ball: *' + (responses[Math.floor(Math.random() * responses.length)]) + '*');
+  msg.channel.send(`:8ball: *${responses[Math.floor(Math.random() * responses.length)]}*`);
 };
 
 exports.conf = {
   aliases: ['ask'],
-  guildOnly: true,
+  guildOnly: true
 };
 
 exports.help = {
   name: '8ball',
   description: 'Ask the magic 8-ball something. It will answer back, and be as much of a smart-alac as it wants to.',
-  usage: '<...question>',
+  usage: '<...question>'
 };

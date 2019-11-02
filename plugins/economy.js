@@ -12,10 +12,9 @@ exports.get = async (userid) => {
   const amount = await db.fetch(`money_${userid}`);
   if (amount) {
     return amount;
-  }
-  else {
+  } else {
     await db.set(`money_${userid}`, 0);
-    return await db.fetch(`money_${userid}`);
+    return db.fetch(`money_${userid}`);
   }
 };
 
@@ -23,8 +22,7 @@ exports.add = async (userid, money) => {
   const amount = await db.fetch(`money_${userid}`);
   if (amount) {
     await db.set(`money_${userid}`, amount + money);
-  }
-  else {
+  } else {
     await db.set(`money_${userid}`, money);
   }
 };
@@ -33,8 +31,7 @@ exports.subtract = async (userid, money) => {
   const amount = await db.fetch(`money_${userid}`);
   if (amount) {
     await db.set(`money_${userid}`, amount - money);
-  }
-  else {
+  } else {
     await db.set(`money_${userid}`, 0 - money);
   }
 };

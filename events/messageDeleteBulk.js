@@ -8,7 +8,7 @@
  * *************************************/
 
 module.exports = async (bot, msgs) => {
-  const { RichEmbed } = require('discord.js');
+  const {RichEmbed} = require('discord.js');
   try {
     const embed = new RichEmbed()
       .setColor(0x00ae86)
@@ -17,12 +17,15 @@ module.exports = async (bot, msgs) => {
       .setTimestamp()
       .setFooter('Messages purged');
     const logChannel = await bot.plugins.settings.getStr('logs', msgs.first().guild.id);
-    if (!logChannel) return;
+    if (!logChannel) {
+      return;
+    }
     const channelObj = bot.channels.find('id', logChannel);
-    if (!channelObj) return;
-    channelObj.send({ embed });
-  }
-  catch (err) {
+    if (!channelObj) {
+      return;
+    }
+    channelObj.send({embed});
+  } catch (err) {
     console.error(err.stack);
   }
 };
