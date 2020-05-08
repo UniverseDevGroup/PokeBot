@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const config = require('./config.json');
+const config = process.env;
 const fs = require('fs');
 const readline = require('readline');
 const DBL = require('dblapi.js');
@@ -29,8 +29,6 @@ bot.plugins = {
   gyms : require('./plugins/gyms.js')};
 
 
-bot.Raven = require('raven');
-bot.Raven.config(config.sentry).install();
 bot.gyms = new Discord.Collection();
 
 function cmdLoader() {
