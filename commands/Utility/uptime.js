@@ -18,17 +18,19 @@ exports.run = (bot, msg, args) => {
     uptimeMinutes -= 60;
   }
   const uptimeSeconds = minutes % 60;
-  if (args[0] === 'ms') {
-    return msg.channel.send(`${bot.uptime } ms.`);
+  switch(args[0]) {
+    case 'ms':
+      msg.channel.send(`${bot.uptime } ms.`);
+      break;
+    case 's':
+      msg.channel.send(`${uptimeSeconds } seconds.`);
+      break;
+    case 'min':
+      msg.channel.send(`${Math.floor(uptime / 60) } minutes ${ uptimeSeconds } seconds.`);
+      break;
+    default:
+      msg.channel.send(`:clock3: Pokebot has been up for ${ hours } hours, ${ uptimeMinutes } minutes, and ${ uptimeSeconds } seconds.`);
   }
-  if (args[0] === 's') {
-    return msg.channel.send(`${uptimeSeconds } seconds.`);
-  }
-  if (args[0] === 'min') {
-    return msg.channel.send(`${Math.floor(uptime / 60) } minutes ${ uptimeSeconds } seconds.`);
-  }
-  msg.channel.send(`:clock3: Pokebot has been up for ${ hours } hours, ${ uptimeMinutes } minutes, and ${ uptimeSeconds } seconds.`);
-
 };
 
 exports.conf = {
